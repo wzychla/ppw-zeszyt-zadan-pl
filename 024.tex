@@ -1,14 +1,14 @@
-\section{Rozszerzenia jêzyka C\# 3.0 (10)}
+ï»¿\section{Rozszerzenia jÄ™zyka C\# 3.0 (10)}
 
-\subsection{Metoda rozszerzaj¹ca klasê {\tt System.String} (1)}
+\subsection{Metoda rozszerzajÄ…ca klasÄ™ {\tt System.String} (1)}
 
-  Zaimplementowaæ metodê {\tt bool IsPalindrome()} rozszerzaj¹c¹ klasê {\tt string}. Implementacja powinna byæ niewra¿liwa na bia³e znaki i znaki
+  ZaimplementowaÄ‡ metodÄ™ {\tt bool IsPalindrome()} rozszerzajÄ…cÄ… klasÄ™ {\tt string}. Implementacja powinna byÄ‡ niewraÅ¼liwa na biaÅ‚e znaki i znaki
 \label{rozszerzenie_string}  
-  przestankowe wystêpuj¹ce
-  wewn¹trz napisu ani na wielkoœæ liter.
-  Klient tej metody powinien wywo³aæ j¹ tak:
+  przestankowe wystÄ™pujÄ…ce
+  wewnÄ…trz napisu ani na wielkoÅ›Ä‡ liter.
+  Klient tej metody powinien wywoÅ‚aÄ‡ jÄ… tak:
   \begin{verbatim}
-string s = "Koby³a ma ma³y bok.";
+string s = "KobyÅ‚a ma maÅ‚y bok.";
 bool ispalindrome = s.IsPalindrome();
   \end{verbatim}
 
@@ -16,10 +16,10 @@ bool ispalindrome = s.IsPalindrome();
 
 \subsection{LINQ to Objects, sortowanie, filtrowanie (1)}
 
-  Dany jest plik tekstowy zawieraj¹cy zbiór liczb naturalnych w kolejnych liniach.
+  Dany jest plik tekstowy zawierajÄ…cy zbiÃ³r liczb naturalnych w kolejnych liniach.
 \label{linq_to_objects}  
-  Napisaæ wyra¿enie LINQ, które odczyta kolejne liczby z pliku i wypisze tylko
-  liczby wiêksze ni¿ 100, posortowane malej¹co.
+  NapisaÄ‡ wyraÅ¼enie LINQ, ktÃ³re odczyta kolejne liczby z pliku i wypisze tylko
+  liczby wiÄ™ksze niÅ¼ 100, posortowane malejÄ…co.
   
 \begin{verbatim}  
 from liczba in [liczby]
@@ -28,74 +28,74 @@ from liczba in [liczby]
       select ...
 \end{verbatim}  
   
-  Przeformu³owaæ wyra¿enie LINQ na ci¹g wywo³añ metod LINQ to Objects:
+  PrzeformuÅ‚owaÄ‡ wyraÅ¼enie LINQ na ciÄ…g wywoÅ‚aÅ„ metod LINQ to Objects:
 
 \begin{verbatim}  
 [liczby].Where( ... ).OrderBy( ... )
 \end{verbatim}  
 
-  Czym ró¿ni¹ siê parametry operatorów {\bf where/orderby} od parametrów
+  Czym rÃ³Å¼niÄ… siÄ™ parametry operatorÃ³w {\bf where/orderby} od parametrÃ³w
   funkcji {\bf Where, OrderBy}?
 
   [{\bf 1p}]
 
 \subsection{LINQ to Objects, grupowanie (1)}
 
-  Dany jest plik tekstowy zawieraj¹cy zbiór nazwisk w kolejnych liniach.
+  Dany jest plik tekstowy zawierajÄ…cy zbiÃ³r nazwisk w kolejnych liniach.
 
-  Napisaæ wyra¿enie LINQ, które zwróci zbiór {\bf pierwszych} liter nazwisk
+  NapisaÄ‡ wyraÅ¼enie LINQ, ktÃ³re zwrÃ³ci zbiÃ³r {\bf pierwszych} liter nazwisk
 \label{linq_grupowanie}  
-  uporz¹dkowanych w kolejnoœci alfabetycznej. Na przyk³ad dla zbioru
-  (Kowalski, Malinowski, Krasicki, Abacki) wynikiem powinien byæ zbiór
+  uporzÄ…dkowanych w kolejnoÅ›ci alfabetycznej. Na przykÅ‚ad dla zbioru
+  (Kowalski, Malinowski, Krasicki, Abacki) wynikiem powinien byÄ‡ zbiÃ³r
   (A, K, M).
   
-  {\em Wskazówka: zgodnie z tytu³em zadania u¿yæ operatora group .. by .. into ... }
+  {\em WskazÃ³wka: zgodnie z tytuÅ‚em zadania uÅ¼yÄ‡ operatora group .. by .. into ... }
 
   [{\bf 1p}]
  
 \subsection{LINQ to Objects, agregowanie (1)}
 
-  Napisaæ wyra¿enie LINQ, które dla zadanego foldera wyznaczy sumê
+  NapisaÄ‡ wyraÅ¼enie LINQ, ktÃ³re dla zadanego foldera wyznaczy sumÄ™
 \label{linq_agregowanie}  
-  d³ugoœci plików znajduj¹cych siê w tym folderze. 
+  dÅ‚ugoÅ›ci plikÃ³w znajdujÄ…cych siÄ™ w tym folderze. 
   
-  Do zbudowania sumy d³ugoœci plików u¿yæ funkcji {\tt Aggregate}. Listê
-  plików w zadanym folderze wydobyæ za pomoc¹ odpowiednich metod
+  Do zbudowania sumy dÅ‚ugoÅ›ci plikÃ³w uÅ¼yÄ‡ funkcji {\tt Aggregate}. ListÄ™
+  plikÃ³w w zadanym folderze wydobyÄ‡ za pomocÄ… odpowiednich metod
   z przestrzeni nazw {\tt System.IO}.
 
   [{\bf 1p}]
 
 \subsection{LINQ to Objects, Join (1)}
 
-  Dane s¹ dwa pliki tekstowe, pierwszy zawieraj¹cy zbiór danych osobowych postaci
+  Dane sÄ… dwa pliki tekstowe, pierwszy zawierajÄ…cy zbiÃ³r danych osobowych postaci
 \label{linq_join}  
-  (Imiê, Nazwisko, PESEL), drugi postaci (PESEL, NumerKonta). Kolejnoœæ
+  (ImiÄ™, Nazwisko, PESEL), drugi postaci (PESEL, NumerKonta). KolejnoÅ›Ä‡
   danych w zbiorach jest przypadkowa.
   
-  Napisaæ wyra¿enie LINQ, które po³¹czy oba zbiory danych i zbuduje zbiór
-  danych zawieraj¹cy rekordy postaci (Imiê, Nazwisko, PESEL, NumerKonta).
-  Do po³¹czenia danych nale¿y u¿yæ operatora {\tt join}.
+  NapisaÄ‡ wyraÅ¼enie LINQ, ktÃ³re poÅ‚Ä…czy oba zbiory danych i zbuduje zbiÃ³r
+  danych zawierajÄ…cy rekordy postaci (ImiÄ™, Nazwisko, PESEL, NumerKonta).
+  Do poÅ‚Ä…czenia danych naleÅ¼y uÅ¼yÄ‡ operatora {\tt join}.
   
   [{\bf 1p}]  
   
-\subsection{LINQ to Objects, analiza logów serwera (2)}
+\subsection{LINQ to Objects, analiza logÃ³w serwera (2)}
 
-  Rejestr zdarzeñ serwera IIS 5.5 ma postaæ pliku tekstowego, w którym ka¿da
+  Rejestr zdarzeÅ„ serwera IIS 5.5 ma postaÄ‡ pliku tekstowego, w ktÃ³rym kaÅ¼da
 \label{linq_logi}  
-  linia ma postaæ:
+  linia ma postaÄ‡:
   
 \begin{verbatim}
 08:55:36 192.168.0.1 GET /TheApplication/WebResource.axd 200
 \end{verbatim}
 
-gdzie poszczególne wartoœci oznaczaj¹ czas, adres klienta, rodzaj ¿¹dania HTTP,
-nazwê zasobu oraz status odpowiedzi.
+gdzie poszczegÃ³lne wartoÅ›ci oznaczajÄ… czas, adres klienta, rodzaj Å¼Ä…dania HTTP,
+nazwÄ™ zasobu oraz status odpowiedzi.
 
-  Napisaæ aplikacjê która za pomoc¹ jednego (lub wielu) wyra¿eñ LINQ
-  wydobêdzie z przyk³adowego rejestru zdarzeñ IIS listê adresów IP trzech
-  klientów, którzy skierowali do serwera aplikacji najwiêksz¹ liczbê ¿¹dañ.
+  NapisaÄ‡ aplikacjÄ™ ktÃ³ra za pomocÄ… jednego (lub wielu) wyraÅ¼eÅ„ LINQ
+  wydobÄ™dzie z przykÅ‚adowego rejestru zdarzeÅ„ IIS listÄ™ adresÃ³w IP trzech
+  klientÃ³w, ktÃ³rzy skierowali do serwera aplikacji najwiÄ™kszÄ… liczbÄ™ Å¼Ä…daÅ„.
   
-  Wynikiem dzia³ania programu powinien byæ przyk³adowy raport postaci:
+  Wynikiem dziaÅ‚ania programu powinien byÄ‡ przykÅ‚adowy raport postaci:
   
 \begin{verbatim}
 12.34.56.78 143 
@@ -103,13 +103,13 @@ nazwê zasobu oraz status odpowiedzi.
 123.245.167.289 89
 \end{verbatim}
   
-  gdzie pierwsza kolumna oznacza adres klienta, a druga liczbê zarejestrowanych ¿¹dañ.
+  gdzie pierwsza kolumna oznacza adres klienta, a druga liczbÄ™ zarejestrowanych Å¼Ä…daÅ„.
   
   [{\bf 2p}]
 
-\subsection{Lista obiektów anonimowych (1)}
+\subsection{Lista obiektÃ³w anonimowych (1)}
 
-Listy generyczne ukonkretnieniamy typem elementów:
+Listy generyczne ukonkretnieniamy typem elementÃ³w:
 \label{lista_anonimowych}
 
 \begin{verbatim}
@@ -117,37 +117,37 @@ List<int>    listInt;
 List<string> listString;...
 \end{verbatim}
 
-Z drugiej strony, w C\# 3.0 mamy typy anonimowe, które nie s¹ nigdy jawnie nazwane:
+Z drugiej strony, w C\# 3.0 mamy typy anonimowe, ktÃ³re nie sÄ… nigdy jawnie nazwane:
 
 \begin{verbatim}
 var item = new { Field1 = "The value", Field2 = 5 };
 Console.WriteLine( item.Field1 );
 \end{verbatim}
 
-Czy mo¿liwe jest zadeklarowanie i korzystanie z listy generycznej elementów typu anonimowego?
+Czy moÅ¼liwe jest zadeklarowanie i korzystanie z listy generycznej elementÃ³w typu anonimowego?
 
 \begin{verbatim}
 var item = new { Field1 = "The value", Field2 = 5; }; 
 List<?> theList = ?    
 \end{verbatim}
 
-W powy¿szym przyk³adzie, jak utworzyæ listê generyczn¹, na której znalaz³by siê element {\bf item}
-w taki sposób, by móc nastêpnie do niej dodawaæ nowe obiekty takiego samego typu?
+W powyÅ¼szym przykÅ‚adzie, jak utworzyÄ‡ listÄ™ generycznÄ…, na ktÃ³rej znalazÅ‚by siÄ™ element {\bf item}
+w taki sposÃ³b, by mÃ³c nastÄ™pnie do niej dodawaÄ‡ nowe obiekty takiego samego typu?
 	 
-{\em Obiekty typu anonimowego maj¹ ten sam typ, jesli maj¹ tê sam¹ liczbê sk³adowych tego samego typu
+{\em Obiekty typu anonimowego majÄ… ten sam typ, jesli majÄ… tÄ™ samÄ… liczbÄ™ skÅ‚adowych tego samego typu
 w tej samej kolejnosci.}
 	 
   [{\bf 1p}]	 
   
 \subsection{Rekursywne anonimowe delegacje (2)}
 
-Cech¹ charakterystyczn¹ anonimowych delegacji, bez wzglêdu na to czy zdefiniowano je przy u¿yciu s³owa
+CechÄ… charakterystycznÄ… anonimowych delegacji, bez wzglÄ™du na to czy zdefiniowano je przy uÅ¼yciu sÅ‚owa
 \label{rekursja_anonimowych}
-kluczowego {\bf delegate}, czy te¿ raczej jako lambda wyra¿enia, jest brak "nazwy", do której mo¿na odwo³aæ siê
+kluczowego {\bf delegate}, czy teÅ¼ raczej jako lambda wyraÅ¼enia, jest brak "nazwy", do ktÃ³rej moÅ¼na odwoÅ‚aÄ‡ siÄ™
 w innym miejscu kodu. 
 
-Zadanie polega na zaproponowaniu takiego tworzenia anonimowych delegacji, ¿eby w jednym wyra¿eniu mo¿liwa
-by³a rekursja. W szczególnoœci, poni¿szy fragment kodu powinien siê kompilowaæ i zwracaæ wynik zgodny ze specyfikacj¹.
+Zadanie polega na zaproponowaniu takiego tworzenia anonimowych delegacji, Å¼eby w jednym wyraÅ¼eniu moÅ¼liwa
+byÅ‚a rekursja. W szczegÃ³lnoÅ›ci, poniÅ¼szy fragment kodu powinien siÄ™ kompilowaÄ‡ i zwracaÄ‡ wynik zgodny ze specyfikacjÄ….
 
 \begin{verbatim}
 List<int> list = new List<int>() { 1,2,3,4,5 };   
@@ -159,8 +159,8 @@ foreach ( var item in
 }
 \end{verbatim}
 
-W powy¿szym fragmencie kodu, puste miejsce ([....]) nale¿y zast¹piæ definicj¹ cia³a anonimowej delegacji
-okreœlonej rekursywnie:
+W powyÅ¼szym fragmencie kodu, puste miejsce ([....]) naleÅ¼y zastÄ…piÄ‡ definicjÄ… ciaÅ‚a anonimowej delegacji
+okreÅ›lonej rekursywnie:
 
 $$
 f(i) = \left\{ \begin{array}{ll}
@@ -172,6 +172,6 @@ $$
 
  [{\bf 2p}]	 
 
-{\em Wskazówka} W jêzyku C\# mo¿na z powodzeniem zaimplementowaæ operator punktu sta³ego {\bf Y}, wykorzystywany do definicji funkcji rekurencyjnych. 
-Zadanie to mo¿na rozwi¹zaæ wiêc definiuj¹c taki operator i za jego pomoc¹ implementuj¹c funkcjê rekurencyjn¹. Istnieje jednak zaskakuj¹cy i o wiele
-prostszy sposób rozwi¹zania wymagaj¹cy jednak trochê nagiêcia specyfikacji. Oba rozwi¹zania bêd¹ przyjmowane.
+{\em WskazÃ³wka} W jÄ™zyku C\# moÅ¼na z powodzeniem zaimplementowaÄ‡ operator punktu staÅ‚ego {\bf Y}, wykorzystywany do definicji funkcji rekurencyjnych. 
+Zadanie to moÅ¼na rozwiÄ…zaÄ‡ wiÄ™c definiujÄ…c taki operator i za jego pomocÄ… implementujÄ…c funkcjÄ™ rekurencyjnÄ…. Istnieje jednak zaskakujÄ…cy i o wiele
+prostszy sposÃ³b rozwiÄ…zania wymagajÄ…cy jednak trochÄ™ nagiÄ™cia specyfikacji. Oba rozwiÄ…zania bÄ™dÄ… przyjmowane.

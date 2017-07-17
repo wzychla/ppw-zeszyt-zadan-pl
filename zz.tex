@@ -3,7 +3,9 @@
 \usepackage{graphicx}
 \usepackage{polski}
 \usepackage{color}
-\usepackage[cp1250]{inputenc}
+\usepackage[utf8]{inputenc}
+% https://tex.stackexchange.com/a/366029/114062 ignore BOM byte marks in consecutive files
+\DeclareUnicodeCharacter{FEFF}{}
 \usepackage{ppwstyl}
 
 \begin{document}
@@ -13,7 +15,7 @@
 \include{title}
 \include{abstract}
 
-% treœæ
+% treÅ›Ä‡
 \input{wstep}
 
 \tableofcontents

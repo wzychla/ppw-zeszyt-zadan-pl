@@ -1,8 +1,8 @@
-\section{Rozszerzenia jêzyka C\# 2.0 (6)}
+ï»¿\section{Rozszerzenia jÄ™zyka C\# 2.0 (6)}
 
 \subsection{Kontenery generyczne (1)}
 
-  Porównaæ wydajnoœæ (dodawanie elementów, przegl¹danie, usuwanie) par kontenerów: {\tt ArrayList} - {\tt List<T>} 
+  PorÃ³wnaÄ‡ wydajnoÅ›Ä‡ (dodawanie elementÃ³w, przeglÄ…danie, usuwanie) par kontenerÃ³w: {\tt ArrayList} - {\tt List<T>} 
 \label{kontener_generyczny}  
   oraz {\tt Hashtable} - {\tt Dictionary<T,K>}.
 
@@ -10,26 +10,26 @@
 
 \subsection{Drzewo binarne (3)}
 
-  Napisaæ klasê {\tt BinaryTreeNode<T>}, która bêdzie modelem dla wêz³a
+  NapisaÄ‡ klasÄ™ {\tt BinaryTreeNode<T>}, ktÃ³ra bÄ™dzie modelem dla wÄ™zÅ‚a
 \label{drzewo_binarne}  
-  drzewa binarnego. Wêze³ powinien przechowywaæ informacjê o danej typu {\tt T} oraz swoim lewym i prawym synu.
+  drzewa binarnego. WÄ™zeÅ‚ powinien przechowywaÄ‡ informacjÄ™ o danej typu {\tt T} oraz swoim lewym i prawym synu.
    
-  Klasa powinna zawieraæ dwa enumeratory, dla przechodzenia drzewa w g³¹b i wszerz, 
-  zaprogramowane w dwu wariantach: z wykorzystaniem s³owa kluczowego {\tt yield} i bez (czyli ³¹cznie cztery implementacje enumeratorów)
+  Klasa powinna zawieraÄ‡ dwa enumeratory, dla przechodzenia drzewa w gÅ‚Ä…b i wszerz, 
+  zaprogramowane w dwu wariantach: z wykorzystaniem sÅ‚owa kluczowego {\tt yield} i bez (czyli Å‚Ä…cznie cztery implementacje enumeratorÃ³w)
   
-  {\em Wskazówka: choæ implementacja bez {\tt yield} mo¿e wydawaæ siê trudna, w rzeczywistoœci jest równie¿ stosunkowo prosta. Nale¿y 
-  wykorzystaæ pomocnicze struktury danych, przechowuj¹c¹ informacjê o odwiedzanych wêz³ach. Ka¿dy {\tt MoveNext} ogl¹da bie¿¹cy wêze³, a jego
-  podwêz³y, lewy i prawy, umieszcza w pomocniczej strukturze danych. Ka¿dy {\tt Current} usuwa bie¿¹cy wêze³ z pomocniczej struktury 
-  i zwraca jako wynik. Strukturê danych dobiera siê w zale¿noœci od tego czy chce siê implementowaæ przechodzenie wszerz czy wg³¹b
-  (jakie struktury danych nale¿y wybraæ dla ka¿dego z tych wariantów?)}
+  {\em WskazÃ³wka: choÄ‡ implementacja bez {\tt yield} moÅ¼e wydawaÄ‡ siÄ™ trudna, w rzeczywistoÅ›ci jest rÃ³wnieÅ¼ stosunkowo prosta. NaleÅ¼y 
+  wykorzystaÄ‡ pomocnicze struktury danych, przechowujÄ…cÄ… informacjÄ™ o odwiedzanych wÄ™zÅ‚ach. KaÅ¼dy {\tt MoveNext} oglÄ…da bieÅ¼Ä…cy wÄ™zeÅ‚, a jego
+  podwÄ™zÅ‚y, lewy i prawy, umieszcza w pomocniczej strukturze danych. KaÅ¼dy {\tt Current} usuwa bieÅ¼Ä…cy wÄ™zeÅ‚ z pomocniczej struktury 
+  i zwraca jako wynik. StrukturÄ™ danych dobiera siÄ™ w zaleÅ¼noÅ›ci od tego czy chce siÄ™ implementowaÄ‡ przechodzenie wszerz czy wgÅ‚Ä…b
+  (jakie struktury danych naleÅ¼y wybraÄ‡ dla kaÅ¼dego z tych wariantÃ³w?)}
   
   [{\bf 3p}]
 
 \subsection{Anonimowe delegacje {\tt Predicate}, {\tt Action}, {\tt Comparison}, {\tt Converter} (1)}
 
-  Zademonstrowaæ w dzia³aniu metody {\tt ConvertAll}, {\tt FindAll},  {\tt ForEach},  {\tt RemoveAll} i {\tt Sort} klasy
+  ZademonstrowaÄ‡ w dziaÅ‚aniu metody {\tt ConvertAll}, {\tt FindAll},  {\tt ForEach},  {\tt RemoveAll} i {\tt Sort} klasy
 \label{anonimowe_delegacje}  
-  {\tt List<T>} u¿ywaj¹c anonimowych delegacji o odpowiednich sygnaturach.
+  {\tt List<T>} uÅ¼ywajÄ…c anonimowych delegacji o odpowiednich sygnaturach.
 
   [{\bf 1p}]
 
@@ -37,9 +37,9 @@
 
   W klasie {\tt ListHelper} 
 \label{algorytmy_biblioteczne}  
-  zaprogramowaæ statyczne metody {\tt ConvertAll}, {\tt FindAll},  {\tt ForEach},  {\tt RemoveAll} i {\tt Sort} 
-  o semantyce zgodnej z odpowiednimi funkcjami z klasy {\tt List<T>} i sygnaturach rozszerzonych wzglêdem odpowiedników
-  o instancjê obiektu {\tt List<T>} na którym maj¹ operowaæ. 
+  zaprogramowaÄ‡ statyczne metody {\tt ConvertAll}, {\tt FindAll},  {\tt ForEach},  {\tt RemoveAll} i {\tt Sort} 
+  o semantyce zgodnej z odpowiednimi funkcjami z klasy {\tt List<T>} i sygnaturach rozszerzonych wzglÄ™dem odpowiednikÃ³w
+  o instancjÄ™ obiektu {\tt List<T>} na ktÃ³rym majÄ… operowaÄ‡. 
         
 \begin{verbatim}
 public class ListHelper

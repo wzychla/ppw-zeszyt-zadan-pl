@@ -1,16 +1,16 @@
-\section{Component Object Model (6)}
+ï»¿\section{Component Object Model (6)}
 
-Rozwi¹zanie zadañ w tym rozdziale polega na napisaniu programów w
-jêzyku C++, korzystaj¹c z wbudowanych w Visual Studio szablonów projektów bibliotek COM.
+RozwiÄ…zanie zadaÅ„ w tym rozdziale polega na napisaniu programÃ³w w
+jÄ™zyku C++, korzystajÄ…c z wbudowanych w Visual Studio szablonÃ³w projektÃ³w bibliotek COM.
 
 \subsection {Automaryzacja Word (2)}
 
-      Napisaæ w C/C++ aplikacjê konsoli, która za poœrednictwem podsystemu COM otworzy now¹ instancjê aplikacji MS Word, a w niej otworzy
+      NapisaÄ‡ w C/C++ aplikacjÄ™ konsoli, ktÃ³ra za poÅ›rednictwem podsystemu COM otworzy nowÄ… instancjÄ™ aplikacji MS Word, a w niej otworzy
 \label{com_client}	  
 	  nowy dokument,
-      do którego wstawi tekst "Programowanie pod Windows". Nastêpnie dokument zostanie zapisany na dysku pod nazw¹ "ppw.doc".
+      do ktÃ³rego wstawi tekst "Programowanie pod Windows". NastÄ™pnie dokument zostanie zapisany na dysku pod nazwÄ… "ppw.doc".
       
-	  Wzorowaæ siê na poni¿szym kodzie:
+	  WzorowaÄ‡ siÄ™ na poniÅ¼szym kodzie:
 \begin{scriptsize}	  
 \begin{verbatim}
 void main()
@@ -59,22 +59,22 @@ void main()
 
 \subsection {Serwer COM (3)}
 
-      Przygotowaæ w C++ serwer COM, udostêpniaj¹cy funkcjê {\tt int IsPrime( int n )} umo¿liwiaj¹c¹ sprawdzenie, czy podana liczba jest liczb¹ 
+      PrzygotowaÄ‡ w C++ serwer COM, udostÄ™pniajÄ…cy funkcjÄ™ {\tt int IsPrime( int n )} umoÅ¼liwiajÄ…cÄ… sprawdzenie, czy podana liczba jest liczbÄ… 
 \label{com_server}	  	  
-	  pierwsz¹. Funkcja powinna zwracaæ
-      zero dla argumentu bêd¹cego liczb¹ z³o¿on¹ i dowoln¹ niezerow¹ wartoœæ dla argumentu bêd¹cego liczb¹ pierwsz¹.
+	  pierwszÄ…. Funkcja powinna zwracaÄ‡
+      zero dla argumentu bÄ™dÄ…cego liczbÄ… zÅ‚oÅ¼onÄ… i dowolnÄ… niezerowÄ… wartoÅ›Ä‡ dla argumentu bÄ™dÄ…cego liczbÄ… pierwszÄ….
 
-      {\em Wskazówka: w Visual Studio nale¿y rozpocz¹æ od projektu C++/ATL Project. 
-      Nastêpnie w widoku Class View u¿yæ funkcji Add/ATL COM+ 1.0 Component. 
-      Dalsze kroki postêpowania zmierzaj¹cego do zbudowania serwera COM zostan¹
-      zaprezentowane na wyk³adzie.}
+      {\em WskazÃ³wka: w Visual Studio naleÅ¼y rozpoczÄ…Ä‡ od projektu C++/ATL Project. 
+      NastÄ™pnie w widoku Class View uÅ¼yÄ‡ funkcji Add/ATL COM+ 1.0 Component. 
+      Dalsze kroki postÄ™powania zmierzajÄ…cego do zbudowania serwera COM zostanÄ…
+      zaprezentowane na wykÅ‚adzie.}
 
       [{\bf 3p}]
 
 \subsection {Klient COM w VBA (1)}
 
-      Napisaæ w Visual Basic for Applications (jêzyk skryptowy Microsoft Office) funkcjê wykorzystuj¹c¹ serwer COM z poprzedniego zadania. 
-	  Rozwi¹zanie nie musi posiadaæ ¿adnego interfejsu u¿ytkownika do wygodnego wprowadzania argumentu funkcji.
+      NapisaÄ‡ w Visual Basic for Applications (jÄ™zyk skryptowy Microsoft Office) funkcjÄ™ wykorzystujÄ…cÄ… serwer COM z poprzedniego zadania. 
+	  RozwiÄ…zanie nie musi posiadaÄ‡ Å¼adnego interfejsu uÅ¼ytkownika do wygodnego wprowadzania argumentu funkcji.
 
       [{\bf 1p}]
 

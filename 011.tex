@@ -1,77 +1,77 @@
-\section{Elementy interfejsu u¿ytkownika (8)}
+ï»¿\section{Elementy interfejsu uÅ¼ytkownika (8)}
 
 \subsection{Wykresy funkcji (1)} 
 
-      Napisaæ program, który tworzy okno i w jego obszarze roboczym rysuje wykresy funkcji $f(x) = |x|$ i 
+      NapisaÄ‡ program, ktÃ³ry tworzy okno i w jego obszarze roboczym rysuje wykresy funkcji $f(x) = |x|$ i 
 \label{wykres_z_osiami}	  
-      $f(x) = x^2$ (z osiami). Oba wykresy powinny byæ narysowane ró¿nymi kolorami i ró¿nymi stylami pêdzli.
+      $f(x) = x^2$ (z osiami). Oba wykresy powinny byÄ‡ narysowane rÃ³Å¼nymi kolorami i rÃ³Å¼nymi stylami pÄ™dzli.
       
-      Wykresy powinny automatycznie dopasowywaæ siê do nowych rozmiarów okna podczas skalowania okna.
+      Wykresy powinny automatycznie dopasowywaÄ‡ siÄ™ do nowych rozmiarÃ³w okna podczas skalowania okna.
       
       [{\bf 1p}]
 
-\subsection{Poruszaj¹ce siê kó³ko (1)} 
+\subsection{PoruszajÄ…ce siÄ™ kÃ³Å‚ko (1)} 
 
-      Napisaæ program, który w obszarze roboczym okna poka¿e poruszaj¹ce siê i odbijaj¹ce siê od ramki okna kó³ko. 
+      NapisaÄ‡ program, ktÃ³ry w obszarze roboczym okna pokaÅ¼e poruszajÄ…ce siÄ™ i odbijajÄ…ce siÄ™ od ramki okna kÃ³Å‚ko. 
 \label{poruszajace_kolko}
       
-      Kó³ko powinno poprawnie reagowaæ na skalowanie rozmiarów okna przez u¿ytkownika.
+      KÃ³Å‚ko powinno poprawnie reagowaÄ‡ na skalowanie rozmiarÃ³w okna przez uÅ¼ytkownika.
       
       [{\bf 1p}]
 
 \subsection{Okno dialogowe (2)} 
       
-      Napisaæ program, który odtworzy nastêpuj¹cy wygl¹d okna z rysunku \ref{r1}.
+      NapisaÄ‡ program, ktÃ³ry odtworzy nastÄ™pujÄ…cy wyglÄ…d okna z rysunku \ref{r1}.
 \label{okno_dialogowe}
 
 	\begin{figure}
 	\begin{center}
 	\includegraphics[width=0.75\textwidth]{z1_01}
 	\end{center}
-	\caption{Wygl¹d okna do zadania [\ref{okno_dialogowe}]}
+	\caption{WyglÄ…d okna do zadania [\ref{okno_dialogowe}]}
 	\label{r1}
 	\end{figure}
 
-      Okno zawiera dwie ramki grupuj¹ce ({\em Group Box}). Pierwsza ramka zawiera dwa pola tekstowe
+      Okno zawiera dwie ramki grupujÄ…ce ({\em Group Box}). Pierwsza ramka zawiera dwa pola tekstowe
       ({\em Edit Box}), druga zawiera pole wyboru ({\em Combo Box}) oraz dwa przyciski stanu ({\em Check Box}).
 
-      Lista rozwijalna pola wyboru powinna byæ wype³niona przyk³adowymi nazwami.
+      Lista rozwijalna pola wyboru powinna byÄ‡ wypeÅ‚niona przykÅ‚adowymi nazwami.
 
-      Po wybraniu przez u¿ytkownika przycisku {\bf Akceptuj}, wybór powinien zostaæ zaprezentowany w oknie
+      Po wybraniu przez uÅ¼ytkownika przycisku {\bf Akceptuj}, wybÃ³r powinien zostaÄ‡ zaprezentowany w oknie
       informacyjnym (rysunek \ref{r2}).
 
       	\begin{figure}
 	\begin{center}
 	\includegraphics[width=0.25\textwidth]{z1_02}
 	\end{center}
-	\caption{Informacja dla u¿ytkownika do zadania [\ref{okno_dialogowe}]}
+	\caption{Informacja dla uÅ¼ytkownika do zadania [\ref{okno_dialogowe}]}
 	\label{r2}
 	\end{figure}
 
-      Naciœniêcie przycisku {\bf Anuluj} powinno zakoñczyæ program.
+      NaciÅ›niÄ™cie przycisku {\bf Anuluj} powinno zakoÅ„czyÄ‡ program.
       
-      {\em Uwaga! Formanty potomne nale¿y inicjowaæ bezpoœrednio przez {\tt CreateWindow}. Komunikat w oknie informacyjnym zale¿y oczywiœcie od
-      danych wprowadzonych przez u¿ytkownika na formularzu g³ównym}.
+      {\em Uwaga! Formanty potomne naleÅ¼y inicjowaÄ‡ bezpoÅ›rednio przez {\tt CreateWindow}. Komunikat w oknie informacyjnym zaleÅ¼y oczywiÅ›cie od
+      danych wprowadzonych przez uÅ¼ytkownika na formularzu gÅ‚Ã³wnym}.
       
       [{\bf 2p}]
 
 \subsection{Szablon okna dialogowego (2)} 
       
-      Powtórzyæ funkcjonalnoœæ programu z zadania [\ref{okno_dialogowe}] u¿ywaj¹c tym razem 
+      PowtÃ³rzyÄ‡ funkcjonalnoÅ›Ä‡ programu z zadania [\ref{okno_dialogowe}] uÅ¼ywajÄ…c tym razem 
 \label{szablon_okna}	  
-	  edytora zasobów i wbudowanej w niego wizualnego funkcji wizualnej edycji szablonu okna do zbudowania interfejsu u¿ytkownika. 
+	  edytora zasobÃ³w i wbudowanej w niego wizualnego funkcji wizualnej edycji szablonu okna do zbudowania interfejsu uÅ¼ytkownika. 
 	  
-      {\em Uwaga! W przypadku tworzenia okna z szablonu zapisanego w zasobach, zmiast {\tt RegisterClass}, {\tt CreateWindow} i jawnej pêtli obs³ugi komunikatów u¿yæ funkcji {\tt DialogBox}}.
+      {\em Uwaga! W przypadku tworzenia okna z szablonu zapisanego w zasobach, zmiast {\tt RegisterClass}, {\tt CreateWindow} i jawnej pÄ™tli obsÅ‚ugi komunikatÃ³w uÅ¼yÄ‡ funkcji {\tt DialogBox}}.
 
       [{\bf 2p}]
 
-\subsection{Wybrane sk³adniki {\tt Common Controls} (2)}
+\subsection{Wybrane skÅ‚adniki {\tt Common Controls} (2)}
 
-      Napisaæ program, który zademonstruje dzia³anie trzech wybranych komponentów biblioteki formantów Common Controls
+      NapisaÄ‡ program, ktÃ³ry zademonstruje dziaÅ‚anie trzech wybranych komponentÃ³w biblioteki formantÃ³w Common Controls
 \label{common_controls}	  
-      (ListView, TreeView, Progress Bar, Status Bar, Tool Bar, itd.). Demonstracja ma polegaæ
-      na obs³udze kilku wybranych w³aœciwoœci komponentów (na przyk³ad wype³nieniu ListView kilkoma
-      elementami, zmianie wartoœci i stylu Progress Bara itp.). 
+      (ListView, TreeView, Progress Bar, Status Bar, Tool Bar, itd.). Demonstracja ma polegaÄ‡
+      na obsÅ‚udze kilku wybranych wÅ‚aÅ›ciwoÅ›ci komponentÃ³w (na przykÅ‚ad wypeÅ‚nieniu ListView kilkoma
+      elementami, zmianie wartoÅ›ci i stylu Progress Bara itp.). 
       
       [{\bf 2p}]
             

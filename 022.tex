@@ -1,129 +1,129 @@
-\section{.NET $\Leftrightarrow$ Win32, Platform Invoke, COM Interoperability (12)}
+ï»¿\section{.NET $\Leftrightarrow$ Win32, Platform Invoke, COM Interoperability (12)}
 
-    Mo¿liwoœci platformy .NET by³yby mocno ograniczone, gdyby niemo¿liwa by³a wspó³praca z kodem
-	  niezarz¹dzanym. Podobnie jednak jak istniej¹ dwa ró¿ne typy niezarz¹dzanych bibliotek, 
-	  bibilioteki natywne i biblioteki COM, tak istniej¹ dwa ró¿ne mechanizmy do wspó³pracy z nimi,
+    MoÅ¼liwoÅ›ci platformy .NET byÅ‚yby mocno ograniczone, gdyby niemoÅ¼liwa byÅ‚a wspÃ³Å‚praca z kodem
+	  niezarzÄ…dzanym. Podobnie jednak jak istniejÄ… dwa rÃ³Å¼ne typy niezarzÄ…dzanych bibliotek, 
+	  bibilioteki natywne i biblioteki COM, tak istniejÄ… dwa rÃ³Å¼ne mechanizmy do wspÃ³Å‚pracy z nimi,
 	  {\bf Platform Invoke} do konsumpcji bibliotek natywnych oraz {\bf COM Interoperability} do
-	  konsumpcji i produkcji us³ug COM.  
+	  konsumpcji i produkcji usÅ‚ug COM.  
 	  
-	  Wspó³praca z ju¿ istniej¹cym kodem niezarz¹dzanym oznacza tak naprawdê mo¿liwoœæ stopniowego
-	  wprowadzania platformy .NET do ju¿ istniej¹cych projektów, bez koniecznoœci kosztownego jednorazowego 
-	  przenoszenia ich do .NET w ca³oœci. To równie¿ szansa na wspo³pracê .NET zarówno z technologiami, 
-	  które z jakichœ powodów nigdy nie zostan¹ przeniesione do kodu zarz¹dza\-ne\-go jak i z innymi 
-    technologiami przemys³owymi.
+	  WspÃ³Å‚praca z juÅ¼ istniejÄ…cym kodem niezarzÄ…dzanym oznacza tak naprawdÄ™ moÅ¼liwoÅ›Ä‡ stopniowego
+	  wprowadzania platformy .NET do juÅ¼ istniejÄ…cych projektÃ³w, bez koniecznoÅ›ci kosztownego jednorazowego 
+	  przenoszenia ich do .NET w caÅ‚oÅ›ci. To rÃ³wnieÅ¼ szansa na wspoÅ‚pracÄ™ .NET zarÃ³wno z technologiami, 
+	  ktÃ³re z jakichÅ› powodÃ³w nigdy nie zostanÄ… przeniesione do kodu zarzÄ…dza\-ne\-go jak i z innymi 
+    technologiami przemysÅ‚owymi.
 	  
 \subsection{P/Invoke, Win32 $\Rightarrow$ .NET (1)}
 
-      Napisaæ w C\# program, w którym zostanie wywo³ana funkcja Win32 {\tt GetUserName}, a jej wynik zostanie
+      NapisaÄ‡ w C\# program, w ktÃ³rym zostanie wywoÅ‚ana funkcja Win32 {\tt GetUserName}, a jej wynik zostanie
 \label{pinvoke}	  
-      wyprowadzony w oknie informacyjnym, wywo³anym przez funkcjê Win32 {\tt MessageBox}.
+      wyprowadzony w oknie informacyjnym, wywoÅ‚anym przez funkcjÄ™ Win32 {\tt MessageBox}.
       
-      {\em Wskazówka: u¿yæ atrybutów {\tt DllImport}, zadeklarowaæ obie funkcje jako {\tt extern}.}
+      {\em WskazÃ³wka: uÅ¼yÄ‡ atrybutÃ³w {\tt DllImport}, zadeklarowaÄ‡ obie funkcje jako {\tt extern}.}
 
       [{\bf 1p}]
 
 \subsection{P/Invoke + DLL (2)}
 
-      Napisaæ w jêzyku C bibliotekê natywn¹, która udostêpnia funkcjê {\tt int IsPrimeC}, 
+      NapisaÄ‡ w jÄ™zyku C bibliotekÄ™ natywnÄ…, ktÃ³ra udostÄ™pnia funkcjÄ™ {\tt int IsPrimeC}, 
 \label{pinvoke_dll}
-      sprawdzaj¹c¹ czy podana 32-bitowa liczba jest pierwsza.
+      sprawdzajÄ…cÄ… czy podana 32-bitowa liczba jest pierwsza.
       
-      Napisaæ program w C\#, który wywo³a tê funkcjê z parametrem podanym przez u¿ytkownika z konsoli.
+      NapisaÄ‡ program w C\#, ktÃ³ry wywoÅ‚a tÄ™ funkcjÄ™ z parametrem podanym przez uÅ¼ytkownika z konsoli.
 
       [{\bf 2p}]
 
-\subsection{P/Invoke + DLL + wskaŸniki na funkcje/delegacje (2)}
+\subsection{P/Invoke + DLL + wskaÅºniki na funkcje/delegacje (2)}
 
-      Napisaæ w jêzyku C bibliotekê natywn¹, która udostêpnia funkcjê {\tt int ExecuteC} przyjmuj¹c¹
+      NapisaÄ‡ w jÄ™zyku C bibliotekÄ™ natywnÄ…, ktÃ³ra udostÄ™pnia funkcjÄ™ {\tt int ExecuteC} przyjmujÄ…cÄ…
 \label{pinvoke_delegate}	  
-      dwa parametry: 32-bitow¹ wartoœæ {\tt n} i wskaŸnik na funkcjê o sygnaturze {\tt int f(int)}.
-      Funkcja {\tt Execute} jako wynik powinna zwracaæ wartoœæ {\tt f(n)}.
+      dwa parametry: 32-bitowÄ… wartoÅ›Ä‡ {\tt n} i wskaÅºnik na funkcjÄ™ o sygnaturze {\tt int f(int)}.
+      Funkcja {\tt Execute} jako wynik powinna zwracaÄ‡ wartoÅ›Ä‡ {\tt f(n)}.
 
-      Napisaæ program w C\#, który oprócz funkcji {\tt Main} bêdzie zawiera³ funkcjê {\tt int IsPrimeCs}      
-      i który u¿yje funkcji {\tt ExecuteC} (zastosowanej do funkcji {\tt IsPrimeCs}) do sprawdzenia
-      czy podana przez u¿ytkownika z konsoli liczba jest pierwsza.
+      NapisaÄ‡ program w C\#, ktÃ³ry oprÃ³cz funkcji {\tt Main} bÄ™dzie zawieraÅ‚ funkcjÄ™ {\tt int IsPrimeCs}      
+      i ktÃ³ry uÅ¼yje funkcji {\tt ExecuteC} (zastosowanej do funkcji {\tt IsPrimeCs}) do sprawdzenia
+      czy podana przez uÅ¼ytkownika z konsoli liczba jest pierwsza.
 
-      Czy mo¿liwe by³o przeniesienie kodu funkcji {\tt IsPrimeC} z poprzedniego zadania 
+      Czy moÅ¼liwe byÅ‚o przeniesienie kodu funkcji {\tt IsPrimeC} z poprzedniego zadania 
       jako funkcji {\tt IsPrimeCs}?
 
       [{\bf 2p}]
 
 \subsection{COM Interop, COM $\Rightarrow$ .NET, early/late binding (3)}
 
-      To zadanie sk³ada siê z 3 czêœci:
+      To zadanie skÅ‚ada siÄ™ z 3 czÄ™Å›ci:
 \label{cominterop}	  
       
       \begin{enumerate}
 
       \item
-      Napisaæ bibilotekê COM, która bêdzie zawiera³a klasê {\tt PrimeTester}, a w niej metodê {\tt int IsPrime}.
-      Napisaæ skrypt pow³oki, w którym ta metoda zostanie wywo³ana, a wynik pokazany w oknie
+      NapisaÄ‡ bibilotekÄ™ COM, ktÃ³ra bÄ™dzie zawieraÅ‚a klasÄ™ {\tt PrimeTester}, a w niej metodÄ™ {\tt int IsPrime}.
+      NapisaÄ‡ skrypt powÅ‚oki, w ktÃ³rym ta metoda zostanie wywoÅ‚ana, a wynik pokazany w oknie
       informacyjnym.
       
-      {\em Wskazówka: tworzenie bibliotek COM zosta³o omówione na wyk³adzie. Zastosowaæ zaproponowan¹ tam
-      metodê: projekt C++ typu {\bf ATL Library}, do niego dodana klasa {\bf ATL COM+ 1.0 Component}.}
+      {\em WskazÃ³wka: tworzenie bibliotek COM zostaÅ‚o omÃ³wione na wykÅ‚adzie. ZastosowaÄ‡ zaproponowanÄ… tam
+      metodÄ™: projekt C++ typu {\bf ATL Library}, do niego dodana klasa {\bf ATL COM+ 1.0 Component}.}
 
       \item
-      Napisaæ program w C\#, w którym zostanie wywo³ana funkcja {\tt IsPrime} z poprzedniego zadania. 
-      U¿yæ klasy opakowuj¹cej (utworzonej automatycznie lub rêcznie).
+      NapisaÄ‡ program w C\#, w ktÃ³rym zostanie wywoÅ‚ana funkcja {\tt IsPrime} z poprzedniego zadania. 
+      UÅ¼yÄ‡ klasy opakowujÄ…cej (utworzonej automatycznie lub rÄ™cznie).
 
       \item
-      Napisaæ program w C\#, w którym zostanie wywo³ana funkcja {\tt IsPrime} z poprzedniego zadania. 
-      Zamiast klasy opakowuj¹cej u¿yæ refleksji.
+      NapisaÄ‡ program w C\#, w ktÃ³rym zostanie wywoÅ‚ana funkcja {\tt IsPrime} z poprzedniego zadania. 
+      Zamiast klasy opakowujÄ…cej uÅ¼yÄ‡ refleksji.
       \end{enumerate}
             
-      Jakie s¹ wady i zalety wczesnego i póŸnego wi¹zania
-      (³atwoœæ u¿ycia, bezpieczne typowanie)? Czy u¿ycie wczesnego wi¹zania jest zawsze mo¿liwe?
+      Jakie sÄ… wady i zalety wczesnego i pÃ³Åºnego wiÄ…zania
+      (Å‚atwoÅ›Ä‡ uÅ¼ycia, bezpieczne typowanie)? Czy uÅ¼ycie wczesnego wiÄ…zania jest zawsze moÅ¼liwe?
 
-      {\em Wskazówka: nauczyæ siê korzystaæ z {\tt regsvr32.exe} do rejestrowania i wyrejestrowywania 
-      komponentów COM. Nauczyæ siê korzystaæ z {\tt tlbimp.exe} do tworzenia klas .NET opakowuj¹cych klasy COM.}
+      {\em WskazÃ³wka: nauczyÄ‡ siÄ™ korzystaÄ‡ z {\tt regsvr32.exe} do rejestrowania i wyrejestrowywania 
+      komponentÃ³w COM. NauczyÄ‡ siÄ™ korzystaÄ‡ z {\tt tlbimp.exe} do tworzenia klas .NET opakowujÄ…cych klasy COM.}
 
       [{\bf 3p}]
 
 \subsection{COM Interop, .NET $\Rightarrow$ COM (4)}
 
-      Napisaæ w C\# bibliotekê, która bêdzie zawiera³a klasê {\tt PrimeTesterCS}, a w niej metodê {\tt int IsPrime}.
+      NapisaÄ‡ w C\# bibliotekÄ™, ktÃ³ra bÄ™dzie zawieraÅ‚a klasÄ™ {\tt PrimeTesterCS}, a w niej metodÄ™ {\tt int IsPrime}.
 \label{cominterop_duzy}	  
-      Zarejestrowaæ tê bibliotekê jak bibliotekê COM. Napisaæ w C++ niezarz¹dzanego klienta COM, 
-      zwyk³¹ aplikacjê konsoli, która skorzysta z tej biblioteki.
+      ZarejestrowaÄ‡ tÄ™ bibliotekÄ™ jak bibliotekÄ™ COM. NapisaÄ‡ w C++ niezarzÄ…dzanego klienta COM, 
+      zwykÅ‚Ä… aplikacjÄ™ konsoli, ktÃ³ra skorzysta z tej biblioteki.
       
-      Jakie warunki musz¹ byæ spe³nione, aby klasa .NET mog³a byæ zarejestrowana jako 
+      Jakie warunki muszÄ… byÄ‡ speÅ‚nione, aby klasa .NET mogÅ‚a byÄ‡ zarejestrowana jako 
       biblioteka COM?
 
-      {\em Wskazówki: 
+      {\em WskazÃ³wki: 
       
       \begin{enumerate}
       \item 
-      Nauczyæ siê korzystaæ z atrybutu {\tt GuidAttribute}. 
-      Dlaczego warto u¿yæ go do oznaczenia klasy {\tt PrimeTesterCS}? Co sta³oby siê, gdyby
-      nie zosta³ on u¿yty?
+      NauczyÄ‡ siÄ™ korzystaÄ‡ z atrybutu {\tt GuidAttribute}. 
+      Dlaczego warto uÅ¼yÄ‡ go do oznaczenia klasy {\tt PrimeTesterCS}? Co staÅ‚oby siÄ™, gdyby
+      nie zostaÅ‚ on uÅ¼yty?
       
       \item 
-      Nauczyæ siê korzystaæ z {\tt sn.exe} do tworzenia plików z sygnaturami cyfrowymi.
-      Silnie cyfrowo osygnowaæ bibliotekê, umieszczaj¹c odpowiedni atrybut w {\tt AssemblyInfo.cs}.
-      Dlaczego trzeba silnie sygnowaæ biblioteki przeznaczone do COM Interop?
+      NauczyÄ‡ siÄ™ korzystaÄ‡ z {\tt sn.exe} do tworzenia plikÃ³w z sygnaturami cyfrowymi.
+      Silnie cyfrowo osygnowaÄ‡ bibliotekÄ™, umieszczajÄ…c odpowiedni atrybut w {\tt AssemblyInfo.cs}.
+      Dlaczego trzeba silnie sygnowaÄ‡ biblioteki przeznaczone do COM Interop?
             
       \item 
-      Nauczyæ siê korzystaæ z {\tt gacutil.exe} do zarz¹dzania GAC. Dodaæ bibliotekê do GAC.
+      NauczyÄ‡ siÄ™ korzystaÄ‡ z {\tt gacutil.exe} do zarzÄ…dzania GAC. DodaÄ‡ bibliotekÄ™ do GAC.
             
       \item 
-      Nauczyæ siê korzystaæ z {\tt regasm.exe} do rejstrowania bibliotek .NET jako komponentów COM.
-      Przy okazji obejrzeæ efekt dzia³ania {\tt regasm.exe} z parametrem {\tt /regfile}. Zarejestrowaæ bibliotekê
+      NauczyÄ‡ siÄ™ korzystaÄ‡ z {\tt regasm.exe} do rejstrowania bibliotek .NET jako komponentÃ³w COM.
+      Przy okazji obejrzeÄ‡ efekt dziaÅ‚ania {\tt regasm.exe} z parametrem {\tt /regfile}. ZarejestrowaÄ‡ bibliotekÄ™
       dla COM Interop.
       
       \item 
-      Nauczyæ siê korzystaæ z {\tt tlbexp.exe} do eksportowania informacji z bibliotek .NET do
-      wspó³pracy z COM. Dlaczego trzeba eksportowaæ informacje o typach do pliku {\tt *.tlb} (TypeLiB)?
+      NauczyÄ‡ siÄ™ korzystaÄ‡ z {\tt tlbexp.exe} do eksportowania informacji z bibliotek .NET do
+      wspÃ³Å‚pracy z COM. Dlaczego trzeba eksportowaÄ‡ informacje o typach do pliku {\tt *.tlb} (TypeLiB)?
       
       \item 
-      Nauczyæ siê korzystaæ z dyrektywy {\tt \#import} do tworzenia klientów COM w niezarz¹dzanym C++.
-      Dlaczego dyrektywy tej nale¿y u¿yæ wskazuj¹c jako parametr œcie¿kê do pliku {\tt *.tlb}, 
+      NauczyÄ‡ siÄ™ korzystaÄ‡ z dyrektywy {\tt \#import} do tworzenia klientÃ³w COM w niezarzÄ…dzanym C++.
+      Dlaczego dyrektywy tej naleÅ¼y uÅ¼yÄ‡ wskazujÄ…c jako parametr Å›cieÅ¼kÄ™ do pliku {\tt *.tlb}, 
       a nie do biblioteki {\tt *.dll}?
       \end{enumerate}
       }
       
-      {\em Uwaga! Ze wzglêdu na pewn¹ trudnoœæ zadania, za czêœciowe rozwi¹zania bêd¹ wyj¹tkowo
-      przyznawane punkty poœrednie (miêdzy 1 a 4).}
+      {\em Uwaga! Ze wzglÄ™du na pewnÄ… trudnoÅ›Ä‡ zadania, za czÄ™Å›ciowe rozwiÄ…zania bÄ™dÄ… wyjÄ…tkowo
+      przyznawane punkty poÅ›rednie (miÄ™dzy 1 a 4).}
       
       [{\bf 4p}]
 

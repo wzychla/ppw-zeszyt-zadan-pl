@@ -1,18 +1,18 @@
-\section{Relacyjne bazy danych (6)}
+ï»¿\section{Relacyjne bazy danych (6)}
 
-    Bibiloteka ADO.NET udostêpnia spójny fundament obs³ugi ró¿nych rodzajów Ÿróde³ danych. W kolejnych latach
-	  do platformy .NET nie tylko migrowa³y uznane technologie mapowania obiektowo-relacyjnego (nHibernate)
-	  ale tak¿e powsta³y rozwi¹zania natywne (Linq2SQL, Entity Framework), które maj¹ du¿y wp³yw na rozwój technologii poza
-	  .NET. Równoczeœnie wraz z udoskonalaniem narzêdzi typu ORM obserwuje siê odwrót od rozwi¹zañ typu {\tt DataSet}.
+    Bibiloteka ADO.NET udostÄ™pnia spÃ³jny fundament obsÅ‚ugi rÃ³Å¼nych rodzajÃ³w ÅºrÃ³deÅ‚ danych. W kolejnych latach
+	  do platformy .NET nie tylko migrowaÅ‚y uznane technologie mapowania obiektowo-relacyjnego (nHibernate)
+	  ale takÅ¼e powstaÅ‚y rozwiÄ…zania natywne (Linq2SQL, Entity Framework), ktÃ³re majÄ… duÅ¼y wpÅ‚yw na rozwÃ³j technologii poza
+	  .NET. RÃ³wnoczeÅ›nie wraz z udoskonalaniem narzÄ™dzi typu ORM obserwuje siÄ™ odwrÃ³t od rozwiÄ…zaÅ„ typu {\tt DataSet}.
 
 \subsection{DataReader (1)}
 \label{ereader}
 
-      Przygotowaæ arkusz Excela zawieraj¹cy dane osobowe (kilka wybranych atrybutów) przyk³adowej grupy studentów.
+      PrzygotowaÄ‡ arkusz Excela zawierajÄ…cy dane osobowe (kilka wybranych atrybutÃ³w) przykÅ‚adowej grupy studentÃ³w.
 \label{ado_excel}	  
       
-      Po³¹czyæ siê do arkusza odpowiednio zainicjowanym po³¹czeniem OleDb ({\tt OleDbConnection}), 
-      przeczytaæ zbiór rekordów za pomoc¹ DataReadera ({\tt OleDbDataReader}) i pokazaæ je na liœcie.
+      PoÅ‚Ä…czyÄ‡ siÄ™ do arkusza odpowiednio zainicjowanym poÅ‚Ä…czeniem OleDb ({\tt OleDbConnection}), 
+      przeczytaÄ‡ zbiÃ³r rekordÃ³w za pomocÄ… DataReadera ({\tt OleDbDataReader}) i pokazaÄ‡ je na liÅ›cie.
             
       [{\bf 1p}]
 
@@ -21,12 +21,12 @@
 
 \label{ado_dbms}	  
 
-      Przygotowaæ bazê danych Micosoft SQL Server zawieraj¹c¹ dane osobowe i adresy przyk³adowej grupy studentów.
+      PrzygotowaÄ‡ bazÄ™ danych Micosoft SQL Server zawierajÄ…cÄ… dane osobowe i adresy przykÅ‚adowej grupy studentÃ³w.
 
-      Model bazy danych zawiera dwie tabele, tabelê {\bf Student} z polami Imiê, Nazwisko, DataUrodzenia oraz
-      tabelê {\bf Miejscowosc} z polem Nazwa.
+      Model bazy danych zawiera dwie tabele, tabelÄ™ {\bf Student} z polami ImiÄ™, Nazwisko, DataUrodzenia oraz
+      tabelÄ™ {\bf Miejscowosc} z polem Nazwa.
       
-      Obie tabele po³¹czone s¹ relacj¹ jeden-do-wielu (jak ³¹czy siê tabele relacj¹ jeden-do-wielu?).
+      Obie tabele poÅ‚Ä…czone sÄ… relacjÄ… jeden-do-wielu (jak Å‚Ä…czy siÄ™ tabele relacjÄ… jeden-do-wielu?).
 	  
 	  {\em Uwaga! Do wykonania tego zadania wystarczy darmowy SQL Server Express Edition albo nawet deweloperski
 	  SQL Server Local DB}.
@@ -35,33 +35,33 @@
       
 \subsection{Linq2SQL (1)}
 
-  Zbudowaæ model obiektowy dla bazy danych z zadania \ref{ado_dbms} za pomoc¹ narzêdzia {\tt sqlmetal.exe}. 
+  ZbudowaÄ‡ model obiektowy dla bazy danych z zadania \ref{ado_dbms} za pomocÄ… narzÄ™dzia {\tt sqlmetal.exe}. 
 \label{linq2sql}  
   
-  Pokazaæ w jaki sposób za pomoc¹ Linq2SQL mo¿na dodawaæ, modyfikowaæ i usuwaæ dane w bazie danych.
-  W szczególnosci pokazaæ jak w jednym bloku kodu dane do {\bf obu} tabel - kod powinien dodaæ do bazy {\bf now¹} miejscowoœæ i {\bf nowego} studenta
-  z tej nowej miejscowoœci. 
+  PokazaÄ‡ w jaki sposÃ³b za pomocÄ… Linq2SQL moÅ¼na dodawaÄ‡, modyfikowaÄ‡ i usuwaÄ‡ dane w bazie danych.
+  W szczegÃ³lnosci pokazaÄ‡ jak w jednym bloku kodu dane do {\bf obu} tabel - kod powinien dodaÄ‡ do bazy {\bf nowÄ…} miejscowoÅ›Ä‡ i {\bf nowego} studenta
+  z tej nowej miejscowoÅ›ci. 
     
   [{\bf 1p}]
 
 \subsection{Entity Framework (1)}
 
-  Powtórzyæ poprzednie zadanie w technologii Entity Framework.
+  PowtÃ³rzyÄ‡ poprzednie zadanie w technologii Entity Framework.
   
-  W szczególnoœci - zbudowaæ model obiektowy dla bazy danych z zadania \ref{ado_dbms} rêcznie lub za pomoc¹ in¿ynierii odwrotnej (Reverse Engineer Code First).
+  W szczegÃ³lnoÅ›ci - zbudowaÄ‡ model obiektowy dla bazy danych z zadania \ref{ado_dbms} rÄ™cznie lub za pomocÄ… inÅ¼ynierii odwrotnej (Reverse Engineer Code First).
 
-  Pokazaæ w jaki sposób za pomoc¹ EF mo¿na dodawaæ, modyfikowaæ i usuwaæ dane w bazie danych.
-  W szczególnosci pokazaæ jak w jednym bloku kodu dane do {\bf obu} tabel - kod powinien dodaæ do bazy {\bf now¹} miejscowoœæ i {\bf nowego} studenta
-  z tej nowej miejscowoœci. 
+  PokazaÄ‡ w jaki sposÃ³b za pomocÄ… EF moÅ¼na dodawaÄ‡, modyfikowaÄ‡ i usuwaÄ‡ dane w bazie danych.
+  W szczegÃ³lnosci pokazaÄ‡ jak w jednym bloku kodu dane do {\bf obu} tabel - kod powinien dodaÄ‡ do bazy {\bf nowÄ…} miejscowoÅ›Ä‡ i {\bf nowego} studenta
+  z tej nowej miejscowoÅ›ci. 
 
   [{\bf 1p}]
 
-\subsection{Interfejs u¿ytkownika dla danych (3)}
+\subsection{Interfejs uÅ¼ytkownika dla danych (3)}
 
-      Napisaæ prost¹ aplikacjê okienkow¹, która udostêpnia dane z bazy z poprzedniego zadania.
+      NapisaÄ‡ prostÄ… aplikacjÄ™ okienkowÄ…, ktÃ³ra udostÄ™pnia dane z bazy z poprzedniego zadania.
 \label{ado_dal}	  
-      Aplikacja powinna pozwalaæ na przegl¹danie listy studentów, dodawanie, modyfikacjê i usuwanie.
+      Aplikacja powinna pozwalaÄ‡ na przeglÄ…danie listy studentÃ³w, dodawanie, modyfikacjÄ™ i usuwanie.
 
-      Do dostêpu do danych wybraæ Linq2SQL lub Entity Framework.
+      Do dostÄ™pu do danych wybraÄ‡ Linq2SQL lub Entity Framework.
 
       [{\bf 3p}]

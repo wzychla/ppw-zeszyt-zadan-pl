@@ -1,19 +1,19 @@
-\appendix 
+ï»¿\appendix 
 
 \chapter{Varia}
 
-Niniejszy rozdzia³ zbioru zadañ	ma charakter uzupe³niaj¹cy i zawiera zadania dodatkowe, niepunktowane, czêsto o charakterze nieszablonowym, nietypowym, których rozwi¹zanie
-pozwala na pe³niejsze zrozumienie wybranych mechanizmów jêzyka i œrodowiska uruchomieniowego. Zadania z tego rozdzia³u pochodz¹ z bloga autora, gdzie by³y publikowane w latach 2008-2013.
+Niniejszy rozdziaÅ‚ zbioru zadaÅ„	ma charakter uzupeÅ‚niajÄ…cy i zawiera zadania dodatkowe, niepunktowane, czÄ™sto o charakterze nieszablonowym, nietypowym, ktÃ³rych rozwiÄ…zanie
+pozwala na peÅ‚niejsze zrozumienie wybranych mechanizmÃ³w jÄ™zyka i Å›rodowiska uruchomieniowego. Zadania z tego rozdziaÅ‚u pochodzÄ… z bloga autora, gdzie byÅ‚y publikowane w latach 2008-2013.
 
 % -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-\section{Poziom ³atwy}
+\section{Poziom Å‚atwy}
 
 % ------------------------------------------------------------------------------------
 \subsection{Dziwna kolekcja}
 
-Czy to mo¿liwe, ¿e w bibliotece standardowej istnieje kolekcja, która sama tworzy elementy o zadanych kluczach kiedy tylko zostanie o nie poproszona?
-Wygl¹da na to, ¿e tak - poni¿ej zaprezentowano kod, w którym dopiero co utworzona instancja kolekcji raportuje ¿e zawiera element o losowo wybranym kluczu, 
-mimo ¿e taki element nie zosta³ tam wczesniej dodany.
+Czy to moÅ¼liwe, Å¼e w bibliotece standardowej istnieje kolekcja, ktÃ³ra sama tworzy elementy o zadanych kluczach kiedy tylko zostanie o nie poproszona?
+WyglÄ…da na to, Å¼e tak - poniÅ¼ej zaprezentowano kod, w ktÃ³rym dopiero co utworzona instancja kolekcji raportuje Å¼e zawiera element o losowo wybranym kluczu, 
+mimo Å¼e taki element nie zostaÅ‚ tam wczesniej dodany.
 
 \begin{scriptsize}
 \begin{verbatim}
@@ -35,12 +35,12 @@ namespace ConsoleApplication
 \end{verbatim}
 \end{scriptsize}
 
-Zadaniem Czytelnika jest wskazanie b³êdu w powy¿szym kodzie, prowadz¹cego do takiego nieoczekiwanego zachowania.
+Zadaniem Czytelnika jest wskazanie bÅ‚Ä™du w powyÅ¼szym kodzie, prowadzÄ…cego do takiego nieoczekiwanego zachowania.
 
 % ------------------------------------------------------------------------------------
 \subsection{Rekurencyjne zmienne statyczne}
 
-Czy dwie zmienne statyczne, które odwo³uj¹ siê nawzajem do siebie, spowoduj¹ powstanie nieskoñczonej rekursji?
+Czy dwie zmienne statyczne, ktÃ³re odwoÅ‚ujÄ… siÄ™ nawzajem do siebie, spowodujÄ… powstanie nieskoÅ„czonej rekursji?
 
 \begin{scriptsize}
 \begin{verbatim}
@@ -66,8 +66,8 @@ public class MainClass
 
 \subsection{Rozterki kompilatora}
 
-Regu³y semantyczne jêzyka musz¹ precyzyjnie rozstrzygaæ przypadki "brzegowe". W poni¿szym przyk³adzie kompilator ma dwie mo¿liwoœci - wybraæ metodê z klasy bazowej bez konwersji argumentu lub metodê z tej samej klasy
-ale z konwersj¹ argumentu. Która regu³a obowi¹zuje w przypadku jêzyka C\#? Czy wybór przeciwnej strategii by³by dopuszczalny?
+ReguÅ‚y semantyczne jÄ™zyka muszÄ… precyzyjnie rozstrzygaÄ‡ przypadki "brzegowe". W poniÅ¼szym przykÅ‚adzie kompilator ma dwie moÅ¼liwoÅ›ci - wybraÄ‡ metodÄ™ z klasy bazowej bez konwersji argumentu lub metodÄ™ z tej samej klasy
+ale z konwersjÄ… argumentu. KtÃ³ra reguÅ‚a obowiÄ…zuje w przypadku jÄ™zyka C\#? Czy wybÃ³r przeciwnej strategii byÅ‚by dopuszczalny?
 
 \begin{scriptsize}
 \begin{verbatim}
@@ -98,17 +98,17 @@ static void Main( string[] args )
 \end{verbatim}
 \end{scriptsize}
 
-\subsection{Sk³adowe prywatne}
+\subsection{SkÅ‚adowe prywatne}
 
-Czy mo¿liwe jest ¿e klasa {\bf A} ma dostêp do prywatnych sk³adowych klasy {\bf B}? 
+Czy moÅ¼liwe jest Å¼e klasa {\bf A} ma dostÄ™p do prywatnych skÅ‚adowych klasy {\bf B}? 
 
-"Oczywiœcie, ¿e nie, to wbrew regule enkapsulacji" - to zwyczajowa odpowiedŸ. Niemniej, jest co najmniej jeden przypadek, gdy jest to mo¿liwe, co wiêcej, jest to doœæ wa¿na w³aœciwoœæ jêzyka.
+"OczywiÅ›cie, Å¼e nie, to wbrew regule enkapsulacji" - to zwyczajowa odpowiedÅº. Niemniej, jest co najmniej jeden przypadek, gdy jest to moÅ¼liwe, co wiÄ™cej, jest to doÅ›Ä‡ waÅ¼na wÅ‚aÅ›ciwoÅ›Ä‡ jÄ™zyka.
 
-Pytanie brzmi wiêc: w jakich okolicznoœciach w jêzyku C\# klasa {\bf A} mo¿e mieæ pe³en dostêp do {\bf prywatnych} sk³adowych innej klasy {\bf B}.
+Pytanie brzmi wiÄ™c: w jakich okolicznoÅ›ciach w jÄ™zyku C\# klasa {\bf A} moÅ¼e mieÄ‡ peÅ‚en dostÄ™p do {\bf prywatnych} skÅ‚adowych innej klasy {\bf B}.
 
-\subsection{Nieoczekiwany b³¹d kompilacji}
+\subsection{Nieoczekiwany bÅ‚Ä…d kompilacji}
 
-Rozwa¿my poni¿szy kod
+RozwaÅ¼my poniÅ¼szy kod
 
 \begin{scriptsize}
 \begin{verbatim}
@@ -128,7 +128,7 @@ class Program : Foo
 \end{verbatim}
 \end{scriptsize}
 
-Próba jego kompilacji koñczy siê komunikatem
+PrÃ³ba jego kompilacji koÅ„czy siÄ™ komunikatem
 
 \begin{scriptsize}
 \begin{verbatim}
@@ -136,16 +136,16 @@ Foo() is inaccessible due to its protection level
 \end{verbatim}
 \end{scriptsize}
 
-Jest to doœæ nieoczekiwane, w ¿adnym miejscu kodu nie ma próby utworzenia nowej instancji typu {\tt Foo}. Ba, w kodzie nie ma w ogóle ani jednego wywo³ania operatora {\tt new}.
-Wydaje siê wiêc, ¿e nie powinno mieæ ¿adnego znaczenia czy konstruktor {\tt Foo} jest dostêpny czy nie.
+Jest to doÅ›Ä‡ nieoczekiwane, w Å¼adnym miejscu kodu nie ma prÃ³by utworzenia nowej instancji typu {\tt Foo}. Ba, w kodzie nie ma w ogÃ³le ani jednego wywoÅ‚ania operatora {\tt new}.
+Wydaje siÄ™ wiÄ™c, Å¼e nie powinno mieÄ‡ Å¼adnego znaczenia czy konstruktor {\tt Foo} jest dostÄ™pny czy nie.
 
-Czytelnik proszony jest o wyjaœnienie powy¿szego paradoksu.
+Czytelnik proszony jest o wyjaÅ›nienie powyÅ¼szego paradoksu.
 
-\subsection{Wywo³anie metody na pustej referencji}
+\subsection{WywoÅ‚anie metody na pustej referencji}
 
-Czy mo¿liwe jest wywo³anie metody na pustej referencji? Oczywista odpowiedŸ, to "nie".
+Czy moÅ¼liwe jest wywoÅ‚anie metody na pustej referencji? Oczywista odpowiedÅº, to "nie".
 
-Czy¿by?
+CzyÅ¼by?
 
 \begin{scriptsize}
 \begin{verbatim}
@@ -161,16 +161,16 @@ static void Main( string[] args )
 \end{verbatim}
 \end{scriptsize}
 
-Uzasadniæ, ¿e powy¿szy kod nie musi wcale powodowaæ wyj¹tku, przeciwnie, mo¿e zachowaæ siê ca³kowicie poprawnie i wypisaæ na konsoli wynik wywo³ania metody {\tt Bar}.
+UzasadniÄ‡, Å¼e powyÅ¼szy kod nie musi wcale powodowaÄ‡ wyjÄ…tku, przeciwnie, moÅ¼e zachowaÄ‡ siÄ™ caÅ‚kowicie poprawnie i wypisaÄ‡ na konsoli wynik wywoÅ‚ania metody {\tt Bar}.
 
 
 % ------------------------------------------------------------------------------------------------------------------------------------------------------------
-\section{Poziom œredniozaawansowany}
+\section{Poziom Å›redniozaawansowany}
 
 % ------------------------------------------------------------------------------------
-\subsection{Zamiana wartoœci dwóch zmiennych}
+\subsection{Zamiana wartoÅ›ci dwÃ³ch zmiennych}
 
-Nastêpuj¹cy kod bywa wykorzystywany w jêzykach C/C++ do zamiany wartoœci dwóch zmiennych {\bf bez} u¿ycia zmiennej pomocniczej.
+NastÄ™pujÄ…cy kod bywa wykorzystywany w jÄ™zykach C/C++ do zamiany wartoÅ›ci dwÃ³ch zmiennych {\bf bez} uÅ¼ycia zmiennej pomocniczej.
 
 \begin{scriptsize}
 \begin{verbatim}
@@ -180,12 +180,12 @@ x ^= y ^= x ^= y;
 \end{verbatim}
 \end{scriptsize}
 
-Nieoczekiwanie jednak, mimo wspólnych korzeni sk³adni jêzyka, powy¿szy kod nie dzia³a poprawnie w jêzyku C\#. Zadaniem Czytelnika jest wyjaœnienie dlaczego tak siê dzieje.
+Nieoczekiwanie jednak, mimo wspÃ³lnych korzeni skÅ‚adni jÄ™zyka, powyÅ¼szy kod nie dziaÅ‚a poprawnie w jÄ™zyku C\#. Zadaniem Czytelnika jest wyjaÅ›nienie dlaczego tak siÄ™ dzieje.
 
 % ------------------------------------------------------------------------------------
 \subsection{Operacje na zbiorach (1)}
 
-Czy Czytelnik potrafi przewidzieæ wynik dzia³ania poni¿szego kodu (zawartoœæ która zostanie wypisana na konsoli) {\bf bez} faktycznego uruchomienia?
+Czy Czytelnik potrafi przewidzieÄ‡ wynik dziaÅ‚ania poniÅ¼szego kodu (zawartoÅ›Ä‡ ktÃ³ra zostanie wypisana na konsoli) {\bf bez} faktycznego uruchomienia?
 
 \begin{scriptsize}
 \begin{verbatim}
@@ -197,7 +197,7 @@ list.FindAll( i => { Console.WriteLine( i ); return i < 5; } );
 
 \subsection{Operacje na zbiorach (2)}
 
-Po rozwi¹zaniu poprzedniego zadania Czytelnik z pewnoœci¹ bez trudu przewidzi równie¿ wynik dzia³ania poni¿szego kodu {\bf bez} faktycznego uruchomienia?
+Po rozwiÄ…zaniu poprzedniego zadania Czytelnik z pewnoÅ›ciÄ… bez trudu przewidzi rÃ³wnieÅ¼ wynik dziaÅ‚ania poniÅ¼szego kodu {\bf bez} faktycznego uruchomienia?
 
 \begin{scriptsize}
 \begin{verbatim}
@@ -209,7 +209,7 @@ list.Where( i => { Console.WriteLine( i ); return i < 5; } );
 
 \subsection{Operacje na zbiorach (3)}
 
-Po rozwi¹zaniu dwóch poprzednich zadañ, przewidzenie wyniku dzia³ania poni¿szego kodu {\bf bez} faktycznego uruchomienia powinno byæ ju¿ ³atwe.
+Po rozwiÄ…zaniu dwÃ³ch poprzednich zadaÅ„, przewidzenie wyniku dziaÅ‚ania poniÅ¼szego kodu {\bf bez} faktycznego uruchomienia powinno byÄ‡ juÅ¼ Å‚atwe.
 
 \begin{scriptsize}
 \begin{verbatim}
@@ -225,7 +225,7 @@ list.ToLookup( i => { Console.Write( "X" ); return i; } );
 
 \subsection{Specyficzne ograniczenie generyczne}
 
-Za³ó¿my nastêpuj¹c¹ definicjê interfejsu generycznego
+ZaÅ‚Ã³Å¼my nastÄ™pujÄ…cÄ… definicjÄ™ interfejsu generycznego
 
 \begin{scriptsize}
 \begin{verbatim}
@@ -236,7 +236,7 @@ public interface IGenericInterface<TValue>
 \end{verbatim}
 \end{scriptsize}
 
-Taki interfejs mo¿e byæ implementowany przez ró¿ne klasy z ró¿n¹ wartoœci¹ argumentu generycznego
+Taki interfejs moÅ¼e byÄ‡ implementowany przez rÃ³Å¼ne klasy z rÃ³Å¼nÄ… wartoÅ›ciÄ… argumentu generycznego
 
 \begin{scriptsize}
 \begin{verbatim}
@@ -252,9 +252,9 @@ class Bar : IGenericInterface<Baz>
 \end{verbatim}
 \end{scriptsize}
 
-Czy mo¿liwe jest w jêzyku C\# takie ograniczenie generycznego argumentu w definicji interfejsu, ¿eby jedynym dozwolonym ukonkretnieniem tego argumentu by³ typ implementuj¹cy interfejs?
+Czy moÅ¼liwe jest w jÄ™zyku C\# takie ograniczenie generycznego argumentu w definicji interfejsu, Å¼eby jedynym dozwolonym ukonkretnieniem tego argumentu byÅ‚ typ implementujÄ…cy interfejs?
 
-Mówi¹c inaczej, taka i tylko taka definicja typu powinna byæ dozwolona
+MÃ³wiÄ…c inaczej, taka i tylko taka definicja typu powinna byÄ‡ dozwolona
 
 \begin{scriptsize}
 \begin{verbatim}
@@ -264,7 +264,7 @@ class Foo : IGenericInterface<Foo>
 \end{verbatim}
 \end{scriptsize}
 
-a taka (i podobne) powinna powodowaæ {\bf b³¹d kompilacji}
+a taka (i podobne) powinna powodowaÄ‡ {\bf bÅ‚Ä…d kompilacji}
 
 \begin{scriptsize}
 \begin{verbatim}
@@ -274,9 +274,9 @@ class Foo : IGenericInterface<Bar>
 \end{verbatim}
 \end{scriptsize}
 
-\subsection{Zasiêg zmiennej w domkniêciu}
+\subsection{ZasiÄ™g zmiennej w domkniÄ™ciu}
 
-W poni¿szym kodzie pêtla wewnêtrzna tworzy 10 instancji funkcji anonimowych, które "³api¹" zmienn¹ lokaln¹ w domkniêcie. Wynik dzia³ania kodu jest jednak zgo³a nieoczekiwany:
+W poniÅ¼szym kodzie pÄ™tla wewnÄ™trzna tworzy 10 instancji funkcji anonimowych, ktÃ³re "Å‚apiÄ…" zmiennÄ… lokalnÄ… w domkniÄ™cie. Wynik dziaÅ‚ania kodu jest jednak zgoÅ‚a nieoczekiwany:
 
 
 \begin{scriptsize}
@@ -308,10 +308,10 @@ for ( int i = 0; i < 10; i++ )
 \end{verbatim}
 \end{scriptsize}
 
-Z konstrukcji kodu mo¿na bowiem naiwnie oczekiwaæ, ¿e skoro {\tt i}-ta funkcja powinna, zgodnie z definicja, zwracaæ wartoœæ {\tt i}. Tak siê jednak nie dzieje.
+Z konstrukcji kodu moÅ¼na bowiem naiwnie oczekiwaÄ‡, Å¼e skoro {\tt i}-ta funkcja powinna, zgodnie z definicja, zwracaÄ‡ wartoÅ›Ä‡ {\tt i}. Tak siÄ™ jednak nie dzieje.
 
-Zadaniem Czytelnika jest nie tylko wyjaœniæ powód takiego zachowania siê domkniêcia, ale równie¿ zaproponowanie eleganckiego rozwi¹zania, w którym nie naruszaj¹c zasady 
-"{\tt i}-ta funkcja zwraca wartoœæ {\tt i}", wynikiem dzia³ania 
+Zadaniem Czytelnika jest nie tylko wyjaÅ›niÄ‡ powÃ³d takiego zachowania siÄ™ domkniÄ™cia, ale rÃ³wnieÅ¼ zaproponowanie eleganckiego rozwiÄ…zania, w ktÃ³rym nie naruszajÄ…c zasady 
+"{\tt i}-ta funkcja zwraca wartoÅ›Ä‡ {\tt i}", wynikiem dziaÅ‚ania 
 
 \begin{scriptsize}
 \begin{verbatim}
@@ -320,7 +320,7 @@ for ( int i = 0; i < 10; i++ )
 \end{verbatim}
 \end{scriptsize}
 
-bêdzie
+bÄ™dzie
 
 \begin{scriptsize}
 \begin{verbatim}

@@ -1,27 +1,27 @@
-\section{Biblioteka standardowa .NET (15)}
+ï»¿\section{Biblioteka standardowa .NET (15)}
 
-    Biblioteka standardowa platformy .NET bardzo szybko siê rozwija. Wspó³czeœnie obejmuje w³aœciwie wiêkszoœæ mo¿liwych aspektów technologicznych, przez ró¿ne
-	podsystemy interfejsu u¿ytkownika, podsystemy graficzne, us³ugi sieciowe, systemy plików, podsystemy kryptograficzne, us³ugi kolejkowe i katalogowe, komunikacjê z systemami
-	relacyjnych i nierelacyjnych baz danych oraz programowanie serwerów aplikacyjnych. Jest to ogromny i fascynuj¹cy œwiat, który ma to do siebie, ¿e obojêtnie jak dobrze siê go zna,
-	zawsze mo¿na znaleŸæ tu coœ nowego i zajmuj¹cego.
+    Biblioteka standardowa platformy .NET bardzo szybko siÄ™ rozwija. WspÃ³Å‚czeÅ›nie obejmuje wÅ‚aÅ›ciwie wiÄ™kszoÅ›Ä‡ moÅ¼liwych aspektÃ³w technologicznych, przez rÃ³Å¼ne
+	podsystemy interfejsu uÅ¼ytkownika, podsystemy graficzne, usÅ‚ugi sieciowe, systemy plikÃ³w, podsystemy kryptograficzne, usÅ‚ugi kolejkowe i katalogowe, komunikacjÄ™ z systemami
+	relacyjnych i nierelacyjnych baz danych oraz programowanie serwerÃ³w aplikacyjnych. Jest to ogromny i fascynujÄ…cy Å›wiat, ktÃ³ry ma to do siebie, Å¼e obojÄ™tnie jak dobrze siÄ™ go zna,
+	zawsze moÅ¼na znaleÅºÄ‡ tu coÅ› nowego i zajmujÄ…cego.
 
-	Z uwagi na ograniczone ramy czasowe, przegl¹d biblioteki standardowej ma tu charakter wybiórczy. 
+	Z uwagi na ograniczone ramy czasowe, przeglÄ…d biblioteki standardowej ma tu charakter wybiÃ³rczy. 
 	
-	Poniewa¿ w przysz³ych wersjach systemu operacyjnego Windows interfejs BCL ma szansê
-	  staæ siê natywnym interfejsem programowania Windows, warto szczegó³owo zapoznaæ siê z jego mo¿liwoœciami.
+	PoniewaÅ¼ w przyszÅ‚ych wersjach systemu operacyjnego Windows interfejs BCL ma szansÄ™
+	  staÄ‡ siÄ™ natywnym interfejsem programowania Windows, warto szczegÃ³Å‚owo zapoznaÄ‡ siÄ™ z jego moÅ¼liwoÅ›ciami.
       
-\subsection{W³asna kompletna klasa us³ugowa (1)}
-      Napisaæ klasê do obs³ugi liczb zespolonych. Dodaæ odpowiednie konstruktory, przeci¹¿yæ odpowiednie operatory.
+\subsection{WÅ‚asna kompletna klasa usÅ‚ugowa (1)}
+      NapisaÄ‡ klasÄ™ do obsÅ‚ugi liczb zespolonych. DodaÄ‡ odpowiednie konstruktory, przeciÄ…Å¼yÄ‡ odpowiednie operatory.
 \label{liczby_zespolone}
       
-      Rozszerzyæ tê klasê o w³asne formatowane. Œciœlej, zaimplementowaæ interfejs
-      {\tt IFormat\-table} i obs³ugiwaæ dwa rodzaje formatowania:
+      RozszerzyÄ‡ tÄ™ klasÄ™ o wÅ‚asne formatowane. ÅšciÅ›lej, zaimplementowaÄ‡ interfejs
+      {\tt IFormat\-table} i obsÅ‚ugiwaÄ‡ dwa rodzaje formatowania:
       \begin{itemize}
-      \item domyœlne (brak formatowania lub {\tt d}) powinno dawaæ wynik $a+bi$ 
-      \item wektorowe (format {\tt w}) powinno dawaæ wynik $[a,b]$.
+      \item domyÅ›lne (brak formatowania lub {\tt d}) powinno dawaÄ‡ wynik $a+bi$ 
+      \item wektorowe (format {\tt w}) powinno dawaÄ‡ wynik $[a,b]$.
       \end{itemize}
       
-      Przyk³adowy kawa³ek kodu:
+      PrzykÅ‚adowy kawaÅ‚ek kodu:
       \begin{verbatim}
       Complex z = new Complex( 4, 3 );
       Console.WriteLine( String.Format( "{0}", z ) );
@@ -29,7 +29,7 @@
       Console.WriteLine( String.Format( "{0:w}", z ) );
       \end{verbatim}
 
-      powinien daæ wynik
+      powinien daÄ‡ wynik
 
       \begin{verbatim}
       4+3i
@@ -39,108 +39,108 @@
 
       [{\bf 1p}]  
                 
-\subsection{W³asna kolekcja danych (1)}
+\subsection{WÅ‚asna kolekcja danych (1)}
       
-      Zaimplementowaæ niegeneryczn¹ kolekcjê {\tt Set} dzia³aj¹c¹ jak zbiór, odrzucaj¹cy duplikaty elementów.
+      ZaimplementowaÄ‡ niegenerycznÄ… kolekcjÄ™ {\tt Set} dziaÅ‚ajÄ…cÄ… jak zbiÃ³r, odrzucajÄ…cy duplikaty elementÃ³w.
 \label{wlasne_kolekcje}	  
       
-      {\em Wskazówka: s¹ trzy mo¿liwoœci - albo dziedziczenie jakiejœ kolekcji bibliotecznej, albo zaimplementowanie w³asnej kolekcji, która wewnêtrznie bêdzie wykorzystywa³a
-      jak¹œ kolekcjê biblioteczn¹, wreszcie zaimplementowanie w³asnej kolekcji nie dziedzicz¹cej z ¿adnej kolekcji bibliotecznej ani nie wykorzystuj¹cej wewnêtrznie ¿adnej
-      kolekcji bibliotecznej. Ta ostatnia mo¿liwoœæ ma niewielki sens - nale¿y uczyæ siê korzystania z biblioteki standardowej i wykorzystywaæ jej komponenty we w³asnym kodzie,
-      a nie wywa¿aæ otwarte drzwi implementuj¹c ju¿ istniej¹ce mechanizmy samemu.}
+      {\em WskazÃ³wka: sÄ… trzy moÅ¼liwoÅ›ci - albo dziedziczenie jakiejÅ› kolekcji bibliotecznej, albo zaimplementowanie wÅ‚asnej kolekcji, ktÃ³ra wewnÄ™trznie bÄ™dzie wykorzystywaÅ‚a
+      jakÄ…Å› kolekcjÄ™ bibliotecznÄ…, wreszcie zaimplementowanie wÅ‚asnej kolekcji nie dziedziczÄ…cej z Å¼adnej kolekcji bibliotecznej ani nie wykorzystujÄ…cej wewnÄ™trznie Å¼adnej
+      kolekcji bibliotecznej. Ta ostatnia moÅ¼liwoÅ›Ä‡ ma niewielki sens - naleÅ¼y uczyÄ‡ siÄ™ korzystania z biblioteki standardowej i wykorzystywaÄ‡ jej komponenty we wÅ‚asnym kodzie,
+      a nie wywaÅ¼aÄ‡ otwarte drzwi implementujÄ…c juÅ¼ istniejÄ…ce mechanizmy samemu.}
 
       [{\bf 1p}]  
 
-\subsection{Sk³adanie strumieni (1)}
+\subsection{SkÅ‚adanie strumieni (1)}
 
-      Napisaæ program, który zawartoœæ wskazanego pliku tekstowego zapisze do {\bf zaszyfrowanego} algorytmem AES {\bf skompresowanego} 
+      NapisaÄ‡ program, ktÃ³ry zawartoÅ›Ä‡ wskazanego pliku tekstowego zapisze do {\bf zaszyfrowanego} algorytmem AES {\bf skompresowanego} 
 \label{skladanie_strumieni}	  
 	  strumienia GZip.
       
-      Napisaæ kolejny program, który odszyfruje wskazany skompresowany strumieñ GZip.
+      NapisaÄ‡ kolejny program, ktÃ³ry odszyfruje wskazany skompresowany strumieÅ„ GZip.
             
       [{\bf 1p}]
 
 \subsection{Golibroda w .NET (2)}
 
-      Napisaæ konsolowy program, który rozwi¹zuje klasyczny problem golibrody lub problem "palaczy tytoniu" 
+      NapisaÄ‡ konsolowy program, ktÃ³ry rozwiÄ…zuje klasyczny problem golibrody lub problem "palaczy tytoniu" 
 \label{golibroda_net}	  
-      za pomoc¹ którejkolwiek z metod synchronizacji w¹tków udostêpnianej przez .NET BCL.  
+      za pomocÄ… ktÃ³rejkolwiek z metod synchronizacji wÄ…tkÃ³w udostÄ™pnianej przez .NET BCL.  
 
       [{\bf 2p}] 
       
-\subsection{Protoko³y sieciowe (1)}
+\subsection{ProtokoÅ‚y sieciowe (1)}
 
-    Zademonstrowaæ dzia³anie klas {\tt FtpWebRequest}, {\tt HttpWebRequest}, 
+    ZademonstrowaÄ‡ dziaÅ‚anie klas {\tt FtpWebRequest}, {\tt HttpWebRequest}, 
 	{\tt WebClient}, {\tt HttpClient}, {\tt HttpListener},
 \label{protokoly_sieciowe}	
     {\tt TcpListener}, {\tt TcpClient}, {\tt SmtpClient}.
 	
-	Zwróciæ uwagê na te funkcje z interfejsów powy¿szych klas, których metody pobierania danych s¹ zaimplementowane jako asynchroniczne (zwracaj¹ {\tt Task<T>}).
+	ZwrÃ³ciÄ‡ uwagÄ™ na te funkcje z interfejsÃ³w powyÅ¼szych klas, ktÃ³rych metody pobierania danych sÄ… zaimplementowane jako asynchroniczne (zwracajÄ… {\tt Task<T>}).
 
     [{\bf 1p}]
 
-\subsection{Serializacja i przesy³anie obiektów (2)}
+\subsection{Serializacja i przesyÅ‚anie obiektÃ³w (2)}
 
-    Wybraæ jeden z omawianych sposobów serializacji (binarne, XML, SOAP) i przygotowaæ dwa modu³y: klienta i serwera.
+    WybraÄ‡ jeden z omawianych sposobÃ³w serializacji (binarne, XML, SOAP) i przygotowaÄ‡ dwa moduÅ‚y: klienta i serwera.
 	
-	Klient serializuje wskazany obiekt z danymi (jakaœ wspó³dzielona prosta klasa) i przesy³a go do serwera. Serwer deserializuje obiekt i zapamiêtuje go w pliku.
+	Klient serializuje wskazany obiekt z danymi (jakaÅ› wspÃ³Å‚dzielona prosta klasa) i przesyÅ‚a go do serwera. Serwer deserializuje obiekt i zapamiÄ™tuje go w pliku.
 	
-	{\em Wskazówka}. Do implementacji komunikacji klient-serwer mo¿na u¿yæ klas 
+	{\em WskazÃ³wka}. Do implementacji komunikacji klient-serwer moÅ¼na uÅ¼yÄ‡ klas 
     {\tt TcpClient} i {\tt TcpListener}) .
     
     [{\bf 2p}]
 
-\subsection{Komunikacja miêdzyprocesowa - MSMQ (2)}
+\subsection{Komunikacja miÄ™dzyprocesowa - MSMQ (2)}
 
-    Korzystaj¹c z MSMQ ({\tt System.Messaging}) utworzyæ
+    KorzystajÄ…c z MSMQ ({\tt System.Messaging}) utworzyÄ‡
 \label{msmq}	
-    dwukomponentowy system, w którym jeden z komponentów bêdzie
-    co pewien czas tworzy³ du¿¹ liczbê komunikatów, a drugi komponent
-    bêdzie regularnie opró¿nia³ kolejkê komunikatów, wykonuj¹c dla
-    ka¿dego z nich jak¹œ kilkusekundow¹ akcjê.
+    dwukomponentowy system, w ktÃ³rym jeden z komponentÃ³w bÄ™dzie
+    co pewien czas tworzyÅ‚ duÅ¼Ä… liczbÄ™ komunikatÃ³w, a drugi komponent
+    bÄ™dzie regularnie oprÃ³Å¼niaÅ‚ kolejkÄ™ komunikatÃ³w, wykonujÄ…c dla
+    kaÅ¼dego z nich jakÄ…Å› kilkusekundowÄ… akcjÄ™.
     
     [{\bf 2p}]
 
 \subsection{Globalizacja (1)}
 
-    Napisaæ program, który korzystaj¹c z informacji z odpowiedniej instancji obiektu {\tt CultureInfo} 
+    NapisaÄ‡ program, ktÃ³ry korzystajÄ…c z informacji z odpowiedniej instancji obiektu {\tt CultureInfo} 
 \label{globaliazcja}	
-    wypisze pe³ne i skrótowe nazwy miesiêcy i dni tygodnia oraz
-    bie¿¹c¹ datê w jêzykach: 
+    wypisze peÅ‚ne i skrÃ³towe nazwy miesiÄ™cy i dni tygodnia oraz
+    bieÅ¼Ä…cÄ… datÄ™ w jÄ™zykach: 
     angielskim, niemieckim, francuskim, rosyjskim, arabskim, czeskim i polskim.
     
     [{\bf 1p}]
 
-\subsection{Us³uga systemowa (1)}
+\subsection{UsÅ‚uga systemowa (1)}
 
-    Napisaæ us³ugê systemow¹ ({\em System Service}), która bêdzie co minutê zapisywaæ listê
+    NapisaÄ‡ usÅ‚ugÄ™ systemowÄ… ({\em System Service}), ktÃ³ra bÄ™dzie co minutÄ™ zapisywaÄ‡ listÄ™
 \label{system_service}	
     uruchomionych aplikacji do pliku tekstowego. 
     
-    {\em Uwaga! Po skompilowaniu us³uga musi zostaæ zarejestrowana w systemie
-    za pomoc¹ programu {\tt installutil.exe}. Zarz¹dzanie us³ugami odbywa siê z poziomu
-    panelu {\bf Zarz¹dzanie komputerem}, sekcja {\bf Us³ugi i aplikacje}.}
+    {\em Uwaga! Po skompilowaniu usÅ‚uga musi zostaÄ‡ zarejestrowana w systemie
+    za pomocÄ… programu {\tt installutil.exe}. ZarzÄ…dzanie usÅ‚ugami odbywa siÄ™ z poziomu
+    panelu {\bf ZarzÄ…dzanie komputerem}, sekcja {\bf UsÅ‚ugi i aplikacje}.}
     
     [{\bf 1p}]
 
-\subsection{Zewnêtrzny plik w zasobach aplikacji (1)}
+\subsection{ZewnÄ™trzny plik w zasobach aplikacji (1)}
 
-    Umieœciæ dowolny plik w zasobach aplikacji (w projekcie plik powinien mieæ w³aœciwoœæ {\em Embedded Resource}). Nastêpnie napisaæ klasê, która po
+    UmieÅ›ciÄ‡ dowolny plik w zasobach aplikacji (w projekcie plik powinien mieÄ‡ wÅ‚aÅ›ciwoÅ›Ä‡ {\em Embedded Resource}). NastÄ™pnie napisaÄ‡ klasÄ™, ktÃ³ra po
 \label{plik_w_zasobach}	
 	podaniu nazwy zasobu
-    umo¿liwi wydobycie pliku z zasobów zestawu.
+    umoÅ¼liwi wydobycie pliku z zasobÃ³w zestawu.
 	
-	Osadzanie plików (tekstowych, binarnych) w zasobach aplikacji przydaje siê wtedy kiedy aplikacja jest dystrybuowana do œrodowiska klienckiego. Zamiast
-	plików wykonywalnych i dodatkowych plików zasobów, klient dostaje pliki wykonywalne w zasobach których zaszyte s¹ pliki z danymi.
+	Osadzanie plikÃ³w (tekstowych, binarnych) w zasobach aplikacji przydaje siÄ™ wtedy kiedy aplikacja jest dystrybuowana do Å›rodowiska klienckiego. Zamiast
+	plikÃ³w wykonywalnych i dodatkowych plikÃ³w zasobÃ³w, klient dostaje pliki wykonywalne w zasobach ktÃ³rych zaszyte sÄ… pliki z danymi.
         
     [{\bf 1p}]
 
 \subsection{Dynamiczne tworzenie kodu (2)}
 
-    Napisaæ program, który w czasie dzia³ania powo³a do ¿ycia instancjê kompilatora C\# i u¿yje go do skompilowania fragmentu kodu
-	funkcji, wprowadzonej przez u¿ytkownika do konsoli. Nastêpnie skompilowany fragment zostanie w³¹czony do aktualnie wykonywanego programu i wykonany.
+    NapisaÄ‡ program, ktÃ³ry w czasie dziaÅ‚ania powoÅ‚a do Å¼ycia instancjÄ™ kompilatora C\# i uÅ¼yje go do skompilowania fragmentu kodu
+	funkcji, wprowadzonej przez uÅ¼ytkownika do konsoli. NastÄ™pnie skompilowany fragment zostanie wÅ‚Ä…czony do aktualnie wykonywanego programu i wykonany.
 	
-	{\em Wskazówka. Obiekt kompilatora to klasa {\tt Microsoft.CSharp.CSharpCodeProvider}}.
+	{\em WskazÃ³wka. Obiekt kompilatora to klasa {\tt Microsoft.CSharp.CSharpCodeProvider}}.
 
     [{\bf 2p}]

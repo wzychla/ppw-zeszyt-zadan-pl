@@ -1,20 +1,20 @@
-\section{Jêzyk C\# 1.0 (6)}
+ï»¿\section{JÄ™zyk C\# 1.0 (6)}
   
 \subsection{Prosty algorytm (1)}
 
-      Napisaæ program, który wyznacza zbiór wszystkich liczb natualnych 1 a 100000, które s¹ podzielne zarówno przez ka¿d¹ ze swoich cyfr z
+      NapisaÄ‡ program, ktÃ³ry wyznacza zbiÃ³r wszystkich liczb natualnych 1 a 100000, ktÃ³re sÄ… podzielne zarÃ³wno przez kaÅ¼dÄ… ze swoich cyfr z
 \label{prosty_algorytm}	  
-	  osobna jak i przez sumê swoich cyfr.
+	  osobna jak i przez sumÄ™ swoich cyfr.
 
       [{\bf 1p}]
  
 \subsection{Indeksery (1)}
 
-  Zaimplementowaæ klasê siatki dwuwymiarowej, {\tt Grid}, z dwoma indekserami:
+  ZaimplementowaÄ‡ klasÄ™ siatki dwuwymiarowej, {\tt Grid}, z dwoma indekserami:
 \label{indeksery}  
   
 	\begin{itemize}
-	\item jednowymiarowym, zwracaj¹cym listê elementów zadanego wiersza tablicy, tak aby klient klasy móg³ napiasæ:
+	\item jednowymiarowym, zwracajÄ…cym listÄ™ elementÃ³w zadanego wiersza tablicy, tak aby klient klasy mÃ³gÅ‚ napiasÄ‡:
 
 	      \begin{verbatim}
   ...
@@ -22,7 +22,7 @@
   int[] rowdata = grid[1]; // akcesor "get"
 	      \end{verbatim}
 
-	\item dwuwymiarowym, zwracaj¹cym okreœlony element tablicy, tak aby klient klasy móg³ napisaæ:
+	\item dwuwymiarowym, zwracajÄ…cym okreÅ›lony element tablicy, tak aby klient klasy mÃ³gÅ‚ napisaÄ‡:
       
 	      \begin{verbatim}
   ...
@@ -34,25 +34,25 @@
 	      
 	\end{itemize}
       
-      Oba indeksery powinny przyjmowaæ jako parametry liczby ca³kowite. Konstruktor klasy powinien przyjmowaæ
-	  jako parametry liczbê wierszy i liczbê kolumn siatki.
+      Oba indeksery powinny przyjmowaÄ‡ jako parametry liczby caÅ‚kowite. Konstruktor klasy powinien przyjmowaÄ‡
+	  jako parametry liczbÄ™ wierszy i liczbÄ™ kolumn siatki.
       
       [{\bf 1p}]
 
-\subsection{Refleksja - sk³adowe prywatne (1)}
+\subsection{Refleksja - skÅ‚adowe prywatne (1)}
 
-      Napisaæ program, który zademonstruje mo¿liwoœæ dostêpu z zewn¹trz
+      NapisaÄ‡ program, ktÃ³ry zademonstruje moÅ¼liwoÅ›Ä‡ dostÄ™pu z zewnÄ…trz
 \label{refleksja}	  
-      do prywatnych sk³adowych klasy.
+      do prywatnych skÅ‚adowych klasy.
       
-      Kod programu powinien sk³adaæ siê z przyk³adowej klasy z co najmniej
-      jedn¹ prywatn¹ metod¹ i w³aœciwoœci¹. Kod kliencki powinien uzyskaæ dostêp
-      do sk³adowych prywatnych za pomoc¹ refleksji.
+      Kod programu powinien skÅ‚adaÄ‡ siÄ™ z przykÅ‚adowej klasy z co najmniej
+      jednÄ… prywatnÄ… metodÄ… i wÅ‚aÅ›ciwoÅ›ciÄ…. Kod kliencki powinien uzyskaÄ‡ dostÄ™p
+      do skÅ‚adowych prywatnych za pomocÄ… refleksji.
       
-      Nale¿y ponadto porównaæ szybkoœæ dostêpu do sk³adowej
-      publicznej w zwyk³y sposób i za pomoc¹ refleksji.
+      NaleÅ¼y ponadto porÃ³wnaÄ‡ szybkoÅ›Ä‡ dostÄ™pu do skÅ‚adowej
+      publicznej w zwykÅ‚y sposÃ³b i za pomocÄ… refleksji.
       
-      {\em Wskazówka: mierzenie czasu dzia³ania bloku kodu najproœciej wykonaæ nastêpuj¹co:
+      {\em WskazÃ³wka: mierzenie czasu dziaÅ‚ania bloku kodu najproÅ›ciej wykonaÄ‡ nastÄ™pujÄ…co:
       
       \begin{verbatim}
 DateTime Start = DateTime.Now;
@@ -63,8 +63,8 @@ TimeSpan Czas = Start-End;
 Console.WriteLine( Czas );
       \end{verbatim}
       
-      Nale¿y jedynie pamiêtaæ o {\bf powtórzeniu} bloku kodu w pêtli tak d³ugo, a¿ pomiar czasu bêdzie mia³ jakikolwiek sens - w przypadku kodu wykonywanego
-      kilka/kilkanaœcie milisekund powy¿sza metoda zastosowana do jednokrotnie wykonanego bloku kodu zwróci po prostu 0 jako czas wykonania. Przyk³ad:
+      NaleÅ¼y jedynie pamiÄ™taÄ‡ o {\bf powtÃ³rzeniu} bloku kodu w pÄ™tli tak dÅ‚ugo, aÅ¼ pomiar czasu bÄ™dzie miaÅ‚ jakikolwiek sens - w przypadku kodu wykonywanego
+      kilka/kilkanaÅ›cie milisekund powyÅ¼sza metoda zastosowana do jednokrotnie wykonanego bloku kodu zwrÃ³ci po prostu 0 jako czas wykonania. PrzykÅ‚ad:
 
       \begin{verbatim}
 int LiczbaProb = 1000;      
@@ -80,20 +80,20 @@ TimeSpan Czas = Start-End;
 Console.WriteLine( Czas );
       \end{verbatim}}
 
-Nale¿y równie¿ pamiêtaæ o odrzuceniu wyników kilku pierwszych pomiarów - wyniki mog¹ byæ zaburzone przez rozruch silnika JIT przyotowuj¹cego aplikacjê do wykonania w systemie operacyjnym.	  
+NaleÅ¼y rÃ³wnieÅ¼ pamiÄ™taÄ‡ o odrzuceniu wynikÃ³w kilku pierwszych pomiarÃ³w - wyniki mogÄ… byÄ‡ zaburzone przez rozruch silnika JIT przyotowujÄ…cego aplikacjÄ™ do wykonania w systemie operacyjnym.	  
 	  
       [{\bf 1p}]
 
 \subsection{Atrybuty (1)}
 
-	Napisaæ funkcjê, która jako parametr przyjmuje dowolny obiekt i wyszukuje wszystkie jego publiczne, niestatyczne metody zwracaj¹ce
+	NapisaÄ‡ funkcjÄ™, ktÃ³ra jako parametr przyjmuje dowolny obiekt i wyszukuje wszystkie jego publiczne, niestatyczne metody zwracajÄ…ce
 \label{atrybuty}	
-    wartoœæ typu {\bf int} i maj¹ce pust¹ listê parametrów.	
+    wartoÅ›Ä‡ typu {\bf int} i majÄ…ce pustÄ… listÄ™ parametrÃ³w.	
 	
-	Nastêpnie sproœród tych metod, funkcja wywo³a i wypisze na konsoli wynik wywo³ania wszystkich tych funkcji, które s¹ oznakowane
+	NastÄ™pnie sproÅ›rÃ³d tych metod, funkcja wywoÅ‚a i wypisze na konsoli wynik wywoÅ‚ania wszystkich tych funkcji, ktÃ³re sÄ… oznakowane
 	atrybutem {\bf [Oznakowane]}.
 	
-	Przyk³adowo, w poni¿szym fragmencie kodu na konsoli powinna pojawiæ siê tylko wartoœæ z funkcji {\bf Bar}.
+	PrzykÅ‚adowo, w poniÅ¼szym fragmencie kodu na konsoli powinna pojawiÄ‡ siÄ™ tylko wartoÅ›Ä‡ z funkcji {\bf Bar}.
 	
 \begin{verbatim}
 public class Foo
@@ -116,28 +116,28 @@ public class Foo
 
 \subsection{Dokumentowanie kodu (1)}
 
-      Zdokumentowaæ (przez umieszczenie odpowiednich komentarzy w kodzie)
+      ZdokumentowaÄ‡ (przez umieszczenie odpowiednich komentarzy w kodzie)
 \label{dokumentowanie}	  
-      jeden dowolny program z bie¿¹cej sekcji. 
+      jeden dowolny program z bieÅ¼Ä…cej sekcji. 
 
-      Wygenerowaæ dokumentacjê w postaci pliku XML podczas kompilacji. U¿yæ
-      narzêdzia SandCastle Help File Builder ({\tt http://shfb.codeplex.com/}) do zbudowania
+      WygenerowaÄ‡ dokumentacjÄ™ w postaci pliku XML podczas kompilacji. UÅ¼yÄ‡
+      narzÄ™dzia SandCastle Help File Builder ({\tt http://shfb.codeplex.com/}) do zbudowania
       pomocy stylach HTML Help i MSDN-online.
 
       [{\bf 1p}]
 
 \subsection{Dekompilacja kodu (1)}
 
-      Napisaæ w C\# dowolny program demonstruj¹cy u¿ycie klas (metod, pól, propercji, indekserów, delegacji i zdarzeñ) oraz podstawowych
+      NapisaÄ‡ w C\# dowolny program demonstrujÄ…cy uÅ¼ycie klas (metod, pÃ³l, propercji, indekserÃ³w, delegacji i zdarzeÅ„) oraz podstawowych
 \label{dekompilacja}	  
-      konstrukcji sk³adniowych (pêtle, instrukcje warunkowe, {\tt switch})
-      i zdekompilowaæ go do wybranego przez siebie jêzyka (VB.NET lub CIL)
-      za pomoc¹ narzêdzia {\bf IlSpy} ({\tt http://ilspy.net/}).
+      konstrukcji skÅ‚adniowych (pÄ™tle, instrukcje warunkowe, {\tt switch})
+      i zdekompilowaÄ‡ go do wybranego przez siebie jÄ™zyka (VB.NET lub CIL)
+      za pomocÄ… narzÄ™dzia {\bf IlSpy} ({\tt http://ilspy.net/}).
       
-      Otrzymany kod skompilowaæ odpowiednim kompilatorem, aby otrzymaæ plik wynikowy.
-      Plik ten nastêpnie zdekompilowaæ na powrót do jêzyka C\#.
+      Otrzymany kod skompilowaÄ‡ odpowiednim kompilatorem, aby otrzymaÄ‡ plik wynikowy.
+      Plik ten nastÄ™pnie zdekompilowaÄ‡ na powrÃ³t do jÄ™zyka C\#.
       
-      Porównaæ otrzymane w ten sposób pliki z kodem Ÿród³owym.
-      Jak objawiaj¹ siê i z czego wynikaj¹ ró¿nice?
+      PorÃ³wnaÄ‡ otrzymane w ten sposÃ³b pliki z kodem ÅºrÃ³dÅ‚owym.
+      Jak objawiajÄ… siÄ™ i z czego wynikajÄ… rÃ³Å¼nice?
 
       [{\bf 1p}]
