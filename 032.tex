@@ -1,0 +1,107 @@
+\section{Podsystem Windows Forms (9)}
+
+\subsection{Podstawowy interfejs u¿ytkownika (1)} 
+
+    Powtórzyæ w Windows Forms zadanie wed³ug specyfikacji \ref{okno_dialogowe} ze str.\pageref{okno_dialogowe}.
+
+      [{\bf 1p}]  
+	
+\subsection{Komponenty dodatkowe (1)} 
+
+    Powtórzyæ w Windows Forms zadanie wed³ug specyfikacji \ref{common_controls} ze str.\pageref{common_controls}.
+	{\em Uwaga!} Komponenty pochodz¹ z podsystemu Windows Forms.
+
+      [{\bf 1p}]  
+	
+\subsection{Podsystem {\tt GDI+} (2)} 
+    Przedstawiony w skrypcie program rysuj¹cy w oknie bie¿¹cy czas przerobiæ na wzór zegarka systemowego
+\label{podsystem_gdi}	
+      Windows, to znaczy tak, ¿eby bie¿¹ca godzina by³a przedstawiana na tarczy zegara analogowego a nie cyfrowego.
+      
+      Wykorzystaæ funkcje do rysowania z GDI+. 
+
+      [{\bf 2p}]  
+      
+\subsection{W³asny formant (1)}
+      
+      Zaimplementowaæ w³asny komponent {\tt SmoothProgressBar}, który
+\label{smooth_progress}	  
+      bêdzie imitowaæ zachowanie standardowego komponentu {\tt ProgressBar} (pasek postêpu).
+      
+      Komponent powinien mieæ co najmniej 3 propercje: {\tt Min}, {\tt Max} i {\tt Value}, 
+      pozwalaj¹ce okreœliæ odpowiednio minimaln¹, maksymaln¹ i bie¿¹c¹ wartoœæ paska postêpu.      
+      Maj¹c te informacje, {\tt SmoothProgressBar} w zdarzeniu {\tt Paint} powinien rysowaæ g³adki 
+      (w przeciwieñstwie do oryginalnego, który jest z³o¿ony z "kafelków")
+      pasek postêpu o odpowiedniej d³ugoœci (wed³ug zadanych proporcji). 
+      
+	\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{z6_pb}
+	\end{center}
+	\caption{Przyk³adowy {\tt SmoothProgressBar}}
+	\end{figure}
+      
+      [{\bf 1p}]  
+	        
+\subsection{Pomoc kontekstowa (2)}
+
+    W dowolny sposób przygotowaæ plik pomocy kontekstowej w formacie CHM. 
+\label{pomoc_kontekstowa}	
+    
+    Nastêpnie przyk³adow¹ aplikacjê rozszerzyæ o obs³ugê
+    pomocy kontekstowej. Nale¿y pokazaæ, ¿e dla ró¿nych formantów 
+    interfejsu u¿ytkownika, przywo³anie pomocy kontekstowej przywo³uje
+    w³aœciwy temat pliku pomocy.
+    
+    Wskazówki: 
+	
+	\begin{itemize}
+	\item jednym z narzêdzni umo¿liwiaj¹cych wytworzenie pliku CHM jest darmowy HTML Help Workshop
+	\item do wi¹zania formantów z tematami pomocy mo¿na
+    u¿yæ bibliotecznego komponentu {\tt HelpProvider} lub jego alternatyw
+    w rodzaju 
+	
+	{\tt http://netpl.blogspot.com/2007/08/con\-text-help-made-easy-reloaded.html}
+	\end{itemize}
+    
+    [{\bf 2p}]  
+
+\subsection{Wykonywanie zadañ w tle (1)}
+
+	Zademonstrowaæ w praktyce dzia³anie klasy {\tt BackgroundWorker} oraz jej zdarzenia {\tt ProgressChanged} do delegowania d³ugiego zadania
+	do przetwarzania w tle. 
+	
+	Formalnie - w¹tek w tle niech testuje jakiœ zakres liczb na przyk³ad testem pierwszoœci. Zakres dobraæ tak, aby obliczenia trwa³y nie krócej ni¿ kilka sekund.
+	Postêp obliczeñ powinien byæ raportowany w interfejsie u¿ytkownika za pomoc¹ formantu paska postêpu.
+	
+	Porównaæ to z zadaniem w tle wykonanym za pomoc¹ standardowego w¹tka (obiekt {\tt Thread}) który w trakcie obliczeñ równie¿ aktualizuje pasek	
+	postêpu obliczeñ. Jaka trudnoœæ pojawia siê w tym drugim podejœciu (jest to równie¿ odpowiedŸ na pytanie co wnosi {\tt BackgroundWorker}
+	w stosunku do takiego naiwnego podejœcia)?
+
+    [{\bf 1p}]  
+	
+\subsection{Async/await (1)}
+
+	Zaprezentowaæ na niewielkim przyk³adzie zastosowanie rozszerzeñ jêzyka w obszarze programowania asynchronicznego ({\tt async/await}).
+	
+	Bardziej formalnie - pokazaæ ¿e w aplikacji okienkowej u¿ycie nieblokuj¹cej metody asynchronicznej {\tt HttpClient::ReadStringAsync} 
+	do pobrania zawartoœci z zewnêtrznego zasobu sieciowego nie spowoduje zablokowania w¹tka g³ównego aplikacji, w którym przetwarzana jest pêtla
+	obs³ugi komunikatów. W tej samej aplikacji zademonstrowaæ synchroniczne, bloku¹ce wywo³anie metody {\tt WebClient::DownloadString}.
+	
+    [{\bf 1p}]  
+
+\section{Podsystemy WPF/Metro (4)}
+
+\subsection{Podstawowy interfejs u¿ytkownika (2)} 
+
+    Powtórzyæ w WPF zadanie wed³ug specyfikacji \ref{okno_dialogowe} ze str.\pageref{okno_dialogowe}.
+
+    [{\bf 2p}]  
+
+\subsection{Komponenty dodatkowe (2)} 
+
+    Powtórzyæ w WPF zadanie wed³ug specyfikacji \ref{common_controls} ze str.\pageref{common_controls}.
+	{\em Uwaga!} Komponenty pochodz¹ z podsystemu WPF.
+
+    [{\bf 2p}]  
+	

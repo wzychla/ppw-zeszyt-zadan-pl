@@ -1,0 +1,64 @@
+\section{eXtensible Markup Language (6)}
+
+  Poni¿sze problemy skomponowano w sposób maksymalnie atomowy, nic nie stoi jednak na przeszkodzie
+	aby kilka kolejnych powi¹zanych zadañ po³¹czyæ w jednej wiêkszej aplikacji.
+
+\subsection{XML (0)}
+
+      Zaprojektowaæ prost¹ strukturê XML do przechowywania danych o studentach. 
+\label{xml1}  
+      Ka¿dy student reprezentowany jest {\bf co najmniej} przez podstawowy zbiór atrybutów osobowych,
+      ma dwa adresy (sta³y i tymczasowy) oraz listê zajêæ na które uczêszcza wraz z ocenami.
+      
+      [{\bf 0p}]
+
+\subsection{XSD (1)}
+
+      Schemat struktury z poprzedniego zadania wyraziæ w postaci XSD. Zadbaæ o poprawne opisane regu³ walidacji
+\label{xsd}	  
+      zakresu danych (pewne dane mog¹ byæ opcjonalne) i ich zawartoœci (pewne dane mog¹ przyjmowaæ 
+      wartoœci o konkretnym formacie).
+
+      [{\bf 1p}]
+
+\subsection{XML + XSD (1)}
+\label{XML_XSD}
+
+      Napisaæ program, który u¿ywa zaprojektowanego w poprzednim zadaniu schematu XSD do walidacji wskazanych
+\label{xml_xsd}	  
+      przez u¿ytkownika plików XML i raportuje ewentualne niezgodnoœci.
+      
+      [{\bf 1p}]
+
+\subsection{XML - serializacja (1)}
+
+      Napisaæ prostego klienta struktury XML z zadania~\ref{XML_XSD}, który pliki XML czyta i zapisuje 
+\label{xml_serializacja}	  
+      mechanizmem serializacji do struktur danych zamodelowanych odpowiednimi atrybutami.
+      
+      [{\bf 1p}]
+
+\subsection{XML - DOM (1)}
+
+      Napisaæ prostego klienta struktury XML z zadania~\ref{XML_XSD}, który pliki XML czyta i zapisuje 
+\label{xml_dom}	  
+      za pomoc¹ modelu DOM ({\tt XmlDocument}).
+      
+      [{\bf 1p}]
+
+\subsection{XML - strumienie (1)}
+
+      Napisaæ prostego klienta struktury XML z zadania~\ref{XML_XSD}, który pliki XML czyta i zapisuje 
+\label{xml_strumienie}  
+      za pomoc¹ mechanizmów strumieniowych ({\tt XmlTextReader, XmlTextWriter}).
+      
+      [{\bf 1p}]
+
+\subsection{XML - LINQ to XML (1)}
+
+      Napisaæ wyra¿enie LINQ to XML, które z dokumentu XML z poprzednich zadañ wybierze dane osobowe studentów o nazwiskach 
+\label{xml_linq}	  
+      rozpoczynaj¹cych siê na wskazan¹ literê (wybór litery powinien byæ mo¿liwy jakkolwiek bez rekompilacji programu). 
+      
+      [{\bf 1p}]
+

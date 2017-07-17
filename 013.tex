@@ -1,0 +1,81 @@
+\section{Component Object Model (6)}
+
+Rozwi¹zanie zadañ w tym rozdziale polega na napisaniu programów w
+jêzyku C++, korzystaj¹c z wbudowanych w Visual Studio szablonów projektów bibliotek COM.
+
+\subsection {Automaryzacja Word (2)}
+
+      Napisaæ w C/C++ aplikacjê konsoli, która za poœrednictwem podsystemu COM otworzy now¹ instancjê aplikacji MS Word, a w niej otworzy
+\label{com_client}	  
+	  nowy dokument,
+      do którego wstawi tekst "Programowanie pod Windows". Nastêpnie dokument zostanie zapisany na dysku pod nazw¹ "ppw.doc".
+      
+	  Wzorowaæ siê na poni¿szym kodzie:
+\begin{scriptsize}	  
+\begin{verbatim}
+void main()
+{
+	CoInitialize(NULL);
+
+	CLSID clsid;
+	OLECHAR wb[] = L"Word.Application";
+	CLSIDFromProgID(wb, &clsid);
+
+	OLECHAR pszCLSID[39];
+	StringFromGUID2(clsid, pszCLSID, 39);
+	
+	char buffer[39];
+	wsprintf(buffer, "%S", pszCLSID);
+	cout << "CLSID: " << buffer << endl;
+
+	IDispatch* pDispatch;
+	CoCreateInstance(clsid, NULL, CLSCTX_SERVER, IID_IDispatch, (void**)&pDispatch);
+
+	DISPID dispid;
+	OLECHAR* szMember = L"Visible";
+
+	HRESULT hr = 
+	   pDispatch->GetIDsOfNames(IID_NULL, &szMember, 1, LOCALE_SYSTEM_DEFAULT, &dispid);
+	if(FAILED(hr))
+	    cout << "GetIDsOfNames failed" << endl;
+	    cout << "DispID of Visible = " << dispid << endl;
+
+	VARIANTARG test = { VT_BOOL, 0, 0, 0, VARIANT_TRUE };
+	DISPID dispidnamed = DISPID_PROPERTYPUT;
+	DISPPARAMS param = { &test, &dispidnamed, 1, 1 };
+
+	hr = pDispatch->Invoke(dispid, IID_NULL, LOCALE_SYSTEM_DEFAULT,
+		DISPATCH_PROPERTYPUT, &param, NULL, NULL, NULL);
+	if(FAILED(hr))
+		cout << "Invoke failed" << endl;
+
+	pDispatch->Release();
+	CoUninitialize();
+}
+\end{verbatim}
+\end{scriptsize}
+	  
+      [{\bf 2p}]
+
+\subsection {Serwer COM (3)}
+
+      Przygotowaæ w C++ serwer COM, udostêpniaj¹cy funkcjê {\tt int IsPrime( int n )} umo¿liwiaj¹c¹ sprawdzenie, czy podana liczba jest liczb¹ 
+\label{com_server}	  	  
+	  pierwsz¹. Funkcja powinna zwracaæ
+      zero dla argumentu bêd¹cego liczb¹ z³o¿on¹ i dowoln¹ niezerow¹ wartoœæ dla argumentu bêd¹cego liczb¹ pierwsz¹.
+
+      {\em Wskazówka: w Visual Studio nale¿y rozpocz¹æ od projektu C++/ATL Project. 
+      Nastêpnie w widoku Class View u¿yæ funkcji Add/ATL COM+ 1.0 Component. 
+      Dalsze kroki postêpowania zmierzaj¹cego do zbudowania serwera COM zostan¹
+      zaprezentowane na wyk³adzie.}
+
+      [{\bf 3p}]
+
+\subsection {Klient COM w VBA (1)}
+
+      Napisaæ w Visual Basic for Applications (jêzyk skryptowy Microsoft Office) funkcjê wykorzystuj¹c¹ serwer COM z poprzedniego zadania. 
+	  Rozwi¹zanie nie musi posiadaæ ¿adnego interfejsu u¿ytkownika do wygodnego wprowadzania argumentu funkcji.
+
+      [{\bf 1p}]
+
+	  

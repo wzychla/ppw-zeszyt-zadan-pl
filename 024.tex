@@ -1,0 +1,177 @@
+\section{Rozszerzenia jêzyka C\# 3.0 (10)}
+
+\subsection{Metoda rozszerzaj¹ca klasê {\tt System.String} (1)}
+
+  Zaimplementowaæ metodê {\tt bool IsPalindrome()} rozszerzaj¹c¹ klasê {\tt string}. Implementacja powinna byæ niewra¿liwa na bia³e znaki i znaki
+\label{rozszerzenie_string}  
+  przestankowe wystêpuj¹ce
+  wewn¹trz napisu ani na wielkoœæ liter.
+  Klient tej metody powinien wywo³aæ j¹ tak:
+  \begin{verbatim}
+string s = "Koby³a ma ma³y bok.";
+bool ispalindrome = s.IsPalindrome();
+  \end{verbatim}
+
+  [{\bf 1p}]
+
+\subsection{LINQ to Objects, sortowanie, filtrowanie (1)}
+
+  Dany jest plik tekstowy zawieraj¹cy zbiór liczb naturalnych w kolejnych liniach.
+\label{linq_to_objects}  
+  Napisaæ wyra¿enie LINQ, które odczyta kolejne liczby z pliku i wypisze tylko
+  liczby wiêksze ni¿ 100, posortowane malej¹co.
+  
+\begin{verbatim}  
+from liczba in [liczby]
+  where ...
+    orderby ...
+      select ...
+\end{verbatim}  
+  
+  Przeformu³owaæ wyra¿enie LINQ na ci¹g wywo³añ metod LINQ to Objects:
+
+\begin{verbatim}  
+[liczby].Where( ... ).OrderBy( ... )
+\end{verbatim}  
+
+  Czym ró¿ni¹ siê parametry operatorów {\bf where/orderby} od parametrów
+  funkcji {\bf Where, OrderBy}?
+
+  [{\bf 1p}]
+
+\subsection{LINQ to Objects, grupowanie (1)}
+
+  Dany jest plik tekstowy zawieraj¹cy zbiór nazwisk w kolejnych liniach.
+
+  Napisaæ wyra¿enie LINQ, które zwróci zbiór {\bf pierwszych} liter nazwisk
+\label{linq_grupowanie}  
+  uporz¹dkowanych w kolejnoœci alfabetycznej. Na przyk³ad dla zbioru
+  (Kowalski, Malinowski, Krasicki, Abacki) wynikiem powinien byæ zbiór
+  (A, K, M).
+  
+  {\em Wskazówka: zgodnie z tytu³em zadania u¿yæ operatora group .. by .. into ... }
+
+  [{\bf 1p}]
+ 
+\subsection{LINQ to Objects, agregowanie (1)}
+
+  Napisaæ wyra¿enie LINQ, które dla zadanego foldera wyznaczy sumê
+\label{linq_agregowanie}  
+  d³ugoœci plików znajduj¹cych siê w tym folderze. 
+  
+  Do zbudowania sumy d³ugoœci plików u¿yæ funkcji {\tt Aggregate}. Listê
+  plików w zadanym folderze wydobyæ za pomoc¹ odpowiednich metod
+  z przestrzeni nazw {\tt System.IO}.
+
+  [{\bf 1p}]
+
+\subsection{LINQ to Objects, Join (1)}
+
+  Dane s¹ dwa pliki tekstowe, pierwszy zawieraj¹cy zbiór danych osobowych postaci
+\label{linq_join}  
+  (Imiê, Nazwisko, PESEL), drugi postaci (PESEL, NumerKonta). Kolejnoœæ
+  danych w zbiorach jest przypadkowa.
+  
+  Napisaæ wyra¿enie LINQ, które po³¹czy oba zbiory danych i zbuduje zbiór
+  danych zawieraj¹cy rekordy postaci (Imiê, Nazwisko, PESEL, NumerKonta).
+  Do po³¹czenia danych nale¿y u¿yæ operatora {\tt join}.
+  
+  [{\bf 1p}]  
+  
+\subsection{LINQ to Objects, analiza logów serwera (2)}
+
+  Rejestr zdarzeñ serwera IIS 5.5 ma postaæ pliku tekstowego, w którym ka¿da
+\label{linq_logi}  
+  linia ma postaæ:
+  
+\begin{verbatim}
+08:55:36 192.168.0.1 GET /TheApplication/WebResource.axd 200
+\end{verbatim}
+
+gdzie poszczególne wartoœci oznaczaj¹ czas, adres klienta, rodzaj ¿¹dania HTTP,
+nazwê zasobu oraz status odpowiedzi.
+
+  Napisaæ aplikacjê która za pomoc¹ jednego (lub wielu) wyra¿eñ LINQ
+  wydobêdzie z przyk³adowego rejestru zdarzeñ IIS listê adresów IP trzech
+  klientów, którzy skierowali do serwera aplikacji najwiêksz¹ liczbê ¿¹dañ.
+  
+  Wynikiem dzia³ania programu powinien byæ przyk³adowy raport postaci:
+  
+\begin{verbatim}
+12.34.56.78 143 
+23.45.67.89 113 
+123.245.167.289 89
+\end{verbatim}
+  
+  gdzie pierwsza kolumna oznacza adres klienta, a druga liczbê zarejestrowanych ¿¹dañ.
+  
+  [{\bf 2p}]
+
+\subsection{Lista obiektów anonimowych (1)}
+
+Listy generyczne ukonkretnieniamy typem elementów:
+\label{lista_anonimowych}
+
+\begin{verbatim}
+List<int>    listInt;
+List<string> listString;...
+\end{verbatim}
+
+Z drugiej strony, w C\# 3.0 mamy typy anonimowe, które nie s¹ nigdy jawnie nazwane:
+
+\begin{verbatim}
+var item = new { Field1 = "The value", Field2 = 5 };
+Console.WriteLine( item.Field1 );
+\end{verbatim}
+
+Czy mo¿liwe jest zadeklarowanie i korzystanie z listy generycznej elementów typu anonimowego?
+
+\begin{verbatim}
+var item = new { Field1 = "The value", Field2 = 5; }; 
+List<?> theList = ?    
+\end{verbatim}
+
+W powy¿szym przyk³adzie, jak utworzyæ listê generyczn¹, na której znalaz³by siê element {\bf item}
+w taki sposób, by móc nastêpnie do niej dodawaæ nowe obiekty takiego samego typu?
+	 
+{\em Obiekty typu anonimowego maj¹ ten sam typ, jesli maj¹ tê sam¹ liczbê sk³adowych tego samego typu
+w tej samej kolejnosci.}
+	 
+  [{\bf 1p}]	 
+  
+\subsection{Rekursywne anonimowe delegacje (2)}
+
+Cech¹ charakterystyczn¹ anonimowych delegacji, bez wzglêdu na to czy zdefiniowano je przy u¿yciu s³owa
+\label{rekursja_anonimowych}
+kluczowego {\bf delegate}, czy te¿ raczej jako lambda wyra¿enia, jest brak "nazwy", do której mo¿na odwo³aæ siê
+w innym miejscu kodu. 
+
+Zadanie polega na zaproponowaniu takiego tworzenia anonimowych delegacji, ¿eby w jednym wyra¿eniu mo¿liwa
+by³a rekursja. W szczególnoœci, poni¿szy fragment kodu powinien siê kompilowaæ i zwracaæ wynik zgodny ze specyfikacj¹.
+
+\begin{verbatim}
+List<int> list = new List<int>() { 1,2,3,4,5 };   
+
+foreach ( var item in 
+  list.Select( i => [....] ) )   
+	
+  Console.WriteLine( item );   
+}
+\end{verbatim}
+
+W powy¿szym fragmencie kodu, puste miejsce ([....]) nale¿y zast¹piæ definicj¹ cia³a anonimowej delegacji
+okreœlonej rekursywnie:
+
+$$
+f(i) = \left\{ \begin{array}{ll}
+                               1 & i \leq 2 \\
+                               f(i-1) + f(i-2) & i > 2
+                               \end{array}
+                       \right.  
+$$
+
+ [{\bf 2p}]	 
+
+{\em Wskazówka} W jêzyku C\# mo¿na z powodzeniem zaimplementowaæ operator punktu sta³ego {\bf Y}, wykorzystywany do definicji funkcji rekurencyjnych. 
+Zadanie to mo¿na rozwi¹zaæ wiêc definiuj¹c taki operator i za jego pomoc¹ implementuj¹c funkcjê rekurencyjn¹. Istnieje jednak zaskakuj¹cy i o wiele
+prostszy sposób rozwi¹zania wymagaj¹cy jednak trochê nagiêcia specyfikacji. Oba rozwi¹zania bêd¹ przyjmowane.

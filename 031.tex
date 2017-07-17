@@ -1,0 +1,146 @@
+\section{Biblioteka standardowa .NET (15)}
+
+    Biblioteka standardowa platformy .NET bardzo szybko siê rozwija. Wspó³czeœnie obejmuje w³aœciwie wiêkszoœæ mo¿liwych aspektów technologicznych, przez ró¿ne
+	podsystemy interfejsu u¿ytkownika, podsystemy graficzne, us³ugi sieciowe, systemy plików, podsystemy kryptograficzne, us³ugi kolejkowe i katalogowe, komunikacjê z systemami
+	relacyjnych i nierelacyjnych baz danych oraz programowanie serwerów aplikacyjnych. Jest to ogromny i fascynuj¹cy œwiat, który ma to do siebie, ¿e obojêtnie jak dobrze siê go zna,
+	zawsze mo¿na znaleŸæ tu coœ nowego i zajmuj¹cego.
+
+	Z uwagi na ograniczone ramy czasowe, przegl¹d biblioteki standardowej ma tu charakter wybiórczy. 
+	
+	Poniewa¿ w przysz³ych wersjach systemu operacyjnego Windows interfejs BCL ma szansê
+	  staæ siê natywnym interfejsem programowania Windows, warto szczegó³owo zapoznaæ siê z jego mo¿liwoœciami.
+      
+\subsection{W³asna kompletna klasa us³ugowa (1)}
+      Napisaæ klasê do obs³ugi liczb zespolonych. Dodaæ odpowiednie konstruktory, przeci¹¿yæ odpowiednie operatory.
+\label{liczby_zespolone}
+      
+      Rozszerzyæ tê klasê o w³asne formatowane. Œciœlej, zaimplementowaæ interfejs
+      {\tt IFormat\-table} i obs³ugiwaæ dwa rodzaje formatowania:
+      \begin{itemize}
+      \item domyœlne (brak formatowania lub {\tt d}) powinno dawaæ wynik $a+bi$ 
+      \item wektorowe (format {\tt w}) powinno dawaæ wynik $[a,b]$.
+      \end{itemize}
+      
+      Przyk³adowy kawa³ek kodu:
+      \begin{verbatim}
+      Complex z = new Complex( 4, 3 );
+      Console.WriteLine( String.Format( "{0}", z ) );
+      Console.WriteLine( String.Format( "{0:d}", z ) );
+      Console.WriteLine( String.Format( "{0:w}", z ) );
+      \end{verbatim}
+
+      powinien daæ wynik
+
+      \begin{verbatim}
+      4+3i
+      4+3i
+      [4,3]
+      \end{verbatim}
+
+      [{\bf 1p}]  
+                
+\subsection{W³asna kolekcja danych (1)}
+      
+      Zaimplementowaæ niegeneryczn¹ kolekcjê {\tt Set} dzia³aj¹c¹ jak zbiór, odrzucaj¹cy duplikaty elementów.
+\label{wlasne_kolekcje}	  
+      
+      {\em Wskazówka: s¹ trzy mo¿liwoœci - albo dziedziczenie jakiejœ kolekcji bibliotecznej, albo zaimplementowanie w³asnej kolekcji, która wewnêtrznie bêdzie wykorzystywa³a
+      jak¹œ kolekcjê biblioteczn¹, wreszcie zaimplementowanie w³asnej kolekcji nie dziedzicz¹cej z ¿adnej kolekcji bibliotecznej ani nie wykorzystuj¹cej wewnêtrznie ¿adnej
+      kolekcji bibliotecznej. Ta ostatnia mo¿liwoœæ ma niewielki sens - nale¿y uczyæ siê korzystania z biblioteki standardowej i wykorzystywaæ jej komponenty we w³asnym kodzie,
+      a nie wywa¿aæ otwarte drzwi implementuj¹c ju¿ istniej¹ce mechanizmy samemu.}
+
+      [{\bf 1p}]  
+
+\subsection{Sk³adanie strumieni (1)}
+
+      Napisaæ program, który zawartoœæ wskazanego pliku tekstowego zapisze do {\bf zaszyfrowanego} algorytmem AES {\bf skompresowanego} 
+\label{skladanie_strumieni}	  
+	  strumienia GZip.
+      
+      Napisaæ kolejny program, który odszyfruje wskazany skompresowany strumieñ GZip.
+            
+      [{\bf 1p}]
+
+\subsection{Golibroda w .NET (2)}
+
+      Napisaæ konsolowy program, który rozwi¹zuje klasyczny problem golibrody lub problem "palaczy tytoniu" 
+\label{golibroda_net}	  
+      za pomoc¹ którejkolwiek z metod synchronizacji w¹tków udostêpnianej przez .NET BCL.  
+
+      [{\bf 2p}] 
+      
+\subsection{Protoko³y sieciowe (1)}
+
+    Zademonstrowaæ dzia³anie klas {\tt FtpWebRequest}, {\tt HttpWebRequest}, 
+	{\tt WebClient}, {\tt HttpClient}, {\tt HttpListener},
+\label{protokoly_sieciowe}	
+    {\tt TcpListener}, {\tt TcpClient}, {\tt SmtpClient}.
+	
+	Zwróciæ uwagê na te funkcje z interfejsów powy¿szych klas, których metody pobierania danych s¹ zaimplementowane jako asynchroniczne (zwracaj¹ {\tt Task<T>}).
+
+    [{\bf 1p}]
+
+\subsection{Serializacja i przesy³anie obiektów (2)}
+
+    Wybraæ jeden z omawianych sposobów serializacji (binarne, XML, SOAP) i przygotowaæ dwa modu³y: klienta i serwera.
+	
+	Klient serializuje wskazany obiekt z danymi (jakaœ wspó³dzielona prosta klasa) i przesy³a go do serwera. Serwer deserializuje obiekt i zapamiêtuje go w pliku.
+	
+	{\em Wskazówka}. Do implementacji komunikacji klient-serwer mo¿na u¿yæ klas 
+    {\tt TcpClient} i {\tt TcpListener}) .
+    
+    [{\bf 2p}]
+
+\subsection{Komunikacja miêdzyprocesowa - MSMQ (2)}
+
+    Korzystaj¹c z MSMQ ({\tt System.Messaging}) utworzyæ
+\label{msmq}	
+    dwukomponentowy system, w którym jeden z komponentów bêdzie
+    co pewien czas tworzy³ du¿¹ liczbê komunikatów, a drugi komponent
+    bêdzie regularnie opró¿nia³ kolejkê komunikatów, wykonuj¹c dla
+    ka¿dego z nich jak¹œ kilkusekundow¹ akcjê.
+    
+    [{\bf 2p}]
+
+\subsection{Globalizacja (1)}
+
+    Napisaæ program, który korzystaj¹c z informacji z odpowiedniej instancji obiektu {\tt CultureInfo} 
+\label{globaliazcja}	
+    wypisze pe³ne i skrótowe nazwy miesiêcy i dni tygodnia oraz
+    bie¿¹c¹ datê w jêzykach: 
+    angielskim, niemieckim, francuskim, rosyjskim, arabskim, czeskim i polskim.
+    
+    [{\bf 1p}]
+
+\subsection{Us³uga systemowa (1)}
+
+    Napisaæ us³ugê systemow¹ ({\em System Service}), która bêdzie co minutê zapisywaæ listê
+\label{system_service}	
+    uruchomionych aplikacji do pliku tekstowego. 
+    
+    {\em Uwaga! Po skompilowaniu us³uga musi zostaæ zarejestrowana w systemie
+    za pomoc¹ programu {\tt installutil.exe}. Zarz¹dzanie us³ugami odbywa siê z poziomu
+    panelu {\bf Zarz¹dzanie komputerem}, sekcja {\bf Us³ugi i aplikacje}.}
+    
+    [{\bf 1p}]
+
+\subsection{Zewnêtrzny plik w zasobach aplikacji (1)}
+
+    Umieœciæ dowolny plik w zasobach aplikacji (w projekcie plik powinien mieæ w³aœciwoœæ {\em Embedded Resource}). Nastêpnie napisaæ klasê, która po
+\label{plik_w_zasobach}	
+	podaniu nazwy zasobu
+    umo¿liwi wydobycie pliku z zasobów zestawu.
+	
+	Osadzanie plików (tekstowych, binarnych) w zasobach aplikacji przydaje siê wtedy kiedy aplikacja jest dystrybuowana do œrodowiska klienckiego. Zamiast
+	plików wykonywalnych i dodatkowych plików zasobów, klient dostaje pliki wykonywalne w zasobach których zaszyte s¹ pliki z danymi.
+        
+    [{\bf 1p}]
+
+\subsection{Dynamiczne tworzenie kodu (2)}
+
+    Napisaæ program, który w czasie dzia³ania powo³a do ¿ycia instancjê kompilatora C\# i u¿yje go do skompilowania fragmentu kodu
+	funkcji, wprowadzonej przez u¿ytkownika do konsoli. Nastêpnie skompilowany fragment zostanie w³¹czony do aktualnie wykonywanego programu i wykonany.
+	
+	{\em Wskazówka. Obiekt kompilatora to klasa {\tt Microsoft.CSharp.CSharpCodeProvider}}.
+
+    [{\bf 2p}]

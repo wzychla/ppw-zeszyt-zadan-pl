@@ -1,0 +1,67 @@
+\section{Relacyjne bazy danych (6)}
+
+    Bibiloteka ADO.NET udostêpnia spójny fundament obs³ugi ró¿nych rodzajów Ÿróde³ danych. W kolejnych latach
+	  do platformy .NET nie tylko migrowa³y uznane technologie mapowania obiektowo-relacyjnego (nHibernate)
+	  ale tak¿e powsta³y rozwi¹zania natywne (Linq2SQL, Entity Framework), które maj¹ du¿y wp³yw na rozwój technologii poza
+	  .NET. Równoczeœnie wraz z udoskonalaniem narzêdzi typu ORM obserwuje siê odwrót od rozwi¹zañ typu {\tt DataSet}.
+
+\subsection{DataReader (1)}
+\label{ereader}
+
+      Przygotowaæ arkusz Excela zawieraj¹cy dane osobowe (kilka wybranych atrybutów) przyk³adowej grupy studentów.
+\label{ado_excel}	  
+      
+      Po³¹czyæ siê do arkusza odpowiednio zainicjowanym po³¹czeniem OleDb ({\tt OleDbConnection}), 
+      przeczytaæ zbiór rekordów za pomoc¹ DataReadera ({\tt OleDbDataReader}) i pokazaæ je na liœcie.
+            
+      [{\bf 1p}]
+
+\subsection{Baza danych (0)}
+\label{baza}
+
+\label{ado_dbms}	  
+
+      Przygotowaæ bazê danych Micosoft SQL Server zawieraj¹c¹ dane osobowe i adresy przyk³adowej grupy studentów.
+
+      Model bazy danych zawiera dwie tabele, tabelê {\bf Student} z polami Imiê, Nazwisko, DataUrodzenia oraz
+      tabelê {\bf Miejscowosc} z polem Nazwa.
+      
+      Obie tabele po³¹czone s¹ relacj¹ jeden-do-wielu (jak ³¹czy siê tabele relacj¹ jeden-do-wielu?).
+	  
+	  {\em Uwaga! Do wykonania tego zadania wystarczy darmowy SQL Server Express Edition albo nawet deweloperski
+	  SQL Server Local DB}.
+      
+      [{\bf 0p}] 
+      
+\subsection{Linq2SQL (1)}
+
+  Zbudowaæ model obiektowy dla bazy danych z zadania \ref{ado_dbms} za pomoc¹ narzêdzia {\tt sqlmetal.exe}. 
+\label{linq2sql}  
+  
+  Pokazaæ w jaki sposób za pomoc¹ Linq2SQL mo¿na dodawaæ, modyfikowaæ i usuwaæ dane w bazie danych.
+  W szczególnosci pokazaæ jak w jednym bloku kodu dane do {\bf obu} tabel - kod powinien dodaæ do bazy {\bf now¹} miejscowoœæ i {\bf nowego} studenta
+  z tej nowej miejscowoœci. 
+    
+  [{\bf 1p}]
+
+\subsection{Entity Framework (1)}
+
+  Powtórzyæ poprzednie zadanie w technologii Entity Framework.
+  
+  W szczególnoœci - zbudowaæ model obiektowy dla bazy danych z zadania \ref{ado_dbms} rêcznie lub za pomoc¹ in¿ynierii odwrotnej (Reverse Engineer Code First).
+
+  Pokazaæ w jaki sposób za pomoc¹ EF mo¿na dodawaæ, modyfikowaæ i usuwaæ dane w bazie danych.
+  W szczególnosci pokazaæ jak w jednym bloku kodu dane do {\bf obu} tabel - kod powinien dodaæ do bazy {\bf now¹} miejscowoœæ i {\bf nowego} studenta
+  z tej nowej miejscowoœci. 
+
+  [{\bf 1p}]
+
+\subsection{Interfejs u¿ytkownika dla danych (3)}
+
+      Napisaæ prost¹ aplikacjê okienkow¹, która udostêpnia dane z bazy z poprzedniego zadania.
+\label{ado_dal}	  
+      Aplikacja powinna pozwalaæ na przegl¹danie listy studentów, dodawanie, modyfikacjê i usuwanie.
+
+      Do dostêpu do danych wybraæ Linq2SQL lub Entity Framework.
+
+      [{\bf 3p}]

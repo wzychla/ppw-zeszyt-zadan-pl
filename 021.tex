@@ -1,0 +1,143 @@
+\section{Jêzyk C\# 1.0 (6)}
+  
+\subsection{Prosty algorytm (1)}
+
+      Napisaæ program, który wyznacza zbiór wszystkich liczb natualnych 1 a 100000, które s¹ podzielne zarówno przez ka¿d¹ ze swoich cyfr z
+\label{prosty_algorytm}	  
+	  osobna jak i przez sumê swoich cyfr.
+
+      [{\bf 1p}]
+ 
+\subsection{Indeksery (1)}
+
+  Zaimplementowaæ klasê siatki dwuwymiarowej, {\tt Grid}, z dwoma indekserami:
+\label{indeksery}  
+  
+	\begin{itemize}
+	\item jednowymiarowym, zwracaj¹cym listê elementów zadanego wiersza tablicy, tak aby klient klasy móg³ napiasæ:
+
+	      \begin{verbatim}
+  ...
+  Grid grid = new Grid( 4, 4 );
+  int[] rowdata = grid[1]; // akcesor "get"
+	      \end{verbatim}
+
+	\item dwuwymiarowym, zwracaj¹cym okreœlony element tablicy, tak aby klient klasy móg³ napisaæ:
+      
+	      \begin{verbatim}
+  ...
+  Grid grid = new Grid( 4, 4 );
+		  
+  elem[2, 2] = 5;        // akcesor "set"
+  int elem = grid[1, 4]; // akcesor "get"
+	      \end{verbatim}
+	      
+	\end{itemize}
+      
+      Oba indeksery powinny przyjmowaæ jako parametry liczby ca³kowite. Konstruktor klasy powinien przyjmowaæ
+	  jako parametry liczbê wierszy i liczbê kolumn siatki.
+      
+      [{\bf 1p}]
+
+\subsection{Refleksja - sk³adowe prywatne (1)}
+
+      Napisaæ program, który zademonstruje mo¿liwoœæ dostêpu z zewn¹trz
+\label{refleksja}	  
+      do prywatnych sk³adowych klasy.
+      
+      Kod programu powinien sk³adaæ siê z przyk³adowej klasy z co najmniej
+      jedn¹ prywatn¹ metod¹ i w³aœciwoœci¹. Kod kliencki powinien uzyskaæ dostêp
+      do sk³adowych prywatnych za pomoc¹ refleksji.
+      
+      Nale¿y ponadto porównaæ szybkoœæ dostêpu do sk³adowej
+      publicznej w zwyk³y sposób i za pomoc¹ refleksji.
+      
+      {\em Wskazówka: mierzenie czasu dzia³ania bloku kodu najproœciej wykonaæ nastêpuj¹co:
+      
+      \begin{verbatim}
+DateTime Start = DateTime.Now;
+/* tu blok kodu */
+DateTime End = DateTime.Now;
+
+TimeSpan Czas = Start-End;
+Console.WriteLine( Czas );
+      \end{verbatim}
+      
+      Nale¿y jedynie pamiêtaæ o {\bf powtórzeniu} bloku kodu w pêtli tak d³ugo, a¿ pomiar czasu bêdzie mia³ jakikolwiek sens - w przypadku kodu wykonywanego
+      kilka/kilkanaœcie milisekund powy¿sza metoda zastosowana do jednokrotnie wykonanego bloku kodu zwróci po prostu 0 jako czas wykonania. Przyk³ad:
+
+      \begin{verbatim}
+int LiczbaProb = 1000;      
+DateTime Start = DateTime.Now;
+
+for ( int proba=0; proba<LiczbaProb; proba++ )
+{
+  /* tu blok kodu */
+  DateTime End = DateTime.Now;
+}
+
+TimeSpan Czas = Start-End;
+Console.WriteLine( Czas );
+      \end{verbatim}}
+
+Nale¿y równie¿ pamiêtaæ o odrzuceniu wyników kilku pierwszych pomiarów - wyniki mog¹ byæ zaburzone przez rozruch silnika JIT przyotowuj¹cego aplikacjê do wykonania w systemie operacyjnym.	  
+	  
+      [{\bf 1p}]
+
+\subsection{Atrybuty (1)}
+
+	Napisaæ funkcjê, która jako parametr przyjmuje dowolny obiekt i wyszukuje wszystkie jego publiczne, niestatyczne metody zwracaj¹ce
+\label{atrybuty}	
+    wartoœæ typu {\bf int} i maj¹ce pust¹ listê parametrów.	
+	
+	Nastêpnie sproœród tych metod, funkcja wywo³a i wypisze na konsoli wynik wywo³ania wszystkich tych funkcji, które s¹ oznakowane
+	atrybutem {\bf [Oznakowane]}.
+	
+	Przyk³adowo, w poni¿szym fragmencie kodu na konsoli powinna pojawiæ siê tylko wartoœæ z funkcji {\bf Bar}.
+	
+\begin{verbatim}
+public class Foo
+{
+  [Oznakowane]
+  public int Bar()
+  {
+     return 1;
+  }
+  
+  public int Qux()
+  {
+     return 2;
+  }
+  
+}
+\end{verbatim}	
+
+      [{\bf 1p}]
+
+\subsection{Dokumentowanie kodu (1)}
+
+      Zdokumentowaæ (przez umieszczenie odpowiednich komentarzy w kodzie)
+\label{dokumentowanie}	  
+      jeden dowolny program z bie¿¹cej sekcji. 
+
+      Wygenerowaæ dokumentacjê w postaci pliku XML podczas kompilacji. U¿yæ
+      narzêdzia SandCastle Help File Builder ({\tt http://shfb.codeplex.com/}) do zbudowania
+      pomocy stylach HTML Help i MSDN-online.
+
+      [{\bf 1p}]
+
+\subsection{Dekompilacja kodu (1)}
+
+      Napisaæ w C\# dowolny program demonstruj¹cy u¿ycie klas (metod, pól, propercji, indekserów, delegacji i zdarzeñ) oraz podstawowych
+\label{dekompilacja}	  
+      konstrukcji sk³adniowych (pêtle, instrukcje warunkowe, {\tt switch})
+      i zdekompilowaæ go do wybranego przez siebie jêzyka (VB.NET lub CIL)
+      za pomoc¹ narzêdzia {\bf IlSpy} ({\tt http://ilspy.net/}).
+      
+      Otrzymany kod skompilowaæ odpowiednim kompilatorem, aby otrzymaæ plik wynikowy.
+      Plik ten nastêpnie zdekompilowaæ na powrót do jêzyka C\#.
+      
+      Porównaæ otrzymane w ten sposób pliki z kodem Ÿród³owym.
+      Jak objawiaj¹ siê i z czego wynikaj¹ ró¿nice?
+
+      [{\bf 1p}]

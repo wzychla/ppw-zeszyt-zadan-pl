@@ -1,0 +1,73 @@
+\section{Inne podsystemy Windows (10)}
+
+\subsection{Plik tekstowy na pulpicie, pow³oka (1)}
+
+      Napisaæ program, który na pulpicie bie¿¹cego zalogowanego u¿ytkownika umieœci
+\label{powloka}	  
+      plik tekstowy z bie¿¹c¹ dat¹ systemow¹. Nastêpnie plik ten skieruje do wydruku.
+
+      Do pobrania nazwy foldera u¿yæ funkcji {\bf SHGetFolderPath}. Do skierowania dokumentu do wydruku
+	  u¿yæ funkcji sterujacej pow³ok¹ {\bf ShellExecute}.
+      
+      [{\bf 1p}]
+
+\subsection{Rozmiar okna w rejestrze (2)}
+
+      Napisaæ okienkowy program, który zapamiêta w rejestrze systemu rozmiary swojego okna.
+\label{okno_w_rejestrze}	  
+      Rozmiary te powinny byæ odtwarzane przy ka¿dym uruchomieniu i zapamiêtywane przy
+      zamykaniu okna programu.
+      
+      Zaprojektowaæ format zapisu do rejestru. Zapisywaæ pod kluczem:
+      
+      HKEY\_CURRENT\_USER$\backslash$Software$\backslash$Programowanie pod Windows$\backslash$...	  
+	  
+      [{\bf 2p}]
+
+\subsection{Problem golibrody (2)}
+
+      Napisaæ konsolowy program, który rozwi¹zuje klasyczny problem golibrody lub problem "palaczy tytoniu" 
+\label{golibroda}	  
+       za pomoc¹ jeden z metod synchronizacji w¹tków udostêpnianej przez Win32:
+	   \begin{itemize}
+	   \item muteksy
+	   \item semafory
+	   \item zdarzenia
+	   \end{itemize}
+
+      [{\bf 2p}]
+      
+\subsection{Internet Explorer jako host dla aplikacji okienkowych (2)}
+
+      Napisaæ aplikacjê HTA (HTML Application), która w g³ównym oknie programu pozwoli wpisaæ
+\label{aplikacja_hta}	  
+      imiê, nazwisko i datê urodzenia, a po naciœniêciu przycisku "OK" zapisze
+      dane do wybranego przez u¿ytkownika pliku tekstowego.
+      
+      Dlaczego, mimo budowania interfejsu w HTML ta technologia nie
+      mo¿e byæ u¿yta do budowy aplikacji internetowych?
+      
+      [{\bf 2p}] 
+      
+\subsection{Informacje o systemie (3)}
+
+      Napisaæ program do diagnozowania komponentów komputera i systemu operacyjnego. 
+\label{informacje_o_systemie}	  
+      Raport powinien obejmowaæ m.in.
+      \begin{itemize}
+      \item Model procesora oraz czêstotliwoœæ taktowania 
+      \item Iloœæ pamiêci operacyjnej (wolnej, ca³ej)
+      \item Wersjê systemu operacyjnego wraz z wersj¹ uaktualnienia 
+      \item Nazwê sieciow¹ komputera i nazwê aktualnie zalogowanego u¿ytkownika
+      \item Ustawienia rozdzielczoœci i g³êbi kolorów pulpitu
+      \item Listê drukarek pod³¹czonych do systemu
+      \item Obecnoœæ i numery wersji
+            \begin{itemize}
+            \item platformy .NET
+            \item Internet Explorera
+            \item Microsoft Worda
+            \end{itemize}
+      \end{itemize} 
+
+      [{\bf 3p}] 
+      

@@ -1,0 +1,339 @@
+\appendix 
+
+\chapter{Varia}
+
+Niniejszy rozdzia³ zbioru zadañ	ma charakter uzupe³niaj¹cy i zawiera zadania dodatkowe, niepunktowane, czêsto o charakterze nieszablonowym, nietypowym, których rozwi¹zanie
+pozwala na pe³niejsze zrozumienie wybranych mechanizmów jêzyka i œrodowiska uruchomieniowego. Zadania z tego rozdzia³u pochodz¹ z bloga autora, gdzie by³y publikowane w latach 2008-2013.
+
+% -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Poziom ³atwy}
+
+% ------------------------------------------------------------------------------------
+\subsection{Dziwna kolekcja}
+
+Czy to mo¿liwe, ¿e w bibliotece standardowej istnieje kolekcja, która sama tworzy elementy o zadanych kluczach kiedy tylko zostanie o nie poproszona?
+Wygl¹da na to, ¿e tak - poni¿ej zaprezentowano kod, w którym dopiero co utworzona instancja kolekcji raportuje ¿e zawiera element o losowo wybranym kluczu, 
+mimo ¿e taki element nie zosta³ tam wczesniej dodany.
+
+\begin{scriptsize}
+\begin{verbatim}
+namespace ConsoleApplication
+{
+    class Program
+    {
+        static void Main( string[] args )
+        {
+            NameValueCollection Collection = new NameValueCollection();
+ 
+            Console.WriteLine( 
+                "Does NameValueCollection magically create items? " +
+                Collection["foo"] != null ? " Yes, it does!" : "No, it doesn't." 
+                );
+        }
+    }
+}
+\end{verbatim}
+\end{scriptsize}
+
+Zadaniem Czytelnika jest wskazanie b³êdu w powy¿szym kodzie, prowadz¹cego do takiego nieoczekiwanego zachowania.
+
+% ------------------------------------------------------------------------------------
+\subsection{Rekurencyjne zmienne statyczne}
+
+Czy dwie zmienne statyczne, które odwo³uj¹ siê nawzajem do siebie, spowoduj¹ powstanie nieskoñczonej rekursji?
+
+\begin{scriptsize}
+\begin{verbatim}
+public class A
+{
+  public static int a = B.b + 1;
+}
+
+public class B
+{
+  public static int b = A.a + 1;
+}
+ 
+public class MainClass
+{
+  public static void Main()
+  {
+    Console.WriteLine( "A.a={0}, B.b={1}", A.a, B.b );
+  }
+}
+\end{verbatim}
+\end{scriptsize}
+
+\subsection{Rozterki kompilatora}
+
+Regu³y semantyczne jêzyka musz¹ precyzyjnie rozstrzygaæ przypadki "brzegowe". W poni¿szym przyk³adzie kompilator ma dwie mo¿liwoœci - wybraæ metodê z klasy bazowej bez konwersji argumentu lub metodê z tej samej klasy
+ale z konwersj¹ argumentu. Która regu³a obowi¹zuje w przypadku jêzyka C\#? Czy wybór przeciwnej strategii by³by dopuszczalny?
+
+\begin{scriptsize}
+\begin{verbatim}
+class A
+{
+    public void Foo( int n ) 
+    {
+        Console.WriteLine( "A::Foo" );
+    }
+}
+ 
+class B : A
+{
+    /* note that A::Foo and B::Foo are not related at all */
+    public void Foo( double n ) 
+    {
+        Console.WriteLine( "B::Foo" );
+    }
+}
+ 
+ 
+static void Main( string[] args )
+{
+    B b = new B();
+    /* which Foo is chosen? */
+    b.Foo( 5 );
+}
+\end{verbatim}
+\end{scriptsize}
+
+\subsection{Sk³adowe prywatne}
+
+Czy mo¿liwe jest ¿e klasa {\bf A} ma dostêp do prywatnych sk³adowych klasy {\bf B}? 
+
+"Oczywiœcie, ¿e nie, to wbrew regule enkapsulacji" - to zwyczajowa odpowiedŸ. Niemniej, jest co najmniej jeden przypadek, gdy jest to mo¿liwe, co wiêcej, jest to doœæ wa¿na w³aœciwoœæ jêzyka.
+
+Pytanie brzmi wiêc: w jakich okolicznoœciach w jêzyku C\# klasa {\bf A} mo¿e mieæ pe³en dostêp do {\bf prywatnych} sk³adowych innej klasy {\bf B}.
+
+\subsection{Nieoczekiwany b³¹d kompilacji}
+
+Rozwa¿my poni¿szy kod
+
+\begin{scriptsize}
+\begin{verbatim}
+using System;
+
+class Foo
+{
+   private Foo() { }
+}
+  
+class Program : Foo
+{
+   static void Main( string[] args )
+   {
+   }
+}
+\end{verbatim}
+\end{scriptsize}
+
+Próba jego kompilacji koñczy siê komunikatem
+
+\begin{scriptsize}
+\begin{verbatim}
+Foo() is inaccessible due to its protection level
+\end{verbatim}
+\end{scriptsize}
+
+Jest to doœæ nieoczekiwane, w ¿adnym miejscu kodu nie ma próby utworzenia nowej instancji typu {\tt Foo}. Ba, w kodzie nie ma w ogóle ani jednego wywo³ania operatora {\tt new}.
+Wydaje siê wiêc, ¿e nie powinno mieæ ¿adnego znaczenia czy konstruktor {\tt Foo} jest dostêpny czy nie.
+
+Czytelnik proszony jest o wyjaœnienie powy¿szego paradoksu.
+
+\subsection{Wywo³anie metody na pustej referencji}
+
+Czy mo¿liwe jest wywo³anie metody na pustej referencji? Oczywista odpowiedŸ, to "nie".
+
+Czy¿by?
+
+\begin{scriptsize}
+\begin{verbatim}
+static void Main( string[] args )
+{
+    Foo _foo = null;
+ 
+    // will throw NullReferenceException
+    Console.WriteLine( _foo.Bar() );
+ 
+    Console.ReadLine();
+}
+\end{verbatim}
+\end{scriptsize}
+
+Uzasadniæ, ¿e powy¿szy kod nie musi wcale powodowaæ wyj¹tku, przeciwnie, mo¿e zachowaæ siê ca³kowicie poprawnie i wypisaæ na konsoli wynik wywo³ania metody {\tt Bar}.
+
+
+% ------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Poziom œredniozaawansowany}
+
+% ------------------------------------------------------------------------------------
+\subsection{Zamiana wartoœci dwóch zmiennych}
+
+Nastêpuj¹cy kod bywa wykorzystywany w jêzykach C/C++ do zamiany wartoœci dwóch zmiennych {\bf bez} u¿ycia zmiennej pomocniczej.
+
+\begin{scriptsize}
+\begin{verbatim}
+int x, y;
+ 
+x ^= y ^= x ^= y;
+\end{verbatim}
+\end{scriptsize}
+
+Nieoczekiwanie jednak, mimo wspólnych korzeni sk³adni jêzyka, powy¿szy kod nie dzia³a poprawnie w jêzyku C\#. Zadaniem Czytelnika jest wyjaœnienie dlaczego tak siê dzieje.
+
+% ------------------------------------------------------------------------------------
+\subsection{Operacje na zbiorach (1)}
+
+Czy Czytelnik potrafi przewidzieæ wynik dzia³ania poni¿szego kodu (zawartoœæ która zostanie wypisana na konsoli) {\bf bez} faktycznego uruchomienia?
+
+\begin{scriptsize}
+\begin{verbatim}
+List<int> list = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+ 
+list.FindAll( i => { Console.WriteLine( i ); return i < 5; } );
+\end{verbatim}
+\end{scriptsize}
+
+\subsection{Operacje na zbiorach (2)}
+
+Po rozwi¹zaniu poprzedniego zadania Czytelnik z pewnoœci¹ bez trudu przewidzi równie¿ wynik dzia³ania poni¿szego kodu {\bf bez} faktycznego uruchomienia?
+
+\begin{scriptsize}
+\begin{verbatim}
+List<int> list = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+ 
+list.Where( i => { Console.WriteLine( i ); return i < 5; } );
+\end{verbatim}
+\end{scriptsize}
+
+\subsection{Operacje na zbiorach (3)}
+
+Po rozwi¹zaniu dwóch poprzednich zadañ, przewidzenie wyniku dzia³ania poni¿szego kodu {\bf bez} faktycznego uruchomienia powinno byæ ju¿ ³atwe.
+
+\begin{scriptsize}
+\begin{verbatim}
+List<int> list = new List<int>() { 1, 2, 3 };
+ 
+list.GroupBy ( i => { Console.Write( "X" ); return i; } );
+list.ToLookup( i => { Console.Write( "X" ); return i; } );
+\end{verbatim}
+\end{scriptsize}
+
+% --------------------------------------------------------------------------------------------------------------------------------------------------------------
+\section{Poziom trudny}
+
+\subsection{Specyficzne ograniczenie generyczne}
+
+Za³ó¿my nastêpuj¹c¹ definicjê interfejsu generycznego
+
+\begin{scriptsize}
+\begin{verbatim}
+public interface IGenericInterface<TValue>
+{
+   ... interface contract
+}
+\end{verbatim}
+\end{scriptsize}
+
+Taki interfejs mo¿e byæ implementowany przez ró¿ne klasy z ró¿n¹ wartoœci¹ argumentu generycznego
+
+\begin{scriptsize}
+\begin{verbatim}
+class Foo : IGenericInterface<Bar>
+{
+   ...
+}
+  
+class Bar : IGenericInterface<Baz>
+{
+   ...
+}
+\end{verbatim}
+\end{scriptsize}
+
+Czy mo¿liwe jest w jêzyku C\# takie ograniczenie generycznego argumentu w definicji interfejsu, ¿eby jedynym dozwolonym ukonkretnieniem tego argumentu by³ typ implementuj¹cy interfejs?
+
+Mówi¹c inaczej, taka i tylko taka definicja typu powinna byæ dozwolona
+
+\begin{scriptsize}
+\begin{verbatim}
+class Foo : IGenericInterface<Foo>
+{
+}
+\end{verbatim}
+\end{scriptsize}
+
+a taka (i podobne) powinna powodowaæ {\bf b³¹d kompilacji}
+
+\begin{scriptsize}
+\begin{verbatim}
+class Foo : IGenericInterface<Bar>
+{
+}
+\end{verbatim}
+\end{scriptsize}
+
+\subsection{Zasiêg zmiennej w domkniêciu}
+
+W poni¿szym kodzie pêtla wewnêtrzna tworzy 10 instancji funkcji anonimowych, które "³api¹" zmienn¹ lokaln¹ w domkniêcie. Wynik dzia³ania kodu jest jednak zgo³a nieoczekiwany:
+
+
+\begin{scriptsize}
+\begin{verbatim}
+// create array of 10 functions
+static Func<int>[] constfuncs()
+{
+    Func<int>[] funcs = new Func<int>[10];
+ 
+    for ( var i = 0; i < 10; i++ )
+    {
+        funcs[i] = () => i;
+    }
+ 
+    return funcs;
+}
+ 
+...
+ 
+var funcs = constfuncs();
+for ( int i = 0; i < 10; i++ )
+    Console.WriteLine( funcs[i]() );
+ 
+// output:
+// 10
+// 10
+// ...
+// 10
+\end{verbatim}
+\end{scriptsize}
+
+Z konstrukcji kodu mo¿na bowiem naiwnie oczekiwaæ, ¿e skoro {\tt i}-ta funkcja powinna, zgodnie z definicja, zwracaæ wartoœæ {\tt i}. Tak siê jednak nie dzieje.
+
+Zadaniem Czytelnika jest nie tylko wyjaœniæ powód takiego zachowania siê domkniêcia, ale równie¿ zaproponowanie eleganckiego rozwi¹zania, w którym nie naruszaj¹c zasady 
+"{\tt i}-ta funkcja zwraca wartoœæ {\tt i}", wynikiem dzia³ania 
+
+\begin{scriptsize}
+\begin{verbatim}
+for ( int i = 0; i < 10; i++ )
+    Console.WriteLine( funcs[i]() );
+\end{verbatim}
+\end{scriptsize}
+
+bêdzie
+
+\begin{scriptsize}
+\begin{verbatim}
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+\end{verbatim}
+\end{scriptsize}
+	
