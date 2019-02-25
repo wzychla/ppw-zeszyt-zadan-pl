@@ -9,9 +9,13 @@ Zbiór zadań stanowi uzupełnienie podręcznika,
 pozycji *Windows oczami programisty*, 
 dostępnej w wersji akademickiej jako skrypt *Programowanie pod Windows*.
 
-Zadania zebrano w cztery grupy. Pierwsza część to spojrzenie na fundamenty systemu operacyjnego. 
-Druga część to podróż przez historię rozwoju języka C#, współczesnego referencyjnego języka programowania systemów Windows.
-Trzecia część to przegląd biblioteki standardowej platformy .NET. Ostatnia część zawiera zadania dodatkowe, niepunktowane, które pozwalają 
+Zadania zebrano w cztery grupy. 
+
+Pierwsza część to podróż przez historię rozwoju języka C#, współczesnego referencyjnego języka programowania systemów Windows.
+Kolejna część to przegląd biblioteki standardowej platformy .NET. 
+Dalej - spojrzenie na fundamenty systemu operacyjnego. 
+
+Ostatnia część zawiera zadania dodatkowe, niepunktowane, które pozwalają 
 inaczej spojrzeć na wybrane elementy języka i technologii.
 
 Kontynuacją wykładu **Programowanie pod Windows** jest prowdzony w semestrach zimowych
