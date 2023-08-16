@@ -1,0 +1,46 @@
+\chapter{Zestaw 8, Windows Presentation Foundation}
+
+\begin{flushright}
+Liczba punktów do zdobycia: {\bf 5/63}
+\end{flushright}
+
+\begin{enumerate}
+
+\item ({\bf 2p}) Napisaæ program, który odtworzy nastêpuj¹cy wygl¹d okna z rysunku \ref{r1}. 
+Jest to identyczna specyfikacja jak jedno z zadañ z poprzednich zestawów, ró¿nica dotyczy technologii - tym razem jest to WPF.
+
+\label{okno_dialogowe}
+
+	\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.75\textwidth]{z1_01}
+	\end{center}
+	\caption{Wygl¹d okna do zadania [\ref{okno_dialogowe}]}
+	\label{r1}
+	\end{figure}
+
+      Okno zawiera dwie ramki grupuj¹ce ({\em GroupBox}). Pierwsza ramka zawiera dwa pola tekstowe
+      ({\em TextBox}), druga zawiera pole wyboru ({\em ComboBox}) oraz dwa przyciski stanu ({\em CheckBox}).
+
+      Lista rozwijalna pola wyboru powinna byæ wype³niona przyk³adowymi nazwami.
+
+      Po wybraniu przez u¿ytkownika przycisku {\bf Akceptuj}, wybór powinien zostaæ zaprezentowany w oknie
+      informacyjnym (rysunek \ref{r2}).
+
+      	\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.25\textwidth]{z1_02}
+	\end{center}
+	\caption{Informacja dla u¿ytkownika do zadania [\ref{okno_dialogowe}]}
+	\label{r2}
+	\end{figure}
+
+      Naciœniêcie przycisku {\bf Anuluj} powinno zakoñczyæ program.
+
+\item ({\bf 3p}) Napisaæ najprostsz¹ mo¿liw¹ wersjê gry kó³ko-krzy¿yk w WPF. Interfejs zbudowaæ przy pomocy komponentu {\tt Grid}, który nale¿y odpowiednio podzieliæ na 3 wiersze i 3 kolumny równego rozmaru
+({\tt SharedSizeGroup}). W ka¿dej komórce grida umieœciæ przycisk, który bêdzie odpowiednio reagowaæ na zdarzenie klikniêcia.
+
+W jednym dodatkowym wierszu siatki umieœciæ komponent który zajmie ca³¹ szerokoœæ wiersza ({\tt ColumnSpan}) i bêdzie prezentowaæ informacje na temat gry.
+	  
+\end{enumerate}
+

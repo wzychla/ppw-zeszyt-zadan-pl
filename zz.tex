@@ -3,9 +3,9 @@
 \usepackage{graphicx}
 \usepackage{polski}
 \usepackage{color}
-\usepackage[utf8]{inputenc}
+\usepackage[cp1250]{inputenc}
+\usepackage{fancyvrb}
 % https://tex.stackexchange.com/a/366029/114062 ignore BOM byte marks in consecutive files
-\DeclareUnicodeCharacter{FEFF}{}
 \usepackage{ppwstyl}
 
 \begin{document}
@@ -13,18 +13,28 @@
 \pagestyle{headings}
 
 \include{title}
-\include{abstract}
+%\include{abstract}
 
-% treÅ›Ä‡
+% treœæ
 \input{wstep}
 
 \tableofcontents
 
-%\input{zestawy}
+% \input{02}
+% \input{03}
+% \input{01}
 
-\input{02}
-\input{03}
-\input{01}
+\input{ppwz1}
+\input{ppwz2}
+\input{ppwz3}
+\input{ppwz4}
+\input{ppwz5}
+\input{ppwz6}
+\input{ppwz7}
+\input{ppwz8}
+\input{ppwz9}
+\input{ppwza}
+\input{ppwzb}
 
 \input{puzzle}
 

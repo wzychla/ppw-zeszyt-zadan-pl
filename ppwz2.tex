@@ -1,0 +1,120 @@
+\chapter{Zestaw 2, Jêzyk C\# - podstawowe elementy}
+
+\begin{flushright}
+Liczba punktów do zdobycia: {\bf 10/16}
+\end{flushright}
+
+\begin{enumerate}
+  
+\item ({\bf 1p}) Zademonstrowaæ w praktyce nastêpuj¹ce kwalifikatory dostêpu do sk³adowych (na przyk³adzie dostêpu do 
+pól lub metod) 
+\begin{itemize}
+\item {\tt public}
+\item {\tt protected}
+\item {\tt internal}
+\item {\tt private}
+\end{itemize}
+
+\item ({\bf 2p}) Zademonstrowaæ w praktyce i rozumieæ sens nastêpuj¹cych elementów jêzyka. Jeœli w nawiasie po elemencie
+jêzyka wystêpuje kilka mo¿liwych elementów do których mo¿e on siê odnosiæ, proszê wybraæ co najmniej jedn¹ z propozycji,
+ale niekoniecznie wszystkie.
+\begin{itemize}
+\item modyfikator {\tt static} dla klas
+\item modyfikator {\tt static} dla sk³adowych klas (pól, metod)
+\item modyfikator {\tt sealed} dla klas
+\item modyfikator {\tt abstract} dla klas
+\item modyfikator {\tt abstract} dla sk³adowych klas (metod)
+\item s³owa kluczowe {\tt virtual} i {\tt override} dla sk³adowych klas (metod)
+\item s³owo kluczowe {\tt partial} w definicji klasy
+\item s³owo kluczowe {\tt readonly} w deklaracji pola klasy
+\item modyfikatory {\tt in}, {\tt ref} oraz {\tt out} na liœcie parametrów metod
+\end{itemize}
+
+\item ({\bf 1p}) Zaprezentowaæ w praktyce mechanizm przeci¹¿ania sygnatur funkcji (funkcje o tej samej nazwie ale ró¿nych
+sygnaturach). 
+
+Czy typ zwracany z dwóch lub wiêcej funkcji przeci¹¿onych mo¿e byæ ró¿ny czy zawsze musi byæ taki sam?
+
+Pokazaæ jak funkcja przeci¹¿ona mo¿e wywo³ywaæ inn¹ funkcjê przeci¹¿on¹ zamiast dostarczaæ w³asnej implementacji. 
+Pokazaæ jak funkcja mo¿e wywo³aæ funkcjê z klasy bazowej zamiast dostarczaæ w³asnej implementacji. Pokazaæ jak
+przeci¹¿aæ konstruktory klasy.
+
+\item ({\bf 2p}) Czym ró¿ni siê mechanizm finalizerów (zwanych dawniej destruktorami) od mechanizmu uwalniania zasobów
+za pomoc¹ implementacji interfejsu {\tt IDisposable}? 
+
+Zaprezentowaæ oba w praktyce: przygotowaæ klasê która ma finalizer
+i inn¹ klasê implementuj¹c¹ interfejs {\tt IDisposable}. W obu podejœciach wywo³aæ {\tt Console.WriteLine} z metody
+sprz¹taj¹cej. 
+
+Zaprezentowaæ lukier syntaktyczny opakowuj¹cy u¿ycie obiektu implementuj¹cego {\tt IDisposable} w blok ze s³owem
+kluczowym {\tt using}.
+
+Zaobserwowaæ, ¿e w przypadku interfejsu {\tt IDisposable} programista ma pe³n¹ kontrolê nad momentem w którym wykonuje
+siê metoda {\tt Dispose}. Zaobserwowaæ ¿e programista nie ma wp³ywu na to kiedy wykona siê finalizer klasy. 
+
+Czy mo¿na wymusiæ wywo³anie metody sprz¹taj¹cej pamiêæ (odœmiecacz)? Czy to dobry pomys³, ¿eby wymuszaæ to we w³asnym kodzie?
+
+\item ({\bf 1p}) Pokazaæ jak definiowaæ w³aœciwoœci (ang. {\em properties})
+\begin{itemize}
+\item w³aœciwoœæ z polem kopii zapasowej (ang. {\em property with backing field})
+\item w³aœciwoœæ implementowana automatycznie (ang. {\em auto-implemented property})
+\end{itemize}
+
+\item ({\bf 2p}) Rozszerzyæ poprzedni przyk³ad o demonstracjê w³aœciwoœci posiadaj¹cych skutki uboczne. 
+Formalnie, niech bêdzie dana klasa
+
+\begin{scriptsize}
+\begin{Verbatim}
+public class Person
+{
+	public string Name { get; set; }
+	public string Surname { get; set; }
+}
+\end{Verbatim}
+\end{scriptsize}
+
+Klasê zmodyfikowaæ tak, ¿eby udostêpnia³a zdarzenie (ang. {\em event}) informuj¹ce subskrybenta o tym ¿e 
+zmieni³a siê wartoœæ którejœ z w³aœciwoœci. 
+
+Czy potrzebne s¹ do tego dwa osobne zdarzenia? Które podejœcie jest lepsze - jedno zdarzenie o ogólniejszej sygnaturze
+czy wiele osobnych zdarzeñ, po jednym zdarzeniu dla ka¿dego pola?
+
+Formalnie, klient chcia³by z powiadamiania korzystaæ w sposób przedstawiony poni¿ej - tak zmodyfikowaæ
+kod klasy {\tt Person} ¿eby by³o to mo¿liwe.
+
+Zaprezentowaæ dwa warianty 
+\begin{itemize}
+\item powiadomienie pojawia siê zawsze kiedy nadana jest wartoœæ w³aœciwoœci (formalnie - kiedy wywo³uje siê
+akcesor {\tt set})
+\item powiadomienie pojawia siê tylko wtedy kiedy nowa wartoœæ pola jest ró¿na od poprzedniej
+\end{itemize}
+
+\begin{scriptsize}
+\begin{Verbatim}
+static void Main( string[] args )
+{
+	Person person                = new Person();
+	person.PropertyValueChanged += Person_PropertyValueChanged;
+	person.Name                  = "Jan";
+
+	Console.ReadLine();
+}
+
+private static void Person_PropertyValueChanged( 
+	object source, 
+	string propertyName, 
+	object propertyValue )
+{
+	Console.WriteLine(
+		"w³aœciwoœæ {0}, nowa wartoœæ {1}",
+		propertyName,
+		propertyValue );
+}
+\end{Verbatim}
+\end{scriptsize}
+
+\item ({\bf 1p}) Pokazaæ jak przeci¹¿a siê operatory - zdefiniowaæ klasê wektora dwuwymiarowego i dodaæ do niej
+standardowe operatory arytmetyki na wektorach.
+
+\end{enumerate}
+

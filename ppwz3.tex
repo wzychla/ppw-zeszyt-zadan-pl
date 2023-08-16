@@ -1,0 +1,206 @@
+\chapter{Zestaw 3, Jêzyk C\# - refleksja, typy generyczne}
+
+\begin{flushright}
+Liczba punktów do zdobycia: {\bf 10/26}
+\end{flushright}
+
+\begin{enumerate}
+  
+\item ({\bf 2p}) W trakcie wyk³adu przedstawiono szkic ogólnego generatora zapytañ SQL/struktury XML/struktury JSON dla dowolnych obiektów.
+Pañstwa zadaniem bêdzie odtworzyæ ten przyk³ad na przyk³adzie generatora struktury XML. 
+W pierwszym podejœciu - przy pomocy interfejsu za pomoc¹ którego mo¿na z obiektu dla którego generuje siê XML pobraæ informacjê o jego strukturze.
+
+Formalnie: generator to klasa z metod¹ generuj¹c¹
+
+\begin{scriptsize}
+\begin{Verbatim}
+public class XMLGenerator
+{
+	public string GenerateXML( IClassInfo dataObject )
+	{
+		// uzupe³niæ implementacjê
+		throw new NotImplementedException();
+	}
+}
+\end{Verbatim}
+\end{scriptsize}
+
+W celu pobrania informacji o strukturze obiektu dla którego ma zostaæ wygenerowany XML, generator wykorzysta interfejs {\tt IClassInfo}:
+
+\begin{scriptsize}
+\begin{Verbatim}
+public interface IClassInfo
+{
+	string[] GetFieldNames();
+	object GetFieldValue( string fieldName );
+}
+\end{Verbatim}
+\end{scriptsize}
+
+Proszê zwróciæ uwagê jak zaprojektowany jest ten interfejs: jedna z jego metod zwraca listê wszystkich pól klasy, druga zwraca wartoœæ konkretnego pola.
+
+Jeœli teraz ktoœ chcia³by wygenerowaæ XML dla zadanej klasy, na przyk³ad takiej:
+
+\begin{scriptsize}
+\begin{Verbatim}
+public class Person
+{
+	public string Name { get; set; }
+	public string Surname { get; set; }
+}
+\end{Verbatim}
+\end{scriptsize}
+
+to po pierwsze, klasa musia³aby implementowaæ interfejs {\tt IClassInfo}
+
+\begin{scriptsize}
+\begin{Verbatim}
+public class Person : IClassInfo
+{
+	public string Name { get; set; }
+	public string Surname { get; set; }
+
+	public string[] GetFieldNames()
+	{
+		return new[] { "Name", "Surname" };
+	}
+
+	public object GetFieldValue( string fieldName )
+	{
+		switch ( fieldName )
+		{
+			case "Name":
+				return this.Name;
+			case "Surname":
+				return this.Surname;
+			default:
+				return null;
+		}
+		throw new NotImplementedException();
+	}
+}
+\end{Verbatim}
+\end{scriptsize}
+
+a po drugie - nale¿a³oby w³aœnie (co jest treœci¹ zadania!) zaimplementowaæ metodê {\tt GenerateXML} generatora.
+
+Wtedy mo¿na by napisaæ fragment kodu:
+
+\begin{scriptsize}
+\begin{Verbatim}
+Person person =
+	new Person()
+	{
+		Name = "Jan",
+		Surname = "Kowalski"
+	};
+
+XMLGenerator generator = new XMLGenerator();
+
+string xml = generator.GenerateXML( person );
+\end{Verbatim}
+\end{scriptsize}
+
+\item ({\bf 2p}) W drugim podejœciu do generatora XML luzuje siê wymagania - zak³adamy ¿e klasa która ma byæ zapisywana do XML (w poprzednim przyk³adzie klasa {\tt Person})
+nie musi implementowaæ ¿adnego interfejsu.
+
+Jak w takim razie generator ma dostaæ siê do listy pól w klasie i wartoœci konkretnych pól?
+
+Za pomoc¹ refleksji.
+
+Formalnie, zmieniamy definicjê generatora
+
+\begin{scriptsize}
+\begin{Verbatim}
+public class XMLGenerator
+{
+	public string GenerateXML( object dataObject )
+	{
+		// uzupe³niæ implementacjê
+		throw new NotImplementedException();
+	}
+}
+\end{Verbatim}
+\end{scriptsize}
+
+i nadal chcemy móc napisaæ
+
+\begin{scriptsize}
+\begin{Verbatim}
+Person person =
+	new Person()
+	{
+		Name = "Jan",
+		Surname = "Kowalski"
+	};
+
+XMLGenerator generator = new XMLGenerator();
+
+string xml = generator.GenerateXML( person );
+\end{Verbatim}
+\end{scriptsize}
+
+\item ({\bf 1p}) Generator oparty na refleksji ma pewn¹ wadê - refleksja podczas enumeracji sk³adowych klasy uwzglêdnia wszystkie sk³adowe o takiej samej charakterystyce
+(na przyk³ad wszystkie pola publiczne). A co jeœli chcia³oby siê {\bf pomin¹æ} jakieœ pole?
+
+Nale¿a³oby je oznaczyæ atrybutem.
+
+Formalnie, chcemy móc zdefiniowaæ atrybut pozwalaj¹cy pomin¹æ pole podczas generacji:
+
+\begin{scriptsize}
+\begin{Verbatim}
+public class Person
+{
+	public string Name { get; set; }
+	
+	[IgnoreInXML]
+	public string Surname { get; set; }
+}
+\end{Verbatim}
+\end{scriptsize}
+
+a kod generatora zmodyfikowaæ w taki sposób ¿eby podczas enumeracji sk³adowych klasy wykrywa³ w³aœciwoœci znakowane tym konkretnym atrybutem i pomija³ je w trakcie generowania XML
+
+\item ({\bf 1p}) Zademonstrowaæ w dzia³aniu metody {\tt ConvertAll}, {\tt FindAll},  {\tt ForEach},  {\tt RemoveAll} i {\tt Sort} klasy
+  {\tt List<T>} u¿ywaj¹c anonimowych delegacji o odpowiednich sygnaturach.
+
+\item ({\bf 1p}) We w³asnej klasie {\tt ListHelper} 
+  zaprogramowaæ statyczne metody {\tt ConvertAll}, {\tt FindAll},  {\tt ForEach},  {\tt RemoveAll} i {\tt Sort} 
+  o semantyce zgodnej z odpowiednimi funkcjami z klasy {\tt List<T>} i sygnaturach rozszerzonych wzglêdem odpowiedników
+  o instancjê obiektu {\tt List<T>} na którym maj¹ operowaæ. 
+        
+\begin{scriptsize}
+\begin{Verbatim}
+public class ListHelper
+{
+  public static List<TOutput> ConvertAll<T, TOutput>( 
+    List<T> list, 
+    Converter<T, TOutput> converter );
+  public static List<T> FindAll<T>( 
+    List<T> list, 
+    Predicate<T> match );
+  public static void ForEach<T>( List<T>, Action<T> action );
+  public static int RemoveAll<T>( 
+    List<T> list, 
+    Predicate<T> match );
+  public static void Sort<T>( 
+    List<T> list, 
+    Comparision<T> comparison );    
+}
+\end{Verbatim}
+\end{scriptsize}
+
+\item ({\bf 3p})  Napisaæ klasê {\tt BinaryTreeNode<T>}, która bêdzie modelem dla wêz³a
+  drzewa binarnego. Wêze³ powinien przechowywaæ informacjê o danej typu {\tt T} oraz swoim lewym i prawym synu.
+   
+  Klasa powinna zawieraæ dwa enumeratory, dla przechodzenia drzewa w g³¹b i wszerz, 
+  zaprogramowane z wykorzystaniem s³owa kluczowego {\tt yield}.
+  
+  {\em Wskazówka: choæ implementacja bez {\tt yield} mo¿e wydawaæ siê trudna, w rzeczywistoœci jest równie¿ stosunkowo prosta. Nale¿y 
+  wykorzystaæ pomocnicze struktury danych, przechowuj¹c¹ informacjê o odwiedzanych wêz³ach. Ka¿dy {\tt MoveNext} ogl¹da bie¿¹cy wêze³, a jego
+  podwêz³y, lewy i prawy, umieszcza w pomocniczej strukturze danych. Ka¿dy {\tt Current} usuwa bie¿¹cy wêze³ z pomocniczej struktury 
+  i zwraca jako wynik. Strukturê danych dobiera siê w zale¿noœci od tego czy chce siê implementowaæ przechodzenie wszerz czy wg³¹b
+  (jakie struktury danych nale¿y wybraæ dla ka¿dego z tych wariantów?)}
+  
+\end{enumerate}
+

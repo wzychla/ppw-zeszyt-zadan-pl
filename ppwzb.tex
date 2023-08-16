@@ -1,0 +1,53 @@
+\chapter{Zestaw B, Projekt podsumowuj¹cy}
+
+\begin{flushright}
+Liczba punktów do zdobycia: {\bf 16/100}
+\end{flushright}
+
+\begin{enumerate}
+
+\item ({\bf 16p}) Celem zadania jest po³¹czenie zdobytej do tej pory wiedzy z obszaru jêzyka i technologii. Zadanie polega na przygotowaniu aplikacji okienkowej 
+umo¿liwiaj¹cej wgl¹d/modyfikacjê w wybrany obszar danych.
+
+Interfejs u¿ytkownika: System.Windows.Forms, WPF lub MAUI. Aplikacja powinna obowi¹zkowo u¿ywaæ kontrolki drzewa (TreeView) i listy danych. Drzewo prezentuje dane w postaci hierarchicznej i znajduje siê
+po lewej stronie okna g³ównego, lista danych prezentuje fragment danych wskazany na drzewie i znajduje siê w centralnej czêœci okna (uk³ad wzorowany np. na systemowym Eksploratorze plików).
+Wybór funkcji dodania nowego elementu
+lub edycji istniejacego powinien skutkowaæ otwarciem danych do edycji w osobnym oknie. 
+
+\begin{itemize}
+\item w przypadku WPF mo¿na próbowaæ u¿ywaæ zewnêtrznych bibliotek np. MvvmToolkit ({\tt https://learn.microsoft.com/en-us/dotnet/communitytoolkit/mvvm/}), czy Caliburn ({\tt https://caliburnmicro.com/})
+\item kontrolka drzewa dla MAUI mo¿e pochodziæ z zewnêtrznej biblioteki komponentów, np. UraniumUI ({\tt https://github.com/enisn/UraniumUI})
+\end{itemize}
+
+Dostêp do danych (albo/albo): 
+
+\begin{itemize}
+\item relacyjna baza danych (SQLServer/PostreSQL)
+\item plik XML/JSON
+\item system plików (opis ni¿ej)
+\end{itemize}
+
+Specyfikacja wersji z baz¹ danych / plikiem XML:
+
+\begin{itemize}
+\item aplikacja przechowuje w bazie danych rejestr danych osobowych studentów (imiê, nazwisko, data urodzenia), listê zajêæ oraz przypisanie studenta do zajêæ w roku akademickim
+\item na drzewie pojawiaj¹ siê trzy kategorie g³ówne - lista studentów, lista lat akademickich, lista zajêæ
+\item lata akademickie mo¿na dodawaæ/edytowaæ, zajêcia mo¿na dodawaæ/edytowaæ
+\item studentów mo¿na dodawaæ, edytowaæ, po wskazaniu studenta na liœcie przechodzi siê do okna widoku danych jednego studenta z co najmniej dwiema zak³adkami - zak³adk¹ danych osobowych i zak³adk¹ przypisañ
+do zajêæ. Na ka¿dej z zak³adek mo¿na edytowaæ dane (edytowaæ dane osobowe lub listê przypisañ do zajêæ)
+\end{itemize}
+
+Specyfikacja wersji z systemem plików:
+
+\begin{itemize}
+\item aplikacja jest bardzo podstawow¹, uproszczon¹ wersj¹ systemowego Eksploratora plików
+\item nad drzewem pojawia siê wybór dysku systemowego
+\item na drzewie pojawiaj¹ siê foldery na wybranym dysku
+\item je¿eli folder ma podfolery, to na drzewie u¿ytkownik mo¿e rozwijaæ wêz³y drzewa rekursywnie a¿ do najg³êbiej zagnie¿d¿onego podfoldera
+\item na liœcie pojawiaj¹ siê pliki w wybranym na drzewie folderze
+\item u¿ytkownik mo¿e dwuklikn¹æ ka¿dy plik i aplikacja próbuje wtedy wykonaæ domyœln¹ akcjê dla tego pliku (poczytaæ o w³aœciwoœci {\tt UseShellExecute} obiektu {\tt ProcessStartInfo})
+\item wybrane pliki s¹ edytowalne z poziomu samej aplikacji - na przyk³ad tylko pliki o rozszerzeniu *.txt - ich wybór zamiast wykonaæ domyœln¹ akcjê dla pliku powinien otwieraæ osobne okno z prostym
+edytorem opartym o kontrolkê typu {\bf RichTextBox}
+\end{itemize}
+
+\end{enumerate}

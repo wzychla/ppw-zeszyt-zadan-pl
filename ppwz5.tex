@@ -1,0 +1,79 @@
+\chapter{Zestaw 5, Jêzyk C\#4, C\#5}
+
+\begin{flushright}
+Liczba punktów do zdobycia: {\bf 8/44}
+\end{flushright}
+
+\begin{enumerate}
+  
+\item ({\bf 3p}) Przeprowadziæ testy porównawcze szybkoœci kodu, w którym metoda bêdzie mia³a parametr raz typu konkretnego, 
+a drugi raz - dynamicznego. Jak bardzo wolniejsze jest wykonywanie kodu dynamicznego w tym konkretnym przypadku?
+
+\begin{scriptsize}
+\begin{Verbatim}
+public int DoWork1( int x, int y )
+{
+   // jakieœ obliczenia na x i y, np. x + y
+}
+
+public dynamic DoWork2( dynamic x, dynamic y )
+{
+   // te same obliczenia na x i y 
+}
+
+\end{Verbatim}
+\end{scriptsize}
+  
+Do przeprowadzenia testów u¿yæ biblioteki {\bf Benchmark.NET} ({\tt https://benchmarkdotnet.org/}), któr¹ proszê zainstalowaæ w projekcie za pomoc¹ mened¿era pakietów NuGet.
+
+Czy i jak wyniki zmieniaj¹ siê w zale¿noœci od tego jak bardzo z³o¿one jest wyra¿enie u¿ywaj¹ce zmiennych?
+
+\item ({\bf 3p}) Zademonstrowaæ w praktyce mo¿liwoœæ dynamicznej implementacji operacji na obiekcie dziedzicz¹cym z {\bf DynamicObject}. Konkretnie - pokazaæ jak u¿ywaæ
+
+\begin{itemize}
+\item {\tt TryGetMember}, {\tt TrySetMember}
+\item {\tt TryGetIndex}, {\tt TrySetIndex}
+\item {\tt TryInvoke}, {\tt TryInvokeMember}
+\item {\tt TryUnaryOperation}, {\tt TryBinaryOperation}
+\end{itemize}
+
+\item ({\bf 1p}) Powtórzyæ przyk³ad z wyk³adu, w którym zaprezentowano w jaki sposób mo¿na osi¹gn¹æ efekt, w którym "oczekiwalny" (ang. {\em awaitable}) mo¿e byæ dowolny obiekt.
+Konkretnie, chodzi o przyk³ad w którym mo¿na napisaæ
+
+\begin{scriptsize}
+\begin{Verbatim}
+Console.WriteLine( "1" );
+
+await 2000; // (1)
+
+Console.WriteLine( "1" );
+\end{Verbatim}
+\end{scriptsize}
+
+gdzie instrukcja {\bf (1)} powoduje dwusekundowe oczekiwanie przed wykonaniem kolejnej linii.
+
+\item ({\bf 1p}) Na podobieñstwo poprzedniego zadania - dostarczyæ takiego rozszerzenia "oczekiwalnego" napisu, które spowoduje, ¿e 
+
+\begin{scriptsize}
+\begin{Verbatim}
+Console.WriteLine( await "https://www.google.com" ); // 
+\end{Verbatim}
+\end{scriptsize}
+
+spowoduje pobranie zawartoœci witryny spod wskazanego adresu i zwrócenie napisu - zawartoœci witryny. Formalnie, chodzi o implementacjê metody
+
+\begin{scriptsize}
+\begin{Verbatim}
+public static TaskAwaiter<string> GetAwaiter( this string url )
+{
+	// uzupe³niæ
+}
+\end{Verbatim}
+\end{scriptsize}
+
+Do pobrania zawartoœci witryny o wskazanym adresie u¿yæ obiektu {\bf HttpClient}. Uwaga! U¿yæ go poprawnie, w szczególnoœci:
+
+{\tt https://www.aspnetmonsters.com/2016/08/2016-08-27-httpclientwrong/}
+  
+\end{enumerate}
+

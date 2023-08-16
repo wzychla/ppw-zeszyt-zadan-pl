@@ -1,0 +1,57 @@
+\chapter{Zestaw 9, Elementy biblioteki standardowej}
+
+\begin{flushright}
+Liczba punktów do zdobycia: {\bf 10/73}
+\end{flushright}
+
+\begin{enumerate}
+
+\item ({\bf 1p}) Zademonstrowaæ u¿ycie nastêpuj¹cych klas do obs³ugi strumienia
+
+\begin{itemize}
+\item {\bf FileStream}
+\item {\bf StreamReader}, {\bf StreamWriter}
+\item {\bf BinaryReader}, {\bf BinaryWriter}
+\item {\bf StringBuilder}, {\bf StringWriter}
+\end{itemize}
+
+Zademonstrowaæ w³aœciwoœæ podsystemu strumieni, w której parametrem konstruktora strumienia mo¿e byæ inny strumieñ (taki wzorzec organizacji klas nosi nazwê {\bf Dekorator}): 
+napisaæ program, który zawartoœæ wskazanego pliku tekstowego zapisze do {\bf zaszyfrowanego} algorytmem AES {\bf skompresowanego} strumienia GZip (klasy {\bf CryptoStream} i {\bf GZipStream}).
+      
+W dalszej czêœci kodu pokazaæ jak odczytaæ dane z takiego pliku.
+            
+\item ({\bf 3p}) Napisaæ konsolowy program, który rozwi¹zuje klasyczny problem golibrody lub problem "palaczy tytoniu" 
+      za pomoc¹ którejkolwiek z metod synchronizacji w¹tków udostêpnianej przez bibliotekê standardow¹ (semafory, muteksy, zdarzenia, sekcja krytyczna).  
+     
+\item ({\bf 1p}) Zademonstrowaæ dzia³anie klas {\bf FtpWebRequest}, {\bf HttpWebRequest}, 
+	{\bf WebClient}, {\bf HttpClient}, {\bf HttpListener},
+    {\bf TcpListener}, {\bf TcpClient}, {\bf SmtpClient}.
+	
+	Zwróciæ uwagê na te funkcje z interfejsów powy¿szych klas, których metody pobierania danych s¹ zaimplementowane jako asynchroniczne (zwracaj¹ {\bf Task}).
+
+\item ({\bf 1p}) Napisaæ program, który korzystaj¹c z informacji z odpowiedniej instancji obiektu {\bf CultureInfo} 
+    wypisze pe³ne i skrótowe nazwy miesiêcy i dni tygodnia oraz
+    bie¿¹c¹ datê w jêzykach: 
+    angielskim, niemieckim, francuskim, rosyjskim, arabskim, czeskim i polskim.
+	
+	Uwaga: jeœli konsola tekstowa nie obs³uguje pewnych czcionek to zamiast konsoli tekstowej u¿yæ okna informacyjnego konsoli okienkowej ({\bf MessageBox.Show}).
+    
+\item ({\bf 2p}) Napisaæ us³ugê systemow¹ ({\em System Service}), która bêdzie co minutê zapisywaæ listê
+    uruchomionych aplikacji do pliku tekstowego. 
+    
+    {\em Uwaga! Po skompilowaniu us³uga musi zostaæ zarejestrowana w systemie
+    za pomoc¹ programu {\tt installutil.exe}. Zarz¹dzanie us³ugami odbywa siê z poziomu
+    panelu {\bf Zarz¹dzanie komputerem}, sekcja {\bf Us³ugi i aplikacje}.}
+    
+\item ({\bf 1p}) Umieœciæ dowolny plik w zasobach aplikacji (w projekcie plik powinien mieæ w³aœciwoœæ {\em Embedded Resource}). Nastêpnie napisaæ klasê, która po
+	podaniu nazwy zasobu
+    umo¿liwi wydobycie pliku z zasobów zestawu.
+	
+	Osadzanie plików (tekstowych, binarnych) w zasobach aplikacji przydaje siê wtedy kiedy aplikacja jest dystrybuowana do œrodowiska klienckiego. Zamiast
+	plików wykonywalnych i dodatkowych plików zasobów, klient dostaje pliki wykonywalne w zasobach których zaszyte s¹ pliki z danymi.
+
+\item ({\bf 1p}) Nauczyæ siê korzystaæ z którejœ z bibliotek do logowania informacji diagnostycznych (np. {\bf log4net}, {\bf nlog} czy {\bf serilog}). Pokazaæ jak konfigurowaæ sposób
+odk³adania informacji diagnostycznych (konsola/plik itp.)
+        	  
+\end{enumerate}
+

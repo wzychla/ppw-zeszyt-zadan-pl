@@ -1,0 +1,69 @@
+\chapter{Zestaw 1, Jêzyk C\# - rozgrzewka}
+
+\begin{flushright}
+Liczba punktów do zdobycia: {\bf 6/6}
+\end{flushright}
+
+\begin{enumerate}
+  
+\item ({\bf 1p}) Napisaæ program, który wyznacza zbiór wszystkich liczb natualnych 1 a 100000, które s¹ podzielne zarówno przez ka¿d¹ ze swoich cyfr z
+\label{prosty_algorytm}	  
+	  osobna jak i przez sumê swoich cyfr.
+
+\item ({\bf 1p}) Przygotowaæ rozwi¹zanie (Solution) które sk³ada siê co najmniej z czterech projektów (Project): dwu aplikacji konsolowych i dwu bibliotek. 
+	  
+	  W ka¿dej z bibliotek umieœciæ po jednej klasie z jedn¹ metod¹. 
+	  Dodaæ referencje do bibliotek z ka¿dej aplikacji konsolowej. Nie dodawaæ referencji pomiêdzy aplikacjami konsolowymi.
+	  
+	  W ka¿dej z aplikacji konsolowych napisaæ fragment kodu, który wywo³uje kod z obu bibliotek. 
+	  
+	  Pokazaæ jak z poziomu Visual Studio uruchomiæ jedn¹ z aplikacji konsolowych, potem drug¹ (Set as startup project...) a potem obie naraz. 
+	  
+	  Pokazaæ jak w ka¿dym z tych sposobów uruchomienia kodu mo¿na umieszczaæ pu³apki w kodzie i debugowaæ kod.
+      
+\item ({\bf 1p})  Zdokumentowaæ (przez umieszczenie odpowiednich komentarzy w kodzie)
+      jeden dowolny program z bie¿¹cej sekcji. 
+
+      Wygenerowaæ dokumentacjê w postaci pliku XML podczas kompilacji. U¿yæ
+      narzêdzia SandCastle Help File Builder ({\tt https://github.com/EWSoftware/SHFB}) do zbudowania
+      pomocy w obs³ugiwanych przez SandCastle stylach (np. Website).
+
+\item ({\bf 1p}) Napisaæ w C\# dowolny program demonstruj¹cy u¿ycie klas (metod, pól, propercji, indekserów, delegacji i zdarzeñ) oraz podstawowych
+      konstrukcji sk³adniowych (pêtle, instrukcje warunkowe, {\tt switch})
+      i zdekompilowaæ go 
+      za pomoc¹ narzêdzia {\bf IlSpy} ({\tt http://ilspy.net/}).
+      
+      Otrzymany kod skompilowaæ (ilasm), aby otrzymaæ plik wynikowy.
+      Plik ten nastêpnie zdekompilowaæ na powrót do jêzyka C\#.
+      
+      Porównaæ otrzymane w ten sposób pliki z kodem Ÿród³owym.
+      Jak objawiaj¹ siê i z czego wynikaj¹ ró¿nice?
+
+\item ({\bf 2p}) Zaimplementowaæ klasê siatki dwuwymiarowej, {\tt Grid}, z dwoma indekserami:
+  
+	\begin{itemize}
+	\item jednowymiarowym, zwracaj¹cym listê elementów zadanego wiersza tablicy, tak aby klient klasy móg³ napiasæ:
+
+	      \begin{verbatim}
+  ...
+  Grid grid = new Grid( 4, 4 );
+  int[] rowdata = grid[1]; // akcesor "get"
+	      \end{verbatim}
+
+	\item dwuwymiarowym, zwracaj¹cym okreœlony element tablicy, tak aby klient klasy móg³ napisaæ:
+      
+	      \begin{verbatim}
+  ...
+  Grid grid = new Grid( 4, 4 );
+		  
+  elem[2, 2] = 5;        // akcesor "set"
+  int elem = grid[1, 4]; // akcesor "get"
+	      \end{verbatim}
+	      
+	\end{itemize}
+      
+      Oba indeksery powinny przyjmowaæ jako parametry liczby ca³kowite. Konstruktor klasy powinien przyjmowaæ
+	  jako parametry liczbê wierszy i liczbê kolumn siatki.
+
+\end{enumerate}
+

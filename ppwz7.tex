@@ -1,0 +1,46 @@
+\chapter{Zestaw 7, System.Windows.Forms (2)}
+
+\begin{flushright}
+Liczba punktów do zdobycia: {\bf 8/58}
+\end{flushright}
+
+\begin{enumerate}
+
+\item ({\bf 3p}) Przygotowaæ aplikacjê, która wykorzystuje omówiony na wyk³adzie podsystem GDI+ do rysowania w oknie zegara analogowego prezentuj¹cego bie¿¹cy czas, zgodny z zegarem systemowym.
+      
+    Rysowany widok powinien poprawnie dostosowywaæ siê do wielkoœci okna podczas zmiany jego rozmiarów przez u¿ytkownika.	  
+      
+\item ({\bf 2p}) Zaimplementowaæ w³asny komponent {\tt SmoothProgressBar}, który 
+      bêdzie imitowaæ zachowanie standardowego komponentu {\tt ProgressBar} (pasek postêpu).
+      
+      Komponent powinien mieæ co najmniej 3 w³aœciwoœci: {\tt Min}, {\tt Max} i {\tt Value}, 
+      pozwalaj¹ce okreœliæ odpowiednio minimaln¹, maksymaln¹ i bie¿¹c¹ wartoœæ paska postêpu.      
+      Maj¹c te informacje, {\tt SmoothProgressBar} w zdarzeniu {\tt Paint} powinien rysowaæ g³adki 
+      (w przeciwieñstwie do oryginalnego, który jest z³o¿ony z "kafelków")
+      pasek postêpu o odpowiedniej d³ugoœci (wed³ug zadanych proporcji). 
+      
+	\begin{figure}
+	\begin{center}
+	\includegraphics[width=0.6\textwidth]{z7_pb}
+	\end{center}
+	\caption{Przyk³adowy {\tt SmoothProgressBar}}
+	\end{figure}
+      
+\item ({\bf 2p}) Zademonstrowaæ w praktyce dzia³anie klasy {\tt BackgroundWorker} oraz jej zdarzenia {\tt ProgressChanged} do delegowania d³ugiego zadania
+	do przetwarzania w tle. 
+	
+	Formalnie - w¹tek w tle niech testuje jakiœ zakres liczb na przyk³ad testem pierwszoœci. Zakres dobraæ tak, aby obliczenia trwa³y nie krócej ni¿ kilkanaœcie sekund.
+	Postêp obliczeñ powinien byæ raportowany w interfejsie u¿ytkownika za pomoc¹ formantu paska postêpu.
+	
+	Dla porównania - przygotowaæ wersjê która zamiast {\tt BackgroundWorker} u¿yje po prostu w¹tka (obiekt typu {\tt Thread}) który w trakcie obliczeñ spróbuje aktualizowaæ pasek	
+	postêpu. Jaka trudnoœæ pojawia siê w tym drugim podejœciu (jest to równie¿ odpowiedŸ na pytanie co wnosi {\tt BackgroundWorker}
+	w stosunku do takiego naiwnego podejœcia)?
+	
+\item ({\bf 1p}) Zaprezentowaæ na niewielkim przyk³adzie zastosowanie rozszerzeñ jêzyka w obszarze programowania asynchronicznego ({\tt async/await}).
+	
+	Bardziej formalnie - pokazaæ ¿e w aplikacji okienkowej u¿ycie nieblokuj¹cej metody asynchronicznej {\tt HttpClient::ReadStringAsync} 
+	do pobrania zawartoœci z zewnêtrznego zasobu sieciowego nie spowoduje zablokowania w¹tka g³ównego aplikacji, w którym przetwarzana jest pêtla
+	obs³ugi komunikatów. W tej samej aplikacji zademonstrowaæ synchroniczne, bloku¹ce wywo³anie metody {\tt WebClient::DownloadString}.	
+
+\end{enumerate}
+

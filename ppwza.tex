@@ -1,0 +1,64 @@
+\chapter{Zestaw A, Komunikacja z baz¹ danych}
+
+\begin{flushright}
+Liczba punktów do zdobycia: {\bf 11/84}
+\end{flushright}
+
+\begin{enumerate}
+
+\item ({\bf 1p}) Zainstalowaæ SQL Server w dowolnej wersji dla programisty (Developer, Express, LocalDB). Zorientowaæ siê w dokumentacji czym charakteryzuj¹ siê poszczególne wersje.
+
+\item ({\bf 1p}) Przygotowaæ bazê danych Micosoft SQL Server zawieraj¹c¹ dane osobowe i adresy przyk³adowej grupy studentów.
+
+      Model bazy danych zawiera trzy tabele
+	  
+	  \begin{itemize}
+	  \item tabelê {\bf Student} z polami ID, Imiê, Nazwisko, DataUrodzenia 
+	  \item tabelê {\bf Adres} z polami ID, Ulica, NrDomu, NrMieszkania, KodPocztowy, ID\_MIEJSCOWOSC
+	  \item tabelê {\bf Miejscowosc} z polami ID, Nazwa
+	  \end{itemize}
+      
+      Tabele {\bf Student} i {\bf Adres} powinny byæ po³¹czone relacj¹ wiele-wiele (to wymaga pomocniczej tabeli!).
+	  Tabele {\bf Adres} i {\bf Miejscowosc} powinny byæ po³¹czone relacj¹ jeden-wiele  
+
+\item ({\bf 2p}) U¿yæ ADO.NET do po³¹czenia do bazy danych, pobierania danych, dodawania, modyfikacji i usuwania. Œciœle - pokazaæ pracê z baz¹ danych za pomoc¹
+obiektów {\bf SqlConnection}, {\bf SqlCommand}, {\bf SqlDataReader}. 
+\label{dane}
+
+W przypadku dodawania danych - oprogramowaæ scenariusz dodawania studenta z adresem i miejscowoœci¹. Formalnie - przygotowaæ funkcjê o takiej liczbie
+parametrów jaka jest niezbêdna do rejestracji pe³nych danych (Imiê, Nazwisko, DataUrodzenia, Ulica, NrDomu, ..., Nazwa):
+
+\begin{itemize}
+\item funkcja sprawdza czy osoba o podanym imieniu, nazwisku i dacie urodzenia ju¿ istnieje w bazie, jeœli tak to pomija dodawanie
+\item funkcja sprawdza czy w tabeli Miejscowoœci znajduje siê miejscowoœæ o podanej nazwie. Jeœli nie - dodaje, jeœli tak, pobiera identyfikator
+\item funkcja u¿ywa identyfikatora miejscowoœci ¿eby zarejestrowaæ adres
+\item funkcja dodaje dane osobowe studenta i powi¹zanie studenta z nowo dodanym adresem
+\end{itemize}
+     	  
+\item ({\bf 1p}) W poprzednim zadaniu kryje siê pewien problem - w sytuacji kiedy funkcja wykonuje siê równolegle dwa lub wiêcej razy, mimo sprawdzenia mo¿e zdarzyæ siê, ¿e 
+w bazie pojawi¹ siê duplikaty (te same dane w dwu ró¿nych rekordach).
+		  
+W jakich przypadkach mog³oby zdarzyæ siê ¿e	mimo sprawdzenia, te same dane zostan¹ zarejestrowane wiele razy? Jak najlepiej zabezpieczyæ siê przed dodawaniem takich duplikatów? 
+
+Pokazaæ stosown¹ modyfikacjê kodu aplikacji lub struktury bazy danych, która uniemo¿liwia powstawanie duplikatów.
+
+\item ({\bf 1p}) Inny problem kryj¹cy siê w kodzie który wykonuje zmiany na kilku ró¿nych tabelach, to problem odczytuprzez inny w¹tek takich danych, których proces dodawania jeszcze siê
+nie zakoñczy³ (na przyk³ad ju¿ dodano dodano adres ale jeszcze nie dodano studenta). W celu wykluczenia mo¿liwoœci wyst¹pienia takich sytuacji, baza danych ma mo¿liwoœæ u¿ywania tzw. tranzakcji.
+
+Pokazaæ w jaki sposób rozpoczynaæ, koñczyæ lub anulowaæ (BEGIN, COMMIT, ROLLBACK) tranzakcje z poziomu kodu C\#.
+
+\item ({\bf 1p}) Zadanie \ref{dane} powtórzyæ w technologii Dapper (u¿ywaj¹c tych samych zapytañ do danych)
+
+\item ({\bf 1p}) Zadanie \ref{dane} powtórzyæ w technologii Linq2SQL
+
+\item ({\bf 1p}) Zadanie \ref{dane} powtórzyæ w technologii Dapper.SimpleCRUD (nie u¿ywaj¹c ¿adnych zapytañ tylko polegaj¹c na automatycznym tworzeniu zapytañ przez Dapper.SimpleCRUD).
+
+\item ({\bf 1p}) Zadanie \ref{dane} powtórzyæ w technologii Entity Framework 6.
+
+{\bf Uwaga!} Entity Framework 6 dzia³a prawid³owo zarówno w .NET Framework jaki i .NET Core (5, 6, 7).
+
+\item ({\bf 1p}) Pokazaæ jak zarz¹dzaæ migracjami w Entity Framework. Formalnie - wygenerowaæ migracjê pocz¹tkow¹. Pokazaæ jak baza danych tworzy siê automatycznie na podstawie definicji migracji.
+Zmieniæ model obiektowy (na przyk³ad dodaæ jakieœ pole w klasie). Wygenerowaæ migracjê aktualizuj¹c¹ strukturê bazy danych. 
+		  
+\end{enumerate}
+
